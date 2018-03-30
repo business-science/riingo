@@ -1,0 +1,124 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# riingo
+
+`riingo` allows you to access the Tiingo API for stock prices, cryptocurrencies,
+and intraday feeds from the IEX (Investors Exchange). This can serve as an alternate
+source of data to Yahoo Finance.
+
+## Installation
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("DavisVaughan/riingo")
+```
+
+## API Token
+
+The first thing you must do is create an account and set an API token. 
+I recommend using the two functions below to help create your account and find the token.
+
+```{r, eval=FALSE}
+riingo_browse_signup()
+riingo_browse_token() # This requires that you are signed in on the site once you sign up
+```
+
+Once you have signed up and have an API token, I recommmend setting the token 
+as an environment variable, `RIINGO_TOKEN` in an `.Renviron` file. The easiest
+way to do this is with `usethis`.
+
+```{r, eval=FALSE}
+usethis::edit_r_environ()
+
+# Then add a line in the environment file that looks like:
+RIINGO_API = token_here
+```
+
+Do not put the token in quotes, and restart R after you have set it. 
+
+See the documentation `?riingo_get_token()` for more information.
+
+# Basic example
+
+```{r, message=FALSE, warning=FALSE}
+library(riingo)
+```
+
+
+Let's grab some data with `riingo`. The default parameters attempt to get 1 year's
+worth of data.
+
+```{r}
+riingo_prices("AAPL")
+```
+
+But of course you can try and get as much as is available...
+
+```{r}
+riingo_prices("AAPL", start_date = "1950-01-01")
+```
+
+And multiple tickers work as well.
+
+```{r}
+riingo_prices(c("AAPL", "IBM"), start_date = "2001-01-01", end_date = "2005-01-01", resample_frequency = "monthly")
+```
+
+
+# Intraday data
+
+You can get _limited_ intraday data with `riingo_prices_iex()`. This gives you
+access to Tiingo's direct feed to the IEX.
+
+```{r}
+riingo_prices_iex("AAPL", resample_frequency = "1min")
+```
+
+See the documentation for all of the restrictions.
+
+# Meta data
+
+Meta data about each ticker is available through `riingo_meta()`.
+
+```{r}
+riingo_meta(c("AAPL", "QQQ"))
+```
+
+# Available tickers
+
+You can check if a ticker is supported on Tiingo with `is_supported_ticker()` 
+and you can get a `tibble` of all supported tickers with `supported_tickers()`
+
+```{r}
+is_supported_ticker("AAPL")
+
+tickers <- supported_tickers()
+tickers
+```
+
+# Quote data 
+
+Another benefit of getting a feed from IEX is real time quote data. This includes
+TOP (top of book) bid and ask prices, along with most recent sale prices.
+
+It is normal for some fields to return `NA` when outside of trading hours.
+
+```{r}
+riingo_quote_iex(c("AAPL", "QQQ"))
+```
+

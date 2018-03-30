@@ -9,23 +9,23 @@
 #' @export
 #'
 riingo_browse_usage <- function() {
-  browseURL("https://api.tiingo.com/account/usage")
+  utils::browseURL("https://api.tiingo.com/account/usage")
 }
 
 #' @rdname riingo_browse
 #' @export
 riingo_browse_token <- function() {
-  browseURL("https://api.tiingo.com/account/token")
+  utils::browseURL("https://api.tiingo.com/account/token")
 }
 
 #' @rdname riingo_browse
 #' @export
 riingo_browse_documentation <- function() {
-  browseURL("https://api.tiingo.com/docs/general/overview")
+  utils::browseURL("https://api.tiingo.com/docs/general/overview")
 }
 
 #' @rdname riingo_browse
 #' @export
 riingo_browse_signup <- function() {
-  browseURL("https://api.tiingo.com/")
+  utils::browseURL("https://api.tiingo.com/")
 }

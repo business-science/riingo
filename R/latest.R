@@ -9,7 +9,7 @@
 #'
 #' @examples
 #'
-#' The latest available day of daily data for QQQ
+#' # The latest available day of daily data for QQQ
 #' riingo_latest("QQQ")
 #'
 #' @export
@@ -52,7 +52,7 @@ retieve_latest_col_ordering <- function() {
 #'
 #' @examples
 #'
-#' The latest available day of intraday data for QQQ
+#' # The latest available day of intraday data for QQQ
 #' riingo_latest_iex("QQQ")
 #'
 #' riingo_latest_iex("QQQ", "1hour")

@@ -1,0 +1,50 @@
+template:
+  params:
+    bootswatch: flatly
+    ganalytics: UA-76139189-1
+
+navbar:
+  title: "riingo"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Function Reference"
+      href: reference/index.html
+
+  right:
+    - icon: fa-github
+      href: https://github.com/business-science/riingo
+
+reference:
+  - title: Tiingo
+    desc: __Getting data from the Tiingo API.__
+    contents:
+    - riingo_prices
+    - riingo_meta
+    - riingo_latest
+  - title: IEX
+    desc: __Getting data from IEX.__
+    contents:
+    - starts_with("riingo_iex")
+  - title: Cryptocurrency
+    desc: __Getting data for cryptocurrencies.__
+    contents:
+    - starts_with("riingo_crypto")
+  - title: Tokens
+    desc: __Functions related to getting and setting tokens.__
+    contents:
+    - riingo_get_token
+    - riingo_set_token
+  - title: Browsing
+    desc: __Functions related to browsing the Tiingo site.__
+    contents:
+    - contains("browse")
+  - title: Ticker support
+    desc: __Functions related to checking if a ticker is supported.__
+    contents:
+    - contains("supported")
+  - title: Time coercion
+    desc: __Coerce UTC columns to local time.__
+    contents:
+    - convert_to_local_time
+

@@ -16,16 +16,16 @@
 #'
 #' @examples
 #'
-#' riingo_quote_iex("QQQ")
+#' riingo_iex_quote("QQQ")
 #'
 #' @export
-riingo_quote_iex <- function(ticker) {
+riingo_iex_quote <- function(ticker) {
   assert_x_inherits(ticker, "ticker", class = "character")
 
-  purrr::map_dfr(ticker, riingo_quote_iex_single)
+  purrr::map_dfr(ticker, riingo_iex_quote_single)
 }
 
-riingo_quote_iex_single <- function(ticker) {
+riingo_iex_quote_single <- function(ticker) {
 
   type <- "iex"
   endpoint <- "quote"

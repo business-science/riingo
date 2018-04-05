@@ -124,20 +124,20 @@ riingo_prices_single <- function(ticker, start_date = NULL, end_date = NULL, res
 #' @examples
 #'
 #' # Pulling all available minute level data for Apple
-#' riingo_prices_iex("AAPL", resample_frequency = "1min")
+#' riingo_iex_prices("AAPL", resample_frequency = "1min")
 #'
 #' # This would result in an error, as you are pulling outside the available range
-#' # riingo_prices_iex("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")
+#' # riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")
 #'
 #' @export
-riingo_prices_iex <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {
+riingo_iex_prices <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {
 
   assert_valid_argument_inheritance(ticker, start_date, end_date, resample_frequency)
   assert_resample_freq_is_fine(resample_frequency)
 
   purrr::map_dfr(
     .x = ticker,
-    .f = riingo_prices_iex_single,
+    .f = riingo_iex_prices_single,
     start_date = start_date,
     end_date = end_date,
     resample_frequency = resample_frequency
@@ -145,7 +145,7 @@ riingo_prices_iex <- function(ticker, start_date = NULL, end_date = NULL, resamp
 
 }
 
-riingo_prices_iex_single <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {
+riingo_iex_prices_single <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {
 
   type <- "iex"
   endpoint <- "prices"

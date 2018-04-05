@@ -21,7 +21,7 @@ source of data to Yahoo Finance.
 
 ## Installation
 
-And the development version from [GitHub](https://github.com/) with:
+Install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -82,11 +82,11 @@ riingo_prices(c("AAPL", "IBM"), start_date = "2001-01-01", end_date = "2005-01-0
 
 # Intraday data
 
-You can get _limited_ intraday data with `riingo_prices_iex()`. This gives you
+You can get _limited_ intraday data with `riingo_iex_prices()`. This gives you
 access to Tiingo's direct feed to the IEX.
 
 ```{r}
-riingo_prices_iex("AAPL", resample_frequency = "1min")
+riingo_iex_prices("AAPL", resample_frequency = "1min")
 ```
 
 See the documentation for all of the restrictions.
@@ -119,6 +119,30 @@ TOP (top of book) bid and ask prices, along with most recent sale prices.
 It is normal for some fields to return `NA` when outside of trading hours.
 
 ```{r}
-riingo_quote_iex(c("AAPL", "QQQ"))
+riingo_iex_quote(c("AAPL", "QQQ"))
 ```
 
+# Crypto data
+
+Cryptocurrency data can be accessed with `riingo_crypto_*()` functions. By default,
+1 year's worth is pulled if available. Some tickers go back much further than others.
+
+```{r}
+riingo_crypto_prices(c("btcusd", "btceur"))
+```
+
+Intraday data is available as well. The intraday ranges are not well documented,
+so it is a little hard to know what you can pull. From what I have discovered,
+you can pull a few days at a time, with the max date of intraday data being about
+~4 months back (When the date was April 5, 2018, I could pull intraday data back
+to December 15, 2017, but only 5000 minutes at a time).
+
+```{r}
+riingo_crypto_prices("btcusd", start_date = Sys.Date() - 5, end_date = Sys.Date(), resample_frequency = "1min")
+```
+
+Also available are meta data with `riingo_crypto_meta()`, and TOP (top of book) 
+quote data with `riingo_crypto_quote()`.
+
+Lastly, you can extract raw (unaggregated) data feeds from multiple exchanges
+by using the `raw = TRUE` argument in the price and quote crypto function.

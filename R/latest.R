@@ -65,25 +65,25 @@ retrieve_latest_col_ordering <- function() {
 #' @examples
 #'
 #' # The latest available day of intraday data for QQQ
-#' riingo_latest_iex("QQQ")
+#' riingo_iex_latest("QQQ")
 #'
-#' riingo_latest_iex("QQQ", "1hour")
+#' riingo_iex_latest("QQQ", "1hour")
 #'
 #' @export
-riingo_latest_iex <- function(ticker, resample_frequency = "1min") {
+riingo_iex_latest <- function(ticker, resample_frequency = "1min") {
   assert_x_inherits(ticker, "ticker", class = "character")
   assert_x_inherits(resample_frequency, "resample_frequency", class = "character")
   assert_resample_freq_is_fine(resample_frequency)
 
   purrr::map_dfr(
     .x = ticker,
-    .f = riingo_latest_iex_single,
+    .f = riingo_iex_latest_single,
     resample_frequency = resample_frequency
   )
 }
 
 
-riingo_latest_iex_single <- function(ticker, resample_frequency = "1min") {
+riingo_iex_latest_single <- function(ticker, resample_frequency = "1min") {
 
   type <- "iex"
   endpoint <- "latest"

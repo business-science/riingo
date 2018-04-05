@@ -5,14 +5,14 @@
 \alias{supported_tickers}
 \title{Ticker information}
 \usage{
-is_supported_ticker(ticker, iex = FALSE)
+is_supported_ticker(ticker, type = "tiingo")
 
-supported_tickers(iex = FALSE)
+supported_tickers(type = "tiingo")
 }
 \arguments{
 \item{ticker}{The single ticker to check for on Tiingo.}
 
-\item{iex}{Boolean representing whether to check for the symbol on Tiingo or IEX.}
+\item{type}{One of: \code{"tiingo"}, \code{"iex"}, or \code{"crypto"}.}
 }
 \description{
 \code{\link[=is_supported_ticker]{is_supported_ticker()}} can tell you if a given ticker is supported on Tiingo.
@@ -23,14 +23,17 @@ supported_tickers(iex = FALSE)
 # VOO is supported on both Tiingo and IEX
 \dontrun{
 is_supported_ticker("VOO")
-is_supported_ticker("VOO", iex = TRUE)
+is_supported_ticker("VOO", type = "iex")
 }
 
 
 # PRHSX is a mutual fund that is supported by Tiingo but not IEX
 \dontrun{
 is_supported_ticker("PRHSX")
-is_supported_ticker("PRHSX", iex = TRUE)
+is_supported_ticker("PRHSX", type = "iex")
 }
+
+# BTCUSD is available
+is_supported_ticker("btcusd", type = "crypto")
 
 }

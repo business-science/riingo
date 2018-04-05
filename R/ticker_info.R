@@ -69,10 +69,10 @@ supported_tickers <- function(type = "tiingo") {
     # Unzip and read
     dir_path <- dirname(temp_file)
 
-    unzip(temp_file, exdir = dir_path)
+    utils::unzip(temp_file, exdir = dir_path)
     ticker_path <- paste0(dir_path, "/supported_tickers.csv")
 
-    tickers <- tibble::as_tibble(read.csv(ticker_path, stringsAsFactors = FALSE))
+    tickers <- tibble::as_tibble(utils::read.csv(ticker_path, stringsAsFactors = FALSE))
 
     # Date
     tickers <- purrr::modify_at(

@@ -21,7 +21,9 @@ construct_unglued_url <- function(type, endpoint, parameters) {
 
 retrieve_base_url <- function(type, endpoint) {
   switch(type,
-         "tiingo" = "https://api.tiingo.com/tiingo/daily/{ticker}",
+         "tiingo" = switch(endpoint,
+                           "news" = "https://api.tiingo.com/tiingo",
+                           "https://api.tiingo.com/tiingo/daily/{ticker}"), # default
          "iex"    = "https://api.tiingo.com/iex/{ticker}",
          "crypto" = "https://api.tiingo.com/tiingo/crypto"
   )
@@ -38,14 +40,15 @@ retrieve_endpoint <- function(type, endpoint) {
          "tiingo" = switch(endpoint,
                            "meta"   = "",
                            "latest" = "/prices",
-                           "prices" = "/prices?"),
+                           "prices" = "/prices?",
+                           "news"   = "/news?"),
 
          "crypto" = switch(endpoint,
                            "latest" = "/prices?",
                            "quote"  = "/top?",
                            "prices" = "/prices?",
                            "raw"    = "/prices?includeRawExchangeData=true&",
-                           "meta"   = "/{ticker}")
+                           "meta"   = "/{ticker}"),
          )
 }
 
@@ -106,12 +109,7 @@ retrieve_default_parameter <- function(param_name, type) {
   switch(param_name,
          "startDate"    = as.character(Sys.Date() - 365),
          "endDate"      = as.character(Sys.Date()),
-         "resampleFreq" = NA,
-
-         # Crypto specific
-         "baseCurrency" = NA,
-         "exchanges"    = NA,
-         "convertCurrency" = NA,
+         NA_character_ # default
         )
 }
 

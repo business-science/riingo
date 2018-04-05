@@ -23,7 +23,8 @@ retrieve_date_col_names <- function(type, endpoint) {
                            "iex"    = c("quoteTimestamp", "lastsaleTimeStamp", "timestamp"),
                            "crypto" = c("quoteTimestamp", "lastSaleTimestamp")),
          "latest" = "date",
-         "prices" = "date"
+         "prices" = "date",
+         "news"   = c("publishedDate", "crawlDate")
   )
 }
 
@@ -33,6 +34,7 @@ retrieve_date_col_format <- function(endpoint) {
          "meta"   = "%Y-%m-%d",
          "quote"  = "%Y-%m-%dT%H:%M:%S",
          "latest" = "%Y-%m-%dT%H:%M:%S",
-         "prices" = "%Y-%m-%dT%H:%M:%S"
+         "prices" = "%Y-%m-%dT%H:%M:%S",
+         "news"   = "%Y-%m-%dT%H:%M:%S"
   )
 }

@@ -21,22 +21,34 @@ riingo_latest <- function(ticker) {
 }
 
 riingo_latest_single <- function(ticker) {
-  base_url <- retrieve_base_url("tiingo")
+  type <- "tiingo"
+  endpoint <- "latest"
 
-  temp_url <- paste0(base_url, ticker, "/prices") # Append tickers
+  # URL construction
+  riingo_url <- construct_url(
+    type, endpoint, ticker
+  )
 
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_latest")
+  # Download
+  json_content <- content_downloader(riingo_url, ticker)
+
+  # Parse
+  cont_df <- jsonlite::fromJSON(json_content)
+
+  # Clean
+  riingo_data <- clean_json_df(cont_df, type, endpoint)
 
   # For single days, the ordering is not the same as historical prices so we reorder to be consistent
-  col_ordering <- retieve_latest_col_ordering()
+  col_ordering <- retrieve_latest_col_ordering()
   riingo_data <- riingo_data[,col_ordering]
 
+  # Add ticker
   riingo_data_with_ticker <- tibble::add_column(riingo_data, ticker = ticker, .before = 1L)
 
   riingo_data_with_ticker
 }
 
-retieve_latest_col_ordering <- function() {
+retrieve_latest_col_ordering <- function() {
   c("date", "close", "high", "low", "open", "volume", "adjClose", "adjHigh",
     "adjLow", "adjOpen", "adjVolume", "divCash", "splitFactor")
 }
@@ -63,22 +75,65 @@ riingo_latest_iex <- function(ticker, resample_frequency = "1min") {
   assert_x_inherits(resample_frequency, "resample_frequency", class = "character")
   assert_resample_freq_is_fine(resample_frequency)
 
-  purrr::map_dfr(ticker, riingo_latest_iex_single)
+  purrr::map_dfr(
+    .x = ticker,
+    .f = riingo_latest_iex_single,
+    resample_frequency = resample_frequency
+  )
 }
 
 
 riingo_latest_iex_single <- function(ticker, resample_frequency = "1min") {
-  base_url <- retrieve_base_url("iex")
 
-  resample_frequency <- as_parameter(resample_frequency, "resampleFreq")
+  type <- "iex"
+  endpoint <- "latest"
 
-  temp_url <- paste0(base_url, ticker, "/prices") # Append tickers
-  temp_url <- paste0(temp_url, "?", resample_frequency)
+  # URL construction
+  riingo_url <- construct_url(
+    type, endpoint, ticker,
+    resampleFreq = resample_frequency
+  )
 
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_latest_iex")
+  # Download
+  json_content <- content_downloader(riingo_url, ticker)
 
+  # Parse
+  cont_df <- jsonlite::fromJSON(json_content)
+
+  # Clean
+  riingo_data <- clean_json_df(cont_df, type, endpoint)
+
+  # Add ticker
   riingo_data$ticker <- NULL # to be consistent, don't use the provided meta ticker column
   riingo_data <- tibble::add_column(riingo_data, ticker = ticker, .before = 1L)
 
   riingo_data
+}
+
+# ------------------------------------------------------------------------------
+# Crypto prices
+
+#' The latest day's worth of intraday data for a given cryptocurrency
+#'
+#' This returns only the most recent day of intraday data for the supplied ticker(s).
+#'
+#' @inheritParams riingo_crypto_prices
+#'
+#' @examples
+#'
+#' # The latest available day of intraday data for QQQ
+#' riingo_crypto_latest("btcusd")
+#'
+#'
+#' @export
+riingo_crypto_latest <- function(ticker, resample_frequency = "1min", base_currency = NULL,
+                                 exchanges = NULL, convert_currency = NULL, raw = FALSE) {
+  riingo_crypto_prices(ticker,
+                       start_date = NA_character_,
+                       end_date = NA_character_,
+                       resample_frequency,
+                       base_currency,
+                       exchanges,
+                       convert_currency,
+                       raw)
 }

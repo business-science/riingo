@@ -1,3 +1,6 @@
+# ------------------------------------------------------------------------------
+# Tiingo meta
+
 #' Get meta data about a ticker available on Tiingo
 #'
 #' Retrieve start and end dates for available ticker data, along with the name,
@@ -19,14 +22,77 @@ riingo_meta <- function(ticker) {
 }
 
 riingo_meta_single <- function(ticker) {
-  base_url <- retrieve_base_url("tiingo")
+  type <- "tiingo"
+  endpoint <- "meta"
 
-  temp_url <- paste0(base_url, ticker) # Append tickers
+  # URL construction
+  riingo_url <- construct_url(
+    type, endpoint, ticker
+  )
 
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_meta")
+  # Download
+  json_content <- content_downloader(riingo_url, ticker)
 
+  # Parse
+  cont_df <- jsonlite::fromJSON(json_content)
+
+  # Clean
+  riingo_data <- clean_json_df(cont_df, type, endpoint)
+
+  # Add ticker
   riingo_data$ticker <- NULL # to be consistent, don't use the provided meta ticker column
   riingo_data <- tibble::add_column(riingo_data, ticker = ticker, .before = 1L)
 
   riingo_data
+}
+
+# ------------------------------------------------------------------------------
+# Crypto meta
+
+
+#' Get meta data about a cryptocurrency on Tiingo
+#'
+#' Relevant returned meta data include: ticker, name, description, quote currency,
+#' and base currency.
+#'
+#' @inheritParams riingo_crypto_prices
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # Bitcoin meta
+#' riingo_crypto_meta("btcusd")
+#'
+#' # A trick to return ALL crypto meta data
+#' # For some reason Descriptions are not returned here
+#' riingo_crypto_meta("")
+#'
+riingo_crypto_meta <- function(ticker) {
+  assert_x_inherits(ticker, "ticker", class = "character")
+
+  purrr::map_dfr(ticker, riingo_crypto_meta_single)
+}
+
+# Only one at a time
+riingo_crypto_meta_single <- function(ticker) {
+
+  type <- "crypto"
+  endpoint <- "meta"
+
+  # URL construction
+  riingo_url <- construct_url(
+    type, endpoint, ticker
+  )
+
+  # Download
+  json_content <- content_downloader(riingo_url, ticker)
+
+  # Parse
+  cont_df <- jsonlite::fromJSON(json_content)
+
+  # Clean
+  cont_tbl <- tibble::as_tibble(cont_df)
+
+  cont_tbl
 }

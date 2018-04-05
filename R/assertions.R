@@ -31,7 +31,7 @@ assert_valid_response <- function(ticker, resp) {
   status <- resp$status_code
 
   if(status == 404) {
-    server_error <- httr::content(resp) # only get the content() if there was a problem
+    server_error <- httr::content(resp, encoding = "UTF-8") # only get the content() if there was a problem
     msg <- paste0("The ticker name, {green(ticker)}, is invalid or data is currently not available. ",
                   "Check ticker validity with {yellow('is_supported_ticker()')}`.")
     msg_tiingo <- paste0("Tiingo msg) ", server_error)

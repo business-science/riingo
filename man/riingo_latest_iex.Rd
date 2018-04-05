@@ -13,7 +13,8 @@ stock, mutual fund, or ETF. A character vector.}
 \item{resample_frequency}{For Tiingo data, a character specified as one of:
 \code{"daily"}, \code{"monthly"}, \code{"quarterly"} or \code{"yearly"}. For IEX data, a character
 specified at the \code{"min"} or \code{"hour"} frequencies in the form:
-\code{"1min"}, \code{"5min"}, or \code{"2hour"}.}
+\code{"1min"}, \code{"5min"}, or \code{"2hour"}. For Crypto data, a character specified at
+the \code{"min"}, \code{"hour"} or \code{"day"} frequencies similar to IEX.}
 }
 \description{
 This returns only the most recent day of intraday data for the supplied ticker(s).

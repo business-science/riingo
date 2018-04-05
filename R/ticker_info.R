@@ -54,19 +54,28 @@ supported_tickers <- function(iex = FALSE) {
 
     supported_ticker_url <- "https://apimedia.tiingo.com/docs/tiingo/daily/supported_tickers.zip"
 
-    col_types <- readr::cols(ticker = "c", exchange = "c",
-                             assetType = "c", priceCurrency = "c",
-                             startDate = "T", endDate = "T")
-
-    temp_file <- fs::file_temp(ext = ".zip")
+    temp_file <- tempfile(fileext = ".zip")
 
     # Write zip to disk
     httr::GET(supported_ticker_url, httr::write_disk(temp_file))
 
     # Unzip and read
-    tickers <- readr::read_csv(temp_file, col_types = col_types)
+    dir_path <- dirname(temp_file)
+
+    unzip(temp_file, exdir = dir_path)
+    ticker_path <- paste0(dir_path, "/supported_tickers.csv")
+
+    tickers <- tibble::as_tibble(read.csv(ticker_path, stringsAsFactors = FALSE))
+
+    # Date
+    tickers <- purrr::modify_at(
+      .x = tickers,
+      .at = c("startDate", "endDate"),
+      .f = ~as.POSIXct(.x, tz = "UTC", format = "%Y-%m-%d")
+    )
 
     unlink(temp_file)
+    unlink(ticker_path)
 
   }
 

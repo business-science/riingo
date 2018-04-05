@@ -71,16 +71,8 @@ riingo_prices <- function(ticker, start_date = NULL, end_date = NULL, resample_f
 }
 
 riingo_prices_single <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "daily") {
-  base_url <- retrieve_base_url("tiingo")
 
-  start_date <- as_parameter(start_date, "startDate")
-  end_date <- as_parameter(end_date, "endDate")
-  resample_frequency <- as_parameter(resample_frequency, "resampleFreq")
-
-  temp_url <- paste0(base_url, ticker, "/prices?") # Append tickers
-  temp_url <- paste0(temp_url, start_date, end_date, resample_frequency) # Append parameters
-
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_prices")
+  riingo_data <- validate_and_download(ticker, "tiingo", "prices", start_date, end_date, resample_frequency)
 
   riingo_data_with_ticker <- tibble::add_column(riingo_data, ticker = ticker, .before = 1L)
 
@@ -134,16 +126,8 @@ riingo_prices_iex <- function(ticker, start_date = NULL, end_date = NULL, resamp
 }
 
 riingo_prices_iex_single <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {
-  base_url <- retrieve_base_url("iex")
 
-  start_date <- as_parameter(start_date, "startDate")
-  end_date <- as_parameter(end_date, "endDate")
-  resample_frequency <- as_parameter(resample_frequency, "resampleFreq")
-
-  temp_url <- paste0(base_url, ticker, "/prices?") # Append tickers
-  temp_url <- paste0(temp_url, start_date, end_date, resample_frequency) # Append parameters
-
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_prices_iex")
+  riingo_data <- validate_and_download(ticker, "iex", "prices", start_date, end_date, resample_frequency)
 
   riingo_data_with_ticker <- tibble::add_column(riingo_data, ticker = ticker, .before = 1L)
 

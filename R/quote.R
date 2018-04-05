@@ -23,11 +23,7 @@ riingo_quote_iex <- function(ticker) {
 }
 
 riingo_quote_iex_single <- function(ticker) {
-  base_url <- retrieve_base_url("iex")
-
-  temp_url <- paste0(base_url, ticker) # Append tickers
-
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_price_quote_iex")
+  riingo_data <- validate_and_download(ticker, "iex", "quote")
 
   riingo_data$ticker <- NULL # to be consistent, don't use the provided meta ticker column
   riingo_data <- tibble::add_column(riingo_data, ticker = ticker, .before = 1L)

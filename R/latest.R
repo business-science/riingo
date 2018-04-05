@@ -21,11 +21,7 @@ riingo_latest <- function(ticker) {
 }
 
 riingo_latest_single <- function(ticker) {
-  base_url <- retrieve_base_url("tiingo")
-
-  temp_url <- paste0(base_url, ticker, "/prices") # Append tickers
-
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_latest")
+  riingo_data <- validate_and_download(ticker, "tiingo", "latest")
 
   # For single days, the ordering is not the same as historical prices so we reorder to be consistent
   col_ordering <- retieve_latest_col_ordering()
@@ -68,14 +64,7 @@ riingo_latest_iex <- function(ticker, resample_frequency = "1min") {
 
 
 riingo_latest_iex_single <- function(ticker, resample_frequency = "1min") {
-  base_url <- retrieve_base_url("iex")
-
-  resample_frequency <- as_parameter(resample_frequency, "resampleFreq")
-
-  temp_url <- paste0(base_url, ticker, "/prices") # Append tickers
-  temp_url <- paste0(temp_url, "?", resample_frequency)
-
-  riingo_data <- skeleton_downloader(temp_url, ticker, "tiingo_latest_iex")
+  riingo_data <- validate_and_download(ticker, "iex", "latest", resample_frequency = resample_frequency)
 
   riingo_data$ticker <- NULL # to be consistent, don't use the provided meta ticker column
   riingo_data <- tibble::add_column(riingo_data, ticker = ticker, .before = 1L)

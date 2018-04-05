@@ -30,17 +30,27 @@ assert_x_inherits_one_of <- function(x, x_name, classes) {
 assert_valid_response <- function(ticker, resp) {
   status <- resp$status_code
 
+  if(status != 200) {
+    # only get the content() if there was a problem
+    server_error <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
+  }
+
   if(status == 404) {
-    server_error <- httr::content(resp, encoding = "UTF-8") # only get the content() if there was a problem
     msg <- paste0("The ticker name, {green(ticker)}, is invalid or data is currently not available. ",
-                  "Check ticker validity with {yellow('is_supported_ticker()')}`.")
+                  "Check ticker validity with {yellow('is_supported_ticker()')}.")
     msg_tiingo <- paste0("Tiingo msg) ", server_error)
     glue_stop(msg, "\n", msg_tiingo)
   }
 
   if(status == 400) {
-    server_error <- httr::content(resp)
-    msg <- paste0("The {green('resample_frequency')} specified is not allowed.")
+    msg <- paste0("A parameter might be malformed. See the Tiingo msg.")
+    msg_tiingo <- paste0("Tiingo msg) ", server_error)
+    glue_stop(msg, "\n", msg_tiingo)
+  }
+
+  # Hopefully catch other errors
+  if(status != 200) {
+    msg <- paste0("There was an error, but riingo isn't sure why. See Tiingo msg for details.")
     msg_tiingo <- paste0("Tiingo msg) ", server_error)
     glue_stop(msg, "\n", msg_tiingo)
   }
@@ -81,6 +91,19 @@ assert_resample_freq_is_fine <- function(resample_frequency) {
     user_freq <- green(resample_frequency)
     correct_base <- glue::collapse(yellow(valid_base), ", or ")
     correct_freq <- glue::collapse(yellow(c("1min", "5min", "1hour")), ", ", last = ", or ")
+    glue_stop("resample_frequency is only valid for {correct_base}, and must be formatted similar to {correct_freq}. ",
+              "You have passed in: {user_freq}.")
+  }
+}
+
+assert_resample_freq_is_crypto <- function(resample_frequency) {
+  valid_base <- c("min", "hour", "day")
+  has_valid_base <- any(purrr::map_lgl(valid_base, ~grepl(.x, resample_frequency)))
+
+  if(!has_valid_base) {
+    user_freq <- green(resample_frequency)
+    correct_base <- glue::collapse(yellow(valid_base), ", or ")
+    correct_freq <- glue::collapse(yellow(c("1min", "5min", "1hour", "2day")), ", ", last = ", or ")
     glue_stop("resample_frequency is only valid for {correct_base}, and must be formatted similar to {correct_freq}. ",
               "You have passed in: {user_freq}.")
   }

@@ -243,6 +243,7 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
   assert_x_inherits_one_of(base_currency, "base_currency", c("NULL", "character"))
   assert_x_inherits_one_of(exchanges, "exchanges", c("NULL", "character"))
   assert_x_inherits_one_of(convert_currency, "convert_currency", c("NULL", "character"))
+  assert_resample_freq_is_crypto(resample_frequency)
 
   type <- "crypto"
   endpoint <- "prices"

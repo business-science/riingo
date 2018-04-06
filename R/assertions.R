@@ -22,7 +22,7 @@ assert_x_inherits_one_of <- function(x, x_name, classes) {
   has_one_of_classes <- any(class(x) %in% classes)
   if(!has_one_of_classes) {
     x_classes <- glue::collapse(green(class(x)), ", ")
-    correct_classes <- glue::collapse(yellow(classes), ", or ")
+    correct_classes <- glue::collapse(yellow(classes), ", ",  last = ", or ")
     glue_stop("{x_name} must be {correct_classes}. You have passed in a: {x_classes}")
   }
 }

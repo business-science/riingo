@@ -230,7 +230,7 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
   }
 
   if(!is.null(convert_currency)) {
-    if(length(ticker > 1L)) {
+    if(length(ticker) > 1L) {
       warning("The Tiingo API only uses the first ticker when convert_currency is specified.", call. = FALSE)
     }
   }
@@ -330,15 +330,21 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
   )
 
   # Reorder columns
-  riingo_data <- riingo_data[, retrieve_crypto_price_col_ordering(raw)]
+  riingo_data <- riingo_data[, retrieve_crypto_price_col_ordering(raw, convert_currency)]
 
   riingo_data
 }
 
-retrieve_crypto_price_col_ordering <- function(raw = FALSE) {
+retrieve_crypto_price_col_ordering <- function(raw = FALSE, convert_currency = NULL) {
   if(raw) {
-    c("ticker", "exchangeCode", "baseCurrency", "quoteCurrency", "date", "open", "high", "low", "close", "volume", "volumeNotional")
+    cols <- c("ticker", "exchangeCode", "baseCurrency", "quoteCurrency", "date", "open", "high", "low", "close", "volume", "volumeNotional", "tradesDone")
   } else {
-    c("ticker", "baseCurrency", "quoteCurrency", "date", "open", "high", "low", "close", "volume", "volumeNotional")
+    cols <- c("ticker", "baseCurrency", "quoteCurrency", "date", "open", "high", "low", "close", "volume", "volumeNotional", "tradesDone")
   }
+
+  if(!is.null(convert_currency)) {
+    cols <- c(cols, "fxOpen", "fxHigh", "fxLow", "fxClose", "fxRate", "fxVolumeNotional")
+  }
+
+  cols
 }

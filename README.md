@@ -16,6 +16,13 @@ This can serve as an alternate source of data to Yahoo Finance.
 
 ## Installation
 
+Install the stable version from [CRAN](https://cran.r-project.org/)
+with:
+
+``` r
+install.packages("riingo")
+```
+
 Install the development version from [GitHub](https://github.com/) with:
 
 ``` r
@@ -158,7 +165,7 @@ riingo_meta(c("AAPL", "QQQ"))
 #>   ticker name   startDate           description        endDate            
 #>   <chr>  <chr>  <dttm>              <chr>              <dttm>             
 #> 1 AAPL   Apple… 1980-12-12 00:00:00 Apple Inc. (Apple… 2018-04-11 00:00:00
-#> 2 QQQ    POWER… 1999-03-10 00:00:00 "PowerShares QQQ™… 2018-04-10 00:00:00
+#> 2 QQQ    POWER… 1999-03-10 00:00:00 "PowerShares QQQ™… 2018-04-11 00:00:00
 #> # ... with 1 more variable: exchangeCode <chr>
 ```
 
@@ -205,7 +212,7 @@ riingo_iex_quote(c("AAPL", "QQQ"))
 #>   ticker  last askSize lastsaleTimeStamp   bidPrice volume
 #>   <chr>  <dbl>   <int> <dttm>                 <dbl>  <int>
 #> 1 AAPL    172.     150 2018-04-11 16:41:05     172.      0
-#> 2 QQQ     160.     400 2018-04-11 16:42:28     160.      0
+#> 2 QQQ     160.     400 2018-04-11 16:46:28     160.      0
 #> # ... with 11 more variables: quoteTimestamp <dttm>, tngoLast <dbl>,
 #> #   mid <dbl>, bidSize <int>, prevClose <dbl>, timestamp <dttm>,
 #> #   high <dbl>, lastSize <int>, askPrice <dbl>, open <dbl>, low <dbl>

@@ -26,6 +26,12 @@ source of data to Yahoo Finance.
 
 ## Installation
 
+Install the stable version from [CRAN](https://cran.r-project.org/) with:
+
+``` r
+install.packages("riingo")
+```
+
 Install the development version from [GitHub](https://github.com/) with:
 
 ``` r

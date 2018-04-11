@@ -10,6 +10,8 @@ navbar:
       href: index.html
     - text: "Function Reference"
       href: reference/index.html
+    - text: "News"
+      href: news/index.html
 
   right:
     - icon: fa-github

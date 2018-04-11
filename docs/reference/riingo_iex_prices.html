@@ -71,7 +71,7 @@ native API." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">riingo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9001</span>
       </span>
     </div>
 
@@ -163,26 +163,14 @@ frequency, all available data will be pulled so there is no need to use
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-</div><div class='input'>
+</div><span class='co'># NOT RUN {</span>
 <span class='co'># Pulling all available minute level data for Apple</span>
-<span class='fu'>riingo_iex_prices</span>(<span class='st'>"AAPL"</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"1min"</span>)</div><div class='output co'>#&gt; # A tibble: 2,000 x 6
-#&gt;    ticker date                 open  high   low close
-#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt;  1 AAPL   2018-04-05 16:26:00  173.  173.  173.  173.
-#&gt;  2 AAPL   2018-04-05 16:27:00  173.  173.  173.  173.
-#&gt;  3 AAPL   2018-04-05 16:28:00  173.  173.  173.  173.
-#&gt;  4 AAPL   2018-04-05 16:29:00  173.  173.  173.  173.
-#&gt;  5 AAPL   2018-04-05 16:30:00  173.  173.  173.  173.
-#&gt;  6 AAPL   2018-04-05 16:31:00  174.  174.  173.  173.
-#&gt;  7 AAPL   2018-04-05 16:32:00  173.  173.  173.  173.
-#&gt;  8 AAPL   2018-04-05 16:33:00  173.  173.  173.  173.
-#&gt;  9 AAPL   2018-04-05 16:34:00  173.  173.  173.  173.
-#&gt; 10 AAPL   2018-04-05 16:35:00  173.  173.  173.  173.
-#&gt; # ... with 1,990 more rows</div><div class='input'>
-# This would result in an error, as you are pulling outside the available range
-# riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")
+<span class='fu'>riingo_iex_prices</span>(<span class='st'>"AAPL"</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"1min"</span>)
 
-</div><div class='input'>
+<span class='co'># This would result in an error, as you are pulling outside the available range</span>
+<span class='co'># riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")</span>
+
+<span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

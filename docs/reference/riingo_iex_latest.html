@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">riingo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9001</span>
       </span>
     </div>
 
@@ -137,33 +137,13 @@ the <code>"min"</code>, <code>"hour"</code> or <code>"day"</code> frequencies si
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-</div><div class='input'>
+</div><span class='co'># NOT RUN {</span>
 <span class='co'># The latest available day of intraday data for QQQ</span>
-<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 432 x 6
-#&gt;    ticker date                 open  high   low close
-#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt;  1 QQQ    2018-04-11 13:34:00  161.  161.  161.  161.
-#&gt;  2 QQQ    2018-04-11 13:35:00  161.  161.  161.  161.
-#&gt;  3 QQQ    2018-04-11 13:36:00  161.  161.  161.  161.
-#&gt;  4 QQQ    2018-04-11 13:37:00  161.  161.  161.  161.
-#&gt;  5 QQQ    2018-04-11 13:38:00  161.  161.  161.  161.
-#&gt;  6 QQQ    2018-04-11 13:39:00  161.  161.  161.  161.
-#&gt;  7 QQQ    2018-04-11 13:40:00  161.  161.  161.  161.
-#&gt;  8 QQQ    2018-04-11 13:41:00  161.  161.  161.  161.
-#&gt;  9 QQQ    2018-04-11 13:42:00  161.  161.  161.  161.
-#&gt; 10 QQQ    2018-04-11 13:43:00  161.  161.  161.  161.
-#&gt; # ... with 422 more rows</div><div class='input'>
-<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>, <span class='st'>"1hour"</span>)</div><div class='output co'>#&gt; # A tibble: 7 x 6
-#&gt;   ticker date                 open  high   low close
-#&gt;   &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt; 1 QQQ    2018-04-11 14:00:00  161.  161.  160.  161.
-#&gt; 2 QQQ    2018-04-11 15:00:00  161.  162.  161.  161.
-#&gt; 3 QQQ    2018-04-11 16:00:00  161.  162.  161.  161.
-#&gt; 4 QQQ    2018-04-11 17:00:00  161.  161.  161.  161.
-#&gt; 5 QQQ    2018-04-11 18:00:00  161.  162.  161.  161.
-#&gt; 6 QQQ    2018-04-11 19:00:00  161.  161.  160.  160.
-#&gt; 7 QQQ    2018-04-11 20:00:00  160.  161.  160.  160.</div><div class='input'>
-</div><div class='input'>
+<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>)
+
+<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>, <span class='st'>"1hour"</span>)
+
+<span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

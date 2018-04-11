@@ -70,7 +70,7 @@ and base currency." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">riingo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9001</span>
       </span>
     </div>
 
@@ -131,29 +131,15 @@ Specified as <code>"btcusd"</code> for bitcoin quoted in USD. A character vector
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-</div><div class='input'>
+</div><span class='co'># NOT RUN {</span>
 <span class='co'># Bitcoin meta</span>
-<span class='fu'>riingo_crypto_meta</span>(<span class='st'>"btcusd"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 5
-#&gt;   ticker description      quoteCurrency baseCurrency name                    
-#&gt;   &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;                   
-#&gt; 1 btcusd Tether (BTC/USD) usd           btc          Bitcoin Tether (BTC/USD)</div><div class='input'>
+<span class='fu'>riingo_crypto_meta</span>(<span class='st'>"btcusd"</span>)
+
 <span class='co'># A trick to return ALL crypto meta data</span>
 <span class='co'># For some reason Descriptions are not returned here</span>
-<span class='fu'>riingo_crypto_meta</span>(<span class='st'>""</span>)</div><div class='output co'>#&gt; # A tibble: 2,282 x 5
-#&gt;    ticker   description quoteCurrency baseCurrency name                  
-#&gt;    &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;                 
-#&gt;  1 xmyltc   ""          ltc           xmy          Myriad (XMY/LTC)      
-#&gt;  2 atmsdoge ""          doge          atms         Atmos (ATMS/DOGE)     
-#&gt;  3 brdeth   ""          eth           brd          BRD (BRD/ETH)         
-#&gt;  4 weeddoge ""          doge          weed         Weed (WEED/DOGE)      
-#&gt;  5 yywusd   ""          usd           yyw          YYW (YYW/USD)         
-#&gt;  6 vprcdoge ""          doge          vprc         VapersCoin (VPRC/DOGE)
-#&gt;  7 mnaeth   ""          eth           mna          MNA (MNA/ETH)         
-#&gt;  8 batbnb   ""          bnb           bat          BAT (BAT/BNB)         
-#&gt;  9 c2ltc    ""          ltc           c2           Coin2 (C2/LTC)        
-#&gt; 10 aideth   ""          eth           aid          AID (AID/ETH)         
-#&gt; # ... with 2,272 more rows</div><div class='input'>
-</div><div class='input'>
+<span class='fu'>riingo_crypto_meta</span>(<span class='st'>""</span>)
+
+<span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -71,7 +71,7 @@ queried." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">riingo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0.9001</span>
       </span>
     </div>
 
@@ -138,15 +138,10 @@ and <code>lastSize</code> fields will be <code>NA</code>. This is normal.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-</div><div class='input'>
-<span class='fu'>riingo_iex_quote</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 17
-#&gt;   ticker  last askSize lastsaleTimeStamp   bidPrice volume quoteTimestamp     
-#&gt;   &lt;chr&gt;  &lt;dbl&gt;   &lt;int&gt; &lt;dttm&gt;                 &lt;dbl&gt;  &lt;int&gt; &lt;dttm&gt;             
-#&gt; 1 QQQ     160.     400 2018-04-11 16:46:28     160.      0 2018-04-11 15:59:58
-#&gt; # ... with 10 more variables: tngoLast &lt;dbl&gt;, mid &lt;dbl&gt;, bidSize &lt;int&gt;,
-#&gt; #   prevClose &lt;dbl&gt;, timestamp &lt;dttm&gt;, high &lt;dbl&gt;, lastSize &lt;int&gt;,
-#&gt; #   askPrice &lt;dbl&gt;, open &lt;dbl&gt;, low &lt;dbl&gt;</div><div class='input'>
-</div><div class='input'>
+</div><span class='co'># NOT RUN {</span>
+<span class='fu'>riingo_iex_quote</span>(<span class='st'>"QQQ"</span>)
+
+<span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

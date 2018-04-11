@@ -202,6 +202,8 @@ riingo_iex_prices_single <- function(ticker, start_date = NULL, end_date = NULL,
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # Bitcoin prices
 #' riingo_crypto_prices("btcusd")
 #'
@@ -216,6 +218,8 @@ riingo_iex_prices_single <- function(ticker, start_date = NULL, end_date = NULL,
 #'
 #' # All btc___ crypotcurrency pairs
 #' riingo_crypto_prices(base_currency = "btc")
+#'
+#' }
 #'
 riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
                                  resample_frequency = "1day", base_currency = NULL,

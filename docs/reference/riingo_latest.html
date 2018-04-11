@@ -29,6 +29,8 @@
 
 <meta property="og:description" content="This returns only the most recent day of daily data for the supplied ticker(s)." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -50,6 +52,8 @@
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -63,8 +67,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -86,6 +94,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -93,11 +102,12 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The latest day's worth of data for a given ticker</h1>
-    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/latest.R'><code>R/latest.R</code></a></small>
+    <small>Source: <a href='https://github.com/business-science/riingo/blob/master/R/latest.R'><code>R/latest.R</code></a></small>
+    <div class="hidden name"><code>riingo_latest.Rd</code></div>
     </div>
 
     
@@ -106,7 +116,7 @@
 
     <pre class="usage"><span class='fu'>riingo_latest</span>(<span class='no'>ticker</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -124,7 +134,7 @@ stock, mutual fund, or ETF. A character vector.</p></td>
 <span class='fu'>riingo_latest</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 14
 #&gt;   ticker date                close  high   low  open   volume adjClose adjHigh
 #&gt;   &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;
-#&gt; 1 QQQ    2018-04-10 00:00:00  161.  162.  159.  160. 48601323     161.    162.
+#&gt; 1 QQQ    2018-04-11 00:00:00  160.  162.  160.  160. 40454944     160.    162.
 #&gt; # ... with 5 more variables: adjLow &lt;dbl&gt;, adjOpen &lt;dbl&gt;, adjVolume &lt;int&gt;,
 #&gt; #   divCash &lt;dbl&gt;, splitFactor &lt;dbl&gt;</div><div class='input'>
 </div><div class='input'>
@@ -152,6 +162,8 @@ stock, mutual fund, or ETF. A character vector.</p></td>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

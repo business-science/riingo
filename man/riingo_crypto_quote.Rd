@@ -34,7 +34,7 @@ and \code{lastSize} fields may be \code{NA}. This is normal.
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 riingo_crypto_quote("btcusd")
 

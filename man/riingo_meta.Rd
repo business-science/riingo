@@ -16,7 +16,7 @@ exchange, and description of the ticker.
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 riingo_meta("AAPL")
 

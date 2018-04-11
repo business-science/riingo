@@ -30,6 +30,8 @@
 <meta property="og:description" content="is_supported_ticker() can tell you if a given ticker is supported on Tiingo.
 supported_tickers() returns a tibble listing every available ticker." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -51,6 +53,8 @@ supported_tickers() returns a tibble listing every available ticker." />
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -64,8 +68,12 @@ supported_tickers() returns a tibble listing every available ticker." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -87,6 +95,7 @@ supported_tickers() returns a tibble listing every available ticker." />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -94,11 +103,12 @@ supported_tickers() returns a tibble listing every available ticker." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Ticker information</h1>
-    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/ticker_info.R'><code>R/ticker_info.R</code></a></small>
+    <small>Source: <a href='https://github.com/business-science/riingo/blob/master/R/ticker_info.R'><code>R/ticker_info.R</code></a></small>
+    <div class="hidden name"><code>ticker_info.Rd</code></div>
     </div>
 
     
@@ -110,7 +120,7 @@ supported_tickers() returns a tibble listing every available ticker." />
 
 <span class='fu'>supported_tickers</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"tiingo"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -126,13 +136,14 @@ supported_tickers() returns a tibble listing every available ticker." />
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-# VOO is supported on both Tiingo and IEX
-</div><div class='input'><span class='fu'>is_supported_ticker</span>(<span class='st'>"VOO"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_supported_ticker</span>(<span class='st'>"VOO"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"iex"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-
-# PRHSX is a mutual fund that is supported by Tiingo but not IEX
-</div><div class='input'><span class='fu'>is_supported_ticker</span>(<span class='st'>"PRHSX"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_supported_ticker</span>(<span class='st'>"PRHSX"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"iex"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+</div><div class='input'>
+<span class='co'># VOO is supported on both Tiingo and IEX</span>
+<span class='fu'>is_supported_ticker</span>(<span class='st'>"VOO"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_supported_ticker</span>(<span class='st'>"VOO"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"iex"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+<span class='co'># PRHSX is a mutual fund that is supported by Tiingo but not IEX</span>
+<span class='fu'>is_supported_ticker</span>(<span class='st'>"PRHSX"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_supported_ticker</span>(<span class='st'>"PRHSX"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"iex"</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># BTCUSD is available</span>
 <span class='fu'>is_supported_ticker</span>(<span class='st'>"btcusd"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"crypto"</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -157,6 +168,8 @@ supported_tickers() returns a tibble listing every available ticker." />
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

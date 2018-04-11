@@ -26,6 +26,8 @@
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="Function reference" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,6 +49,8 @@
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -60,8 +64,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -83,6 +91,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -90,166 +99,161 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.1.0</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-tiingo" class="hasAnchor"><a href="#section-tiingo" class="anchor"></a>Tiingo</h2>
-            <p class="section-desc"><p><strong>Getting data from the Tiingo API.</strong></p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_prices.html">riingo_prices()</a></code> </p>
-          </td>
-          <td><p>Get stock or ETF prices from the Tiingo API</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_meta.html">riingo_meta()</a></code> </p>
-          </td>
-          <td><p>Get meta data about a ticker available on Tiingo</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_latest.html">riingo_latest()</a></code> </p>
-          </td>
-          <td><p>The latest day's worth of data for a given ticker</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-iex" class="hasAnchor"><a href="#section-iex" class="anchor"></a>IEX</h2>
-            <p class="section-desc"><p><strong>Getting data from IEX.</strong></p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_iex_latest.html">riingo_iex_latest()</a></code> </p>
-          </td>
-          <td><p>The latest day's worth of intraday data for a given ticker</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_iex_prices.html">riingo_iex_prices()</a></code> </p>
-          </td>
-          <td><p>Get stock or ETF prices from IEX through Tiingo</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_iex_quote.html">riingo_iex_quote()</a></code> </p>
-          </td>
-          <td><p>Quote and Top of Book data for a given ticker</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-cryptocurrency" class="hasAnchor"><a href="#section-cryptocurrency" class="anchor"></a>Cryptocurrency</h2>
-            <p class="section-desc"><p><strong>Getting data for cryptocurrencies.</strong></p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_crypto_latest.html">riingo_crypto_latest()</a></code> </p>
-          </td>
-          <td><p>The latest day's worth of intraday data for a given cryptocurrency</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_crypto_meta.html">riingo_crypto_meta()</a></code> </p>
-          </td>
-          <td><p>Get meta data about a cryptocurrency on Tiingo</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_crypto_prices.html">riingo_crypto_prices()</a></code> </p>
-          </td>
-          <td><p>Get cryptocurrency prices aggregated through Tiingo</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_crypto_quote.html">riingo_crypto_quote()</a></code> </p>
-          </td>
-          <td><p>Quote and Top of Book data for a given cryptocurrency</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-tokens" class="hasAnchor"><a href="#section-tokens" class="anchor"></a>Tokens</h2>
-            <p class="section-desc"><p><strong>Functions related to getting and setting tokens.</strong></p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_token.html">riingo_set_token()</a></code> <code><a href="riingo_token.html">riingo_get_token()</a></code> </p>
-          </td>
-          <td><p>Set and get your Tiingo API token</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-browsing" class="hasAnchor"><a href="#section-browsing" class="anchor"></a>Browsing</h2>
-            <p class="section-desc"><p><strong>Functions related to browsing the Tiingo site.</strong></p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="riingo_browse.html">riingo_browse_usage()</a></code> <code><a href="riingo_browse.html">riingo_browse_token()</a></code> <code><a href="riingo_browse.html">riingo_browse_documentation()</a></code> <code><a href="riingo_browse.html">riingo_browse_signup()</a></code> </p>
-          </td>
-          <td><p>Browse various pages of the Tiingo site</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-ticker-support" class="hasAnchor"><a href="#section-ticker-support" class="anchor"></a>Ticker support</h2>
-            <p class="section-desc"><p><strong>Functions related to checking if a ticker is supported.</strong></p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ticker_info.html">is_supported_ticker()</a></code> <code><a href="ticker_info.html">supported_tickers()</a></code> </p>
-          </td>
-          <td><p>Ticker information</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-time-coercion" class="hasAnchor"><a href="#section-time-coercion" class="anchor"></a>Time coercion</h2>
-            <p class="section-desc"><p><strong>Coerce UTC columns to local time.</strong></p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="convert_to_local_time.html">convert_to_local_time()</a></code> </p>
-          </td>
-          <td><p>Convert the <code>POSIXct</code> columns of a data frame to the local time zone</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-tiingo" class="hasAnchor"><a href="#section-tiingo" class="anchor"></a>Tiingo</h2>
+          <p class="section-desc"><p><strong>Getting data from the Tiingo API.</strong></p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_prices.html">riingo_prices()</a></code> </p>
+        </td>
+        <td><p>Get stock or ETF prices from the Tiingo API</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_meta.html">riingo_meta()</a></code> </p>
+        </td>
+        <td><p>Get meta data about a ticker available on Tiingo</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_latest.html">riingo_latest()</a></code> </p>
+        </td>
+        <td><p>The latest day's worth of data for a given ticker</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-iex" class="hasAnchor"><a href="#section-iex" class="anchor"></a>IEX</h2>
+          <p class="section-desc"><p><strong>Getting data from IEX.</strong></p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_iex_latest.html">riingo_iex_latest()</a></code> </p>
+        </td>
+        <td><p>The latest day's worth of intraday data for a given ticker</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_iex_prices.html">riingo_iex_prices()</a></code> </p>
+        </td>
+        <td><p>Get stock or ETF prices from IEX through Tiingo</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_iex_quote.html">riingo_iex_quote()</a></code> </p>
+        </td>
+        <td><p>Quote and Top of Book data for a given ticker</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-cryptocurrency" class="hasAnchor"><a href="#section-cryptocurrency" class="anchor"></a>Cryptocurrency</h2>
+          <p class="section-desc"><p><strong>Getting data for cryptocurrencies.</strong></p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_crypto_latest.html">riingo_crypto_latest()</a></code> </p>
+        </td>
+        <td><p>The latest day's worth of intraday data for a given cryptocurrency</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_crypto_meta.html">riingo_crypto_meta()</a></code> </p>
+        </td>
+        <td><p>Get meta data about a cryptocurrency on Tiingo</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_crypto_prices.html">riingo_crypto_prices()</a></code> </p>
+        </td>
+        <td><p>Get cryptocurrency prices aggregated through Tiingo</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_crypto_quote.html">riingo_crypto_quote()</a></code> </p>
+        </td>
+        <td><p>Quote and Top of Book data for a given cryptocurrency</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-tokens" class="hasAnchor"><a href="#section-tokens" class="anchor"></a>Tokens</h2>
+          <p class="section-desc"><p><strong>Functions related to getting and setting tokens.</strong></p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_token.html">riingo_set_token()</a></code> <code><a href="riingo_token.html">riingo_get_token()</a></code> </p>
+        </td>
+        <td><p>Set and get your Tiingo API token</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-browsing" class="hasAnchor"><a href="#section-browsing" class="anchor"></a>Browsing</h2>
+          <p class="section-desc"><p><strong>Functions related to browsing the Tiingo site.</strong></p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="riingo_browse.html">riingo_browse_usage()</a></code> <code><a href="riingo_browse.html">riingo_browse_token()</a></code> <code><a href="riingo_browse.html">riingo_browse_documentation()</a></code> <code><a href="riingo_browse.html">riingo_browse_signup()</a></code> </p>
+        </td>
+        <td><p>Browse various pages of the Tiingo site</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-ticker-support" class="hasAnchor"><a href="#section-ticker-support" class="anchor"></a>Ticker support</h2>
+          <p class="section-desc"><p><strong>Functions related to checking if a ticker is supported.</strong></p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="ticker_info.html">is_supported_ticker()</a></code> <code><a href="ticker_info.html">supported_tickers()</a></code> </p>
+        </td>
+        <td><p>Ticker information</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-time-coercion" class="hasAnchor"><a href="#section-time-coercion" class="anchor"></a>Time coercion</h2>
+          <p class="section-desc"><p><strong>Coerce UTC columns to local time.</strong></p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="convert_to_local_time.html">convert_to_local_time()</a></code> </p>
+        </td>
+        <td><p>Convert the <code>POSIXct</code> columns of a data frame to the local time zone</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -277,6 +281,8 @@
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

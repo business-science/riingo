@@ -15,7 +15,7 @@ This returns only the most recent day of daily data for the supplied ticker(s).
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 # The latest available day of daily data for QQQ
 riingo_latest("QQQ")

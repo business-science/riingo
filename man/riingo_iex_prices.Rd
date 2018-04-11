@@ -41,7 +41,7 @@ frequency, all available data will be pulled so there is no need to use
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 # Pulling all available minute level data for Apple
 riingo_iex_prices("AAPL", resample_frequency = "1min")

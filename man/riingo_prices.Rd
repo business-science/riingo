@@ -53,7 +53,7 @@ rolled forward to the Friday of that week.
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 # Downloading 1 year's worth of prices for AAPL
 riingo_prices("AAPL")

@@ -31,6 +31,8 @@
 This data is supplied at a much lower (intraday!) frequency than the data from Tiingo's
 native API." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -52,6 +54,8 @@ native API." />
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -65,8 +69,12 @@ native API." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -88,6 +96,7 @@ native API." />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -95,11 +104,12 @@ native API." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get stock or ETF prices from IEX through Tiingo</h1>
-    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/prices.R'><code>R/prices.R</code></a></small>
+    <small>Source: <a href='https://github.com/business-science/riingo/blob/master/R/prices.R'><code>R/prices.R</code></a></small>
+    <div class="hidden name"><code>riingo_iex_prices.Rd</code></div>
     </div>
 
     
@@ -111,7 +121,7 @@ native API.</p>
     <pre class="usage"><span class='fu'>riingo_iex_prices</span>(<span class='no'>ticker</span>, <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"5min"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -199,6 +209,8 @@ frequency, all available data will be pulled so there is no need to use
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

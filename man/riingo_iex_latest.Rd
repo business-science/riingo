@@ -21,7 +21,7 @@ This returns only the most recent day of intraday data for the supplied ticker(s
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 # The latest available day of intraday data for QQQ
 riingo_iex_latest("QQQ")

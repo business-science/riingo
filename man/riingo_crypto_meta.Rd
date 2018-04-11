@@ -16,7 +16,7 @@ and base currency.
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 # Bitcoin meta
 riingo_crypto_meta("btcusd")

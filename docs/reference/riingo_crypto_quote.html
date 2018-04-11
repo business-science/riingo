@@ -30,6 +30,8 @@
 <meta property="og:description" content="Tiingo provides TOP (top of book) bid and ask quotes for cryptocurrencies.
 Note that this cannot be historically queried." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -51,6 +53,8 @@ Note that this cannot be historically queried." />
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -64,8 +68,12 @@ Note that this cannot be historically queried." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -87,6 +95,7 @@ Note that this cannot be historically queried." />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -94,11 +103,12 @@ Note that this cannot be historically queried." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Quote and Top of Book data for a given cryptocurrency</h1>
-    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/quote.R'><code>R/quote.R</code></a></small>
+    <small>Source: <a href='https://github.com/business-science/riingo/blob/master/R/quote.R'><code>R/quote.R</code></a></small>
+    <div class="hidden name"><code>riingo_crypto_quote.Rd</code></div>
     </div>
 
     
@@ -109,7 +119,7 @@ Note that this cannot be historically queried.</p>
     <pre class="usage"><span class='fu'>riingo_crypto_quote</span>(<span class='no'>ticker</span>, <span class='kw'>exchanges</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>convert_currency</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -150,24 +160,24 @@ and <code>lastSize</code> fields may be <code>NA</code>. This is normal.</p>
 <span class='fu'>riingo_crypto_quote</span>(<span class='st'>"btcusd"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 15
 #&gt;   ticker baseCurrency quoteCurrency askSize bidExchange lastSaleTimestamp      
 #&gt;   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;                  
-#&gt; 1 btcusd btc          usd             0.500 GATECOIN    2018-04-11T21:01:10.32…
+#&gt; 1 btcusd btc          usd             0.500 GATECOIN    2018-04-11T21:18:08.14…
 #&gt; # ... with 9 more variables: lastSizeNotional &lt;dbl&gt;, bidPrice &lt;dbl&gt;,
 #&gt; #   quoteTimestamp &lt;chr&gt;, bidSize &lt;dbl&gt;, askExchange &lt;chr&gt;, lastPrice &lt;dbl&gt;,
 #&gt; #   lastSize &lt;dbl&gt;, askPrice &lt;dbl&gt;, lastExchange &lt;chr&gt;</div><div class='input'>
 <span class='co'># The raw data can provide more insight into each individual exchange</span>
 <span class='fu'>riingo_crypto_quote</span>(<span class='st'>"btcusd"</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 10 x 12
-#&gt;    ticker baseCurrency quoteCurrency askSize bidPrice   bidSize lastPrice
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-#&gt;  1 btcusd btc          usd           3.00       7203.  2.97         7203.
-#&gt;  2 btcusd btc          usd           0.00348      NA  NA            6898.
-#&gt;  3 btcusd btc          usd           1.59       6884.  2.04         6884.
-#&gt;  4 btcusd btc          usd           0.442      6886.  0.846        6886.
-#&gt;  5 btcusd btc          usd           0.160      6938.  0.00128      6890.
-#&gt;  6 btcusd btc          usd           1.67       6896.  0.909        6896.
-#&gt;  7 btcusd btc          usd           0.1000     6893.  0.000272     6943.
-#&gt;  8 btcusd btc          usd           2.92       6883.  1.35         6890.
-#&gt;  9 btcusd btc          usd           0.500      6949.  3.90         6896.
-#&gt; 10 btcusd btc          usd           0.269      6888.  0.0646       6888.
+#&gt;    ticker baseCurrency quoteCurrency  askSize bidPrice   bidSize lastPrice
+#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;            &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+#&gt;  1 btcusd btc          usd            3.00       7203.  2.97         7203.
+#&gt;  2 btcusd btc          usd            0.148      6902.  0.0136       6902.
+#&gt;  3 btcusd btc          usd            4.67       6882. 31.1          6882.
+#&gt;  4 btcusd btc          usd           42.1        6890.  4.20         6890.
+#&gt;  5 btcusd btc          usd            0.160      6938.  0.00128      6889.
+#&gt;  6 btcusd btc          usd            0.00472    6884.  9.51         6877.
+#&gt;  7 btcusd btc          usd            0.294      6882.  0.000357     6892.
+#&gt;  8 btcusd btc          usd            3.31       6881. 14.2          6881.
+#&gt;  9 btcusd btc          usd            0.500      6949.  3.90         6895.
+#&gt; 10 btcusd btc          usd            0.0666     6893.  0.931        6893.
 #&gt; # ... with 5 more variables: lastSize &lt;dbl&gt;, quoteTimestampStr &lt;dttm&gt;,
 #&gt; #   askPrice &lt;dbl&gt;, exchangeCode &lt;chr&gt;, lastSaleTimestampStr &lt;dttm&gt;</div><div class='input'>
 </div><div class='input'>
@@ -197,6 +207,8 @@ and <code>lastSize</code> fields may be <code>NA</code>. This is normal.</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

@@ -21,7 +21,7 @@ and \code{lastSize} fields will be \code{NA}. This is normal.
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 riingo_iex_quote("QQQ")
 

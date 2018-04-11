@@ -29,6 +29,8 @@
 
 <meta property="og:description" content="This returns only the most recent day of intraday data for the supplied ticker(s)." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -50,6 +52,8 @@
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -63,8 +67,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -86,6 +94,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -93,11 +102,12 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The latest day's worth of intraday data for a given cryptocurrency</h1>
-    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/latest.R'><code>R/latest.R</code></a></small>
+    <small>Source: <a href='https://github.com/business-science/riingo/blob/master/R/latest.R'><code>R/latest.R</code></a></small>
+    <div class="hidden name"><code>riingo_crypto_latest.Rd</code></div>
     </div>
 
     
@@ -108,7 +118,7 @@
   <span class='kw'>base_currency</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>exchanges</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>convert_currency</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -157,7 +167,7 @@ returned, rather than the clean prices. This is the data that calculates the agg
     <pre class="examples"><div class='input'>
 </div><div class='input'>
 <span class='co'># The latest available day of intraday data for QQQ</span>
-<span class='fu'>riingo_crypto_latest</span>(<span class='st'>"btcusd"</span>)</div><div class='output co'>#&gt; # A tibble: 1,261 x 11
+<span class='fu'>riingo_crypto_latest</span>(<span class='st'>"btcusd"</span>)</div><div class='output co'>#&gt; # A tibble: 1,278 x 11
 #&gt;    ticker baseCurrency quoteCurrency date                 open  high   low
 #&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 #&gt;  1 btcusd btc          usd           2018-04-11 00:00:00 6836. 6840. 6836.
@@ -170,7 +180,7 @@ returned, rather than the clean prices. This is the data that calculates the agg
 #&gt;  8 btcusd btc          usd           2018-04-11 00:07:00 6849. 6850. 6846.
 #&gt;  9 btcusd btc          usd           2018-04-11 00:08:00 6849. 6850. 6844.
 #&gt; 10 btcusd btc          usd           2018-04-11 00:09:00 6844. 6846. 6842.
-#&gt; # ... with 1,251 more rows, and 4 more variables: close &lt;dbl&gt;, volume &lt;dbl&gt;,
+#&gt; # ... with 1,268 more rows, and 4 more variables: close &lt;dbl&gt;, volume &lt;dbl&gt;,
 #&gt; #   volumeNotional &lt;dbl&gt;, tradesDone &lt;dbl&gt;</div><div class='input'>
 
 </div><div class='input'>
@@ -198,6 +208,8 @@ returned, rather than the clean prices. This is the data that calculates the agg
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

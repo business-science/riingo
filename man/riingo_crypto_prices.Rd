@@ -48,7 +48,7 @@ Get cryptocurrency prices aggregated through Tiingo
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 # Bitcoin prices
 riingo_crypto_prices("btcusd")

@@ -30,6 +30,8 @@
 <meta property="og:description" content="Relevant returned meta data include: ticker, name, description, quote currency,
 and base currency." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -51,6 +53,8 @@ and base currency." />
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -64,8 +68,12 @@ and base currency." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -87,6 +95,7 @@ and base currency." />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -94,11 +103,12 @@ and base currency." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get meta data about a cryptocurrency on Tiingo</h1>
-    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/meta.R'><code>R/meta.R</code></a></small>
+    <small>Source: <a href='https://github.com/business-science/riingo/blob/master/R/meta.R'><code>R/meta.R</code></a></small>
+    <div class="hidden name"><code>riingo_crypto_meta.Rd</code></div>
     </div>
 
     
@@ -108,7 +118,7 @@ and base currency.</p>
 
     <pre class="usage"><span class='fu'>riingo_crypto_meta</span>(<span class='no'>ticker</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -168,6 +178,8 @@ Specified as <code>"btcusd"</code> for bitcoin quoted in USD. A character vector
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

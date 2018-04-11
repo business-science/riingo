@@ -29,6 +29,8 @@
 
 <meta property="og:description" content="This returns only the most recent day of intraday data for the supplied ticker(s)." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -50,6 +52,8 @@
 
 </script>
 
+
+
   </head>
 
   <body>
@@ -63,8 +67,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">riingo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">riingo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -86,6 +94,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -93,11 +102,12 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>The latest day's worth of intraday data for a given ticker</h1>
-    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/latest.R'><code>R/latest.R</code></a></small>
+    <small>Source: <a href='https://github.com/business-science/riingo/blob/master/R/latest.R'><code>R/latest.R</code></a></small>
+    <div class="hidden name"><code>riingo_iex_latest.Rd</code></div>
     </div>
 
     
@@ -106,7 +116,7 @@
 
     <pre class="usage"><span class='fu'>riingo_iex_latest</span>(<span class='no'>ticker</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"1min"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -129,7 +139,7 @@ the <code>"min"</code>, <code>"hour"</code> or <code>"day"</code> frequencies si
     <pre class="examples"><div class='input'>
 </div><div class='input'>
 <span class='co'># The latest available day of intraday data for QQQ</span>
-<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 429 x 6
+<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 432 x 6
 #&gt;    ticker date                 open  high   low close
 #&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 #&gt;  1 QQQ    2018-04-11 13:34:00  161.  161.  161.  161.
@@ -142,7 +152,7 @@ the <code>"min"</code>, <code>"hour"</code> or <code>"day"</code> frequencies si
 #&gt;  8 QQQ    2018-04-11 13:41:00  161.  161.  161.  161.
 #&gt;  9 QQQ    2018-04-11 13:42:00  161.  161.  161.  161.
 #&gt; 10 QQQ    2018-04-11 13:43:00  161.  161.  161.  161.
-#&gt; # ... with 419 more rows</div><div class='input'>
+#&gt; # ... with 422 more rows</div><div class='input'>
 <span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>, <span class='st'>"1hour"</span>)</div><div class='output co'>#&gt; # A tibble: 7 x 6
 #&gt;   ticker date                 open  high   low close
 #&gt;   &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -178,6 +188,8 @@ the <code>"min"</code>, <code>"hour"</code> or <code>"day"</code> frequencies si
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

@@ -13,6 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Travis build status](https://travis-ci.org/business-science/riingo.svg?branch=master)](https://travis-ci.org/business-science/riingo)
+
 # riingo
 
 `riingo` allows you to access the Tiingo API for stock prices, cryptocurrencies,

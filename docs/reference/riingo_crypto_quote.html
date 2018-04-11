@@ -146,24 +146,24 @@ and <code>lastSize</code> fields may be <code>NA</code>. This is normal.</p>
 <span class='fu'>riingo_crypto_quote</span>(<span class='st'>"btcusd"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 15
 #&gt;   ticker baseCurrency quoteCurrency askSize bidExchange lastSaleTimestamp      
 #&gt;   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;                  
-#&gt; 1 btcusd btc          usd              1.28 BITSTAMP    2018-04-05T18:02:11.94…
+#&gt; 1 btcusd btc          usd             0.500 GATECOIN    2018-04-11T20:20:43.19…
 #&gt; # ... with 9 more variables: lastSizeNotional &lt;dbl&gt;, bidPrice &lt;dbl&gt;,
 #&gt; #   quoteTimestamp &lt;chr&gt;, bidSize &lt;dbl&gt;, askExchange &lt;chr&gt;, lastPrice &lt;dbl&gt;,
 #&gt; #   lastSize &lt;dbl&gt;, askPrice &lt;dbl&gt;, lastExchange &lt;chr&gt;</div><div class='input'>
 <span class='co'># The raw data can provide more insight into each individual exchange</span>
 <span class='fu'>riingo_crypto_quote</span>(<span class='st'>"btcusd"</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 10 x 12
-#&gt;    ticker baseCurrency quoteCurrency askSize bidPrice bidSize lastPrice
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
-#&gt;  1 btcusd btc          usd            2.00      7104. 2.00        7440.
-#&gt;  2 btcusd btc          usd            0.331     6730. 0.00922     6730.
-#&gt;  3 btcusd btc          usd           26.0       6715. 2.49        6715.
-#&gt;  4 btcusd btc          usd            8.62      6702. 0.0568      6702.
-#&gt;  5 btcusd btc          usd            0.130     7463. 0.666       6726.
-#&gt;  6 btcusd btc          usd            0.0300    6700. 0.153       6700.
-#&gt;  7 btcusd btc          usd            0.292     6690. 0.162       6690.
-#&gt;  8 btcusd btc          usd            4.77      6703. 0.199       6707.
-#&gt;  9 btcusd btc          usd            1.28      7488. 8.00        6710.
-#&gt; 10 btcusd btc          usd            1.00      6696. 0.130       6704.
+#&gt;    ticker baseCurrency quoteCurrency askSize bidPrice  bidSize lastPrice
+#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+#&gt;  1 btcusd btc          usd           3.00       7207. 0.0425       7205.
+#&gt;  2 btcusd btc          usd           0.662      6914. 1.27         6914.
+#&gt;  3 btcusd btc          usd           1.62       6894. 6.55         6894.
+#&gt;  4 btcusd btc          usd           0.0725     6899. 1.40         6903.
+#&gt;  5 btcusd btc          usd           0.160      6938. 0.00128      6896.
+#&gt;  6 btcusd btc          usd           6.12       6897. 0.000870     6902.
+#&gt;  7 btcusd btc          usd           0.00968    6901. 0.00941      6949.
+#&gt;  8 btcusd btc          usd           0.00203    6900. 9.43         6900.
+#&gt;  9 btcusd btc          usd           0.500      6949. 3.90         6899.
+#&gt; 10 btcusd btc          usd           2.35       6895. 0.214        6900.
 #&gt; # ... with 5 more variables: lastSize &lt;dbl&gt;, quoteTimestampStr &lt;dttm&gt;,
 #&gt; #   askPrice &lt;dbl&gt;, exchangeCode &lt;chr&gt;, lastSaleTimestampStr &lt;dttm&gt;</div><div class='input'>
 </div></pre>

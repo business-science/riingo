@@ -163,86 +163,23 @@ returned, rather than the clean prices. This is the data that calculates the agg
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
+</div><span class='co'># NOT RUN {</span>
 <span class='co'># Bitcoin prices</span>
-<span class='fu'>riingo_crypto_prices</span>(<span class='st'>"btcusd"</span>)</div><div class='output co'>#&gt; # A tibble: 366 x 10
-#&gt;    ticker baseCurrency quoteCurrency date                 open  high   low
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt;  1 btcusd btc          usd           2017-04-05 00:00:00 1144. 1148. 1113.
-#&gt;  2 btcusd btc          usd           2017-04-06 00:00:00 1137. 1220. 1137.
-#&gt;  3 btcusd btc          usd           2017-04-07 00:00:00 1194. 1208. 1177.
-#&gt;  4 btcusd btc          usd           2017-04-08 00:00:00 1198. 1208. 1172.
-#&gt;  5 btcusd btc          usd           2017-04-09 00:00:00 1190. 1227. 1180.
-#&gt;  6 btcusd btc          usd           2017-04-10 00:00:00 1217. 1229. 1202.
-#&gt;  7 btcusd btc          usd           2017-04-11 00:00:00 1219. 1246. 1206.
-#&gt;  8 btcusd btc          usd           2017-04-12 00:00:00 1235. 1240. 1221.
-#&gt;  9 btcusd btc          usd           2017-04-13 00:00:00 1227. 1240. 1161.
-#&gt; 10 btcusd btc          usd           2017-04-14 00:00:00 1189. 1222. 1184.
-#&gt; # ... with 356 more rows, and 3 more variables: close &lt;dbl&gt;, volume &lt;dbl&gt;,
-#&gt; #   volumeNotional &lt;dbl&gt;</div><div class='input'>
+<span class='fu'>riingo_crypto_prices</span>(<span class='st'>"btcusd"</span>)
+
 <span class='co'># Bitcoin in USD and EUR</span>
-<span class='fu'>riingo_crypto_prices</span>(<span class='fu'>c</span>(<span class='st'>"btcusd"</span>, <span class='st'>"btceur"</span>), <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='st'>"2018-01-01"</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"5min"</span>)</div><div class='output co'>#&gt; # A tibble: 9,999 x 10
-#&gt;    ticker baseCurrency quoteCurrency date                  open   high    low
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-#&gt;  1 btceur btc          eur           2018-01-01 00:00:00 12060. 12135. 11747.
-#&gt;  2 btceur btc          eur           2018-01-01 00:05:00 11818. 12061. 11627.
-#&gt;  3 btceur btc          eur           2018-01-01 00:10:00 12051. 12054. 11476.
-#&gt;  4 btceur btc          eur           2018-01-01 00:15:00 11608. 11993. 11559.
-#&gt;  5 btceur btc          eur           2018-01-01 00:20:00 11451. 11957. 11444.
-#&gt;  6 btceur btc          eur           2018-01-01 00:25:00 11681. 11926. 11677.
-#&gt;  7 btceur btc          eur           2018-01-01 00:30:00 11769. 11907. 11443.
-#&gt;  8 btceur btc          eur           2018-01-01 00:35:00 11534. 11900. 11433.
-#&gt;  9 btceur btc          eur           2018-01-01 00:40:00 11887. 11911. 11444.
-#&gt; 10 btceur btc          eur           2018-01-01 00:45:00 11877. 11944. 11814.
-#&gt; # ... with 9,989 more rows, and 3 more variables: close &lt;dbl&gt;, volume &lt;dbl&gt;,
-#&gt; #   volumeNotional &lt;dbl&gt;</div><div class='input'>
+<span class='fu'>riingo_crypto_prices</span>(<span class='fu'>c</span>(<span class='st'>"btcusd"</span>, <span class='st'>"btceur"</span>), <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='st'>"2018-01-01"</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"5min"</span>)
+
 <span class='co'># Bitcoin raw data</span>
-<span class='fu'>riingo_crypto_prices</span>(<span class='st'>"btcusd"</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 1,873 x 11
-#&gt;    ticker exchangeCode baseCurrency quoteCurrency date                 open
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;              &lt;dbl&gt;
-#&gt;  1 btcusd BINANCE      btc          usd           2017-08-17 00:00:00 4261.
-#&gt;  2 btcusd BINANCE      btc          usd           2017-08-18 00:00:00 4285.
-#&gt;  3 btcusd BINANCE      btc          usd           2017-08-19 00:00:00 4108.
-#&gt;  4 btcusd BINANCE      btc          usd           2017-08-20 00:00:00 4121.
-#&gt;  5 btcusd BINANCE      btc          usd           2017-08-21 00:00:00 4069.
-#&gt;  6 btcusd BINANCE      btc          usd           2017-08-22 00:00:00 4016.
-#&gt;  7 btcusd BINANCE      btc          usd           2017-08-23 00:00:00 4040.
-#&gt;  8 btcusd BINANCE      btc          usd           2017-08-24 00:00:00 4147.
-#&gt;  9 btcusd BINANCE      btc          usd           2017-08-25 00:00:00 4316.
-#&gt; 10 btcusd BINANCE      btc          usd           2017-08-26 00:00:00 4281.
-#&gt; # ... with 1,863 more rows, and 5 more variables: high &lt;dbl&gt;, low &lt;dbl&gt;,
-#&gt; #   close &lt;dbl&gt;, volume &lt;dbl&gt;, volumeNotional &lt;dbl&gt;</div><div class='input'>
+<span class='fu'>riingo_crypto_prices</span>(<span class='st'>"btcusd"</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='co'># Only use the POLONIEX exchange</span>
-<span class='fu'>riingo_crypto_prices</span>(<span class='st'>"btcusd"</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>exchanges</span> <span class='kw'>=</span> <span class='st'>"POLONIEX"</span>)</div><div class='output co'>#&gt; # A tibble: 363 x 11
-#&gt;    ticker exchangeCode baseCurrency quoteCurrency date                 open
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;              &lt;dbl&gt;
-#&gt;  1 btcusd POLONIEX     btc          usd           2017-04-05 00:00:00 1144.
-#&gt;  2 btcusd POLONIEX     btc          usd           2017-04-06 00:00:00 1137.
-#&gt;  3 btcusd POLONIEX     btc          usd           2017-04-07 00:00:00 1194.
-#&gt;  4 btcusd POLONIEX     btc          usd           2017-04-08 00:00:00 1198.
-#&gt;  5 btcusd POLONIEX     btc          usd           2017-04-09 00:00:00 1190.
-#&gt;  6 btcusd POLONIEX     btc          usd           2017-04-10 00:00:00 1217.
-#&gt;  7 btcusd POLONIEX     btc          usd           2017-04-11 00:00:00 1220.
-#&gt;  8 btcusd POLONIEX     btc          usd           2017-04-12 00:00:00 1235.
-#&gt;  9 btcusd POLONIEX     btc          usd           2017-04-13 00:00:00 1227.
-#&gt; 10 btcusd POLONIEX     btc          usd           2017-04-14 00:00:00 1189.
-#&gt; # ... with 353 more rows, and 5 more variables: high &lt;dbl&gt;, low &lt;dbl&gt;,
-#&gt; #   close &lt;dbl&gt;, volume &lt;dbl&gt;, volumeNotional &lt;dbl&gt;</div><div class='input'>
+<span class='fu'>riingo_crypto_prices</span>(<span class='st'>"btcusd"</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>exchanges</span> <span class='kw'>=</span> <span class='st'>"POLONIEX"</span>)
+
 <span class='co'># All btc___ crypotcurrency pairs</span>
-<span class='fu'>riingo_crypto_prices</span>(<span class='kw'>base_currency</span> <span class='kw'>=</span> <span class='st'>"btc"</span>)</div><div class='output co'>#&gt; # A tibble: 1,101 x 10
-#&gt;    ticker baseCurrency quoteCurrency date                  open   high    low
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;               &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-#&gt;  1 btceur btc          eur           2017-12-14 00:00:00 13873. 14354. 13440.
-#&gt;  2 btceur btc          eur           2017-12-15 00:00:00 14076. 15195. 13728.
-#&gt;  3 btceur btc          eur           2017-12-16 00:00:00 15073. 16881. 14520.
-#&gt;  4 btceur btc          eur           2017-12-17 00:00:00 16573. 16933. 15598.
-#&gt;  5 btceur btc          eur           2017-12-18 00:00:00 16010. 16439. 15129.
-#&gt;  6 btceur btc          eur           2017-12-19 00:00:00 16051. 16329. 14276.
-#&gt;  7 btceur btc          eur           2017-12-20 00:00:00 14994. 15408. 13007.
-#&gt;  8 btceur btc          eur           2017-12-21 00:00:00 13855. 14912. 12606.
-#&gt;  9 btceur btc          eur           2017-12-22 00:00:00 13314. 13562.  7528.
-#&gt; 10 btceur btc          eur           2017-12-23 00:00:00 12702. 14465. 12100.
-#&gt; # ... with 1,091 more rows, and 3 more variables: close &lt;dbl&gt;, volume &lt;dbl&gt;,
-#&gt; #   volumeNotional &lt;dbl&gt;</div><div class='input'>
+<span class='fu'>riingo_crypto_prices</span>(<span class='kw'>base_currency</span> <span class='kw'>=</span> <span class='st'>"btc"</span>)
+
+<span class='co'># }</span><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

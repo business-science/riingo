@@ -125,28 +125,30 @@ the <code>"min"</code>, <code>"hour"</code> or <code>"day"</code> frequencies si
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># The latest available day of intraday data for QQQ</span>
-<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 273 x 6
+<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 390 x 6
 #&gt;    ticker date                 open  high   low close
 #&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt;  1 QQQ    2018-04-05 13:30:00  161.  161.  161.  161.
-#&gt;  2 QQQ    2018-04-05 13:31:00  161.  161.  161.  161.
-#&gt;  3 QQQ    2018-04-05 13:32:00  161.  161.  161.  161.
-#&gt;  4 QQQ    2018-04-05 13:33:00  161.  161.  161.  161.
-#&gt;  5 QQQ    2018-04-05 13:34:00  161.  161.  161.  161.
-#&gt;  6 QQQ    2018-04-05 13:35:00  161.  161.  161.  161.
-#&gt;  7 QQQ    2018-04-05 13:36:00  161.  161.  161.  161.
-#&gt;  8 QQQ    2018-04-05 13:37:00  161.  161.  161.  161.
-#&gt;  9 QQQ    2018-04-05 13:38:00  161.  161.  161.  161.
-#&gt; 10 QQQ    2018-04-05 13:39:00  161.  161.  161.  161.
-#&gt; # ... with 263 more rows</div><div class='input'>
-<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>, <span class='st'>"1hour"</span>)</div><div class='output co'>#&gt; # A tibble: 5 x 6
+#&gt;  1 QQQ    2018-04-11 13:34:00  161.  161.  161.  161.
+#&gt;  2 QQQ    2018-04-11 13:35:00  161.  161.  161.  161.
+#&gt;  3 QQQ    2018-04-11 13:36:00  161.  161.  161.  161.
+#&gt;  4 QQQ    2018-04-11 13:37:00  161.  161.  161.  161.
+#&gt;  5 QQQ    2018-04-11 13:38:00  161.  161.  161.  161.
+#&gt;  6 QQQ    2018-04-11 13:39:00  161.  161.  161.  161.
+#&gt;  7 QQQ    2018-04-11 13:40:00  161.  161.  161.  161.
+#&gt;  8 QQQ    2018-04-11 13:41:00  161.  161.  161.  161.
+#&gt;  9 QQQ    2018-04-11 13:42:00  161.  161.  161.  161.
+#&gt; 10 QQQ    2018-04-11 13:43:00  161.  161.  161.  161.
+#&gt; # ... with 380 more rows</div><div class='input'>
+<span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>, <span class='st'>"1hour"</span>)</div><div class='output co'>#&gt; # A tibble: 7 x 6
 #&gt;   ticker date                 open  high   low close
 #&gt;   &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt; 1 QQQ    2018-04-05 14:00:00  161.  161.  160.  161.
-#&gt; 2 QQQ    2018-04-05 15:00:00  161.  162.  161.  161.
-#&gt; 3 QQQ    2018-04-05 16:00:00  161.  161.  160.  161.
-#&gt; 4 QQQ    2018-04-05 17:00:00  161.  161.  160.  160.
-#&gt; 5 QQQ    2018-04-05 18:00:00  160.  160.  160.  160.</div><div class='input'>
+#&gt; 1 QQQ    2018-04-11 14:00:00  161.  161.  160.  161.
+#&gt; 2 QQQ    2018-04-11 15:00:00  161.  162.  161.  161.
+#&gt; 3 QQQ    2018-04-11 16:00:00  161.  162.  161.  161.
+#&gt; 4 QQQ    2018-04-11 17:00:00  161.  161.  161.  161.
+#&gt; 5 QQQ    2018-04-11 18:00:00  161.  162.  161.  161.
+#&gt; 6 QQQ    2018-04-11 19:00:00  161.  161.  160.  160.
+#&gt; 7 QQQ    2018-04-11 20:00:00  160.  160.  160.  160.</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -1,6 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+[![Travis build
+status](https://travis-ci.org/business-science/riingo.svg?branch=master)](https://travis-ci.org/business-science/riingo)
+
 # riingo
 
 `riingo` allows you to access the Tiingo API for stock prices,
@@ -56,16 +59,16 @@ riingo_prices("AAPL")
 #> # A tibble: 251 x 14
 #>    ticker date                close  high   low  open   volume adjClose
 #>    <chr>  <dttm>              <dbl> <dbl> <dbl> <dbl>    <int>    <dbl>
-#>  1 AAPL   2017-04-05 00:00:00  144.  145.  144.  144. 27717854     142.
-#>  2 AAPL   2017-04-06 00:00:00  144.  145.  143.  144. 21149034     141.
-#>  3 AAPL   2017-04-07 00:00:00  143.  144.  143.  144. 16658543     141.
-#>  4 AAPL   2017-04-10 00:00:00  143.  144.  143.  144. 18933397     141.
-#>  5 AAPL   2017-04-11 00:00:00  142.  143.  140.  143. 30379376     139.
-#>  6 AAPL   2017-04-12 00:00:00  142.  142.  141.  142. 20350000     140.
-#>  7 AAPL   2017-04-13 00:00:00  141.  142.  141.  142. 17822880     139.
-#>  8 AAPL   2017-04-17 00:00:00  142.  142.  141.  141. 16582094     140.
-#>  9 AAPL   2017-04-18 00:00:00  141.  142.  141.  141. 14697544     139.
-#> 10 AAPL   2017-04-19 00:00:00  141.  142.  140.  142. 17328375     138.
+#>  1 AAPL   2017-04-11 00:00:00  142.  143.  140.  143. 30379376     139.
+#>  2 AAPL   2017-04-12 00:00:00  142.  142.  141.  142. 20350000     140.
+#>  3 AAPL   2017-04-13 00:00:00  141.  142.  141.  142. 17822880     139.
+#>  4 AAPL   2017-04-17 00:00:00  142.  142.  141.  141. 16582094     140.
+#>  5 AAPL   2017-04-18 00:00:00  141.  142.  141.  141. 14697544     139.
+#>  6 AAPL   2017-04-19 00:00:00  141.  142.  140.  142. 17328375     138.
+#>  7 AAPL   2017-04-20 00:00:00  142.  143.  141.  141. 23319562     140.
+#>  8 AAPL   2017-04-21 00:00:00  142.  143.  142.  142. 17320928     140.
+#>  9 AAPL   2017-04-24 00:00:00  144.  144.  143.  144. 17116599     141.
+#> 10 AAPL   2017-04-25 00:00:00  145.  145.  144.  144. 18216472     142.
 #> # ... with 241 more rows, and 6 more variables: adjHigh <dbl>,
 #> #   adjLow <dbl>, adjOpen <dbl>, adjVolume <int>, divCash <dbl>,
 #> #   splitFactor <dbl>
@@ -75,7 +78,7 @@ But of course you can try and get as much as is available…
 
 ``` r
 riingo_prices("AAPL", start_date = "1950-01-01")
-#> # A tibble: 9,407 x 14
+#> # A tibble: 9,411 x 14
 #>    ticker date                close  high   low  open  volume adjClose
 #>    <chr>  <dttm>              <dbl> <dbl> <dbl> <dbl>   <int>    <dbl>
 #>  1 AAPL   1980-12-12 00:00:00  28.8  28.9  28.8  28.8 2093900    0.419
@@ -88,7 +91,7 @@ riingo_prices("AAPL", start_date = "1950-01-01")
 #>  8 AAPL   1980-12-23 00:00:00  30.9  31.0  30.9  30.9  209600    0.451
 #>  9 AAPL   1980-12-24 00:00:00  32.5  32.6  32.5  32.5  214300    0.474
 #> 10 AAPL   1980-12-26 00:00:00  35.5  35.6  35.5  35.5  248100    0.518
-#> # ... with 9,397 more rows, and 6 more variables: adjHigh <dbl>,
+#> # ... with 9,401 more rows, and 6 more variables: adjHigh <dbl>,
 #> #   adjLow <dbl>, adjOpen <dbl>, adjVolume <int>, divCash <dbl>,
 #> #   splitFactor <dbl>
 ```
@@ -126,16 +129,16 @@ riingo_iex_prices("AAPL", resample_frequency = "1min")
 #> # A tibble: 2,000 x 6
 #>    ticker date                 open  high   low close
 #>    <chr>  <dttm>              <dbl> <dbl> <dbl> <dbl>
-#>  1 AAPL   2018-03-30 13:45:00  168.  168.  168.  168.
-#>  2 AAPL   2018-03-30 13:46:00  168.  168.  168.  168.
-#>  3 AAPL   2018-03-30 13:47:00  168.  168.  168.  168.
-#>  4 AAPL   2018-03-30 13:48:00  168.  168.  168.  168.
-#>  5 AAPL   2018-03-30 13:49:00  168.  168.  168.  168.
-#>  6 AAPL   2018-03-30 13:50:00  168.  168.  168.  168.
-#>  7 AAPL   2018-03-30 13:51:00  168.  168.  168.  168.
-#>  8 AAPL   2018-03-30 13:52:00  168.  168.  168.  168.
-#>  9 AAPL   2018-03-30 13:53:00  168.  168.  168.  168.
-#> 10 AAPL   2018-03-30 13:54:00  168.  168.  168.  168.
+#>  1 AAPL   2018-04-05 15:55:00  174.  174.  174.  174.
+#>  2 AAPL   2018-04-05 15:56:00  174.  174.  174.  174.
+#>  3 AAPL   2018-04-05 15:57:00  174.  174.  174.  174.
+#>  4 AAPL   2018-04-05 15:58:00  174.  174.  174.  174.
+#>  5 AAPL   2018-04-05 15:59:00  174.  174.  174.  174.
+#>  6 AAPL   2018-04-05 16:00:00  174.  174.  174.  174.
+#>  7 AAPL   2018-04-05 16:01:00  174.  174.  174.  174.
+#>  8 AAPL   2018-04-05 16:02:00  174.  174.  174.  174.
+#>  9 AAPL   2018-04-05 16:03:00  174.  174.  174.  174.
+#> 10 AAPL   2018-04-05 16:04:00  174.  174.  174.  174.
 #> # ... with 1,990 more rows
 ```
 
@@ -150,8 +153,8 @@ riingo_meta(c("AAPL", "QQQ"))
 #> # A tibble: 2 x 6
 #>   ticker name   startDate           description        endDate            
 #>   <chr>  <chr>  <dttm>              <chr>              <dttm>             
-#> 1 AAPL   Apple… 1980-12-12 00:00:00 Apple Inc. (Apple… 2018-04-04 00:00:00
-#> 2 QQQ    POWER… 1999-03-10 00:00:00 "PowerShares QQQ™… 2018-04-04 00:00:00
+#> 1 AAPL   Apple… 1980-12-12 00:00:00 Apple Inc. (Apple… 2018-04-10 00:00:00
+#> 2 QQQ    POWER… 1999-03-10 00:00:00 "PowerShares QQQ™… 2018-04-10 00:00:00
 #> # ... with 1 more variable: exchangeCode <chr>
 ```
 
@@ -167,7 +170,7 @@ is_supported_ticker("AAPL")
 
 tickers <- supported_tickers()
 tickers
-#> # A tibble: 64,809 x 6
+#> # A tibble: 64,992 x 6
 #>    ticker exchange assetType priceCurrency startDate          
 #>    <chr>  <chr>    <chr>     <chr>         <dttm>             
 #>  1 000001 SHE      Stock     CNY           2007-08-30 00:00:00
@@ -180,7 +183,7 @@ tickers
 #>  8 000009 SHE      Stock     CNY           2000-01-03 00:00:00
 #>  9 000010 SHE      Stock     CNY           2007-08-31 00:00:00
 #> 10 000011 SHE      Stock     CNY           2018-01-02 00:00:00
-#> # ... with 64,799 more rows, and 1 more variable: endDate <dttm>
+#> # ... with 64,982 more rows, and 1 more variable: endDate <dttm>
 ```
 
 # Quote data
@@ -197,8 +200,8 @@ riingo_iex_quote(c("AAPL", "QQQ"))
 #> # A tibble: 2 x 17
 #>   ticker  last askSize lastsaleTimeStamp   bidPrice volume
 #>   <chr>  <dbl>   <int> <dttm>                 <dbl>  <int>
-#> 1 AAPL    173.     100 2018-04-05 13:59:25     173.      0
-#> 2 QQQ     160.     100 2018-04-05 13:57:43     160.      0
+#> 1 AAPL    173.     100 2018-04-11 16:00:45     172.      0
+#> 2 QQQ     160.     400 2018-04-11 16:03:43     160.      0
 #> # ... with 11 more variables: quoteTimestamp <dttm>, tngoLast <dbl>,
 #> #   mid <dbl>, bidSize <int>, prevClose <dbl>, timestamp <dttm>,
 #> #   high <dbl>, lastSize <int>, askPrice <dbl>, open <dbl>, low <dbl>
@@ -212,7 +215,7 @@ much further than others.
 
 ``` r
 riingo_crypto_prices(c("btcusd", "btceur"))
-#> # A tibble: 479 x 10
+#> # A tibble: 485 x 11
 #>    ticker baseCurrency quoteCurrency date                  open   high
 #>    <chr>  <chr>        <chr>         <dttm>               <dbl>  <dbl>
 #>  1 btceur btc          eur           2017-12-14 00:00:00 13873. 14354.
@@ -225,8 +228,8 @@ riingo_crypto_prices(c("btcusd", "btceur"))
 #>  8 btceur btc          eur           2017-12-21 00:00:00 13855. 14912.
 #>  9 btceur btc          eur           2017-12-22 00:00:00 13314. 13562.
 #> 10 btceur btc          eur           2017-12-23 00:00:00 12702. 14465.
-#> # ... with 469 more rows, and 4 more variables: low <dbl>, close <dbl>,
-#> #   volume <dbl>, volumeNotional <dbl>
+#> # ... with 475 more rows, and 5 more variables: low <dbl>, close <dbl>,
+#> #   volume <dbl>, volumeNotional <dbl>, tradesDone <dbl>
 ```
 
 Intraday data is available as well. The intraday ranges are not well
@@ -239,21 +242,21 @@ time).
 
 ``` r
 riingo_crypto_prices("btcusd", start_date = Sys.Date() - 5, end_date = Sys.Date(), resample_frequency = "1min")
-#> # A tibble: 4,991 x 10
+#> # A tibble: 5,001 x 11
 #>    ticker baseCurrency quoteCurrency date                 open  high   low
 #>    <chr>  <chr>        <chr>         <dttm>              <dbl> <dbl> <dbl>
-#>  1 btcusd btc          usd           2018-03-31 00:00:00 6840. 6851. 6840.
-#>  2 btcusd btc          usd           2018-03-31 00:01:00 6854. 6857. 6850.
-#>  3 btcusd btc          usd           2018-03-31 00:02:00 6851. 6859. 6851.
-#>  4 btcusd btc          usd           2018-03-31 00:03:00 6859. 6861. 6857.
-#>  5 btcusd btc          usd           2018-03-31 00:04:00 6862. 6875. 6862.
-#>  6 btcusd btc          usd           2018-03-31 00:05:00 6875. 6891. 6875.
-#>  7 btcusd btc          usd           2018-03-31 00:06:00 6887. 6893. 6878.
-#>  8 btcusd btc          usd           2018-03-31 00:07:00 6887. 6891. 6887.
-#>  9 btcusd btc          usd           2018-03-31 00:08:00 6887. 6919. 6887.
-#> 10 btcusd btc          usd           2018-03-31 00:09:00 6921. 6966. 6921.
-#> # ... with 4,981 more rows, and 3 more variables: close <dbl>,
-#> #   volume <dbl>, volumeNotional <dbl>
+#>  1 btcusd btc          usd           2018-04-06 00:00:00 6771. 6782. 6770.
+#>  2 btcusd btc          usd           2018-04-06 00:01:00 6772. 6777. 6763.
+#>  3 btcusd btc          usd           2018-04-06 00:02:00 6775. 6778. 6766.
+#>  4 btcusd btc          usd           2018-04-06 00:03:00 6774. 6776. 6770.
+#>  5 btcusd btc          usd           2018-04-06 00:04:00 6774. 6785. 6772.
+#>  6 btcusd btc          usd           2018-04-06 00:05:00 6782. 6787. 6771.
+#>  7 btcusd btc          usd           2018-04-06 00:06:00 6775. 6788. 6772.
+#>  8 btcusd btc          usd           2018-04-06 00:07:00 6790. 6794. 6787.
+#>  9 btcusd btc          usd           2018-04-06 00:08:00 6793. 6797. 6790.
+#> 10 btcusd btc          usd           2018-04-06 00:09:00 6790. 6795. 6782.
+#> # ... with 4,991 more rows, and 4 more variables: close <dbl>,
+#> #   volume <dbl>, volumeNotional <dbl>, tradesDone <dbl>
 ```
 
 Also available are meta data with `riingo_crypto_meta()`, and TOP (top

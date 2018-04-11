@@ -154,16 +154,16 @@ frequency, all available data will be pulled so there is no need to use
 <span class='fu'>riingo_iex_prices</span>(<span class='st'>"AAPL"</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"1min"</span>)</div><div class='output co'>#&gt; # A tibble: 2,000 x 6
 #&gt;    ticker date                 open  high   low close
 #&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-#&gt;  1 AAPL   2018-03-30 13:46:00  168.  168.  168.  168.
-#&gt;  2 AAPL   2018-03-30 13:47:00  168.  168.  168.  168.
-#&gt;  3 AAPL   2018-03-30 13:48:00  168.  168.  168.  168.
-#&gt;  4 AAPL   2018-03-30 13:49:00  168.  168.  168.  168.
-#&gt;  5 AAPL   2018-03-30 13:50:00  168.  168.  168.  168.
-#&gt;  6 AAPL   2018-03-30 13:51:00  168.  168.  168.  168.
-#&gt;  7 AAPL   2018-03-30 13:52:00  168.  168.  168.  168.
-#&gt;  8 AAPL   2018-03-30 13:53:00  168.  168.  168.  168.
-#&gt;  9 AAPL   2018-03-30 13:54:00  168.  168.  168.  168.
-#&gt; 10 AAPL   2018-03-30 13:55:00  168.  168.  168.  168.
+#&gt;  1 AAPL   2018-04-05 15:55:00  174.  174.  174.  174.
+#&gt;  2 AAPL   2018-04-05 15:56:00  174.  174.  174.  174.
+#&gt;  3 AAPL   2018-04-05 15:57:00  174.  174.  174.  174.
+#&gt;  4 AAPL   2018-04-05 15:58:00  174.  174.  174.  174.
+#&gt;  5 AAPL   2018-04-05 15:59:00  174.  174.  174.  174.
+#&gt;  6 AAPL   2018-04-05 16:00:00  174.  174.  174.  174.
+#&gt;  7 AAPL   2018-04-05 16:01:00  174.  174.  174.  174.
+#&gt;  8 AAPL   2018-04-05 16:02:00  174.  174.  174.  174.
+#&gt;  9 AAPL   2018-04-05 16:03:00  174.  174.  174.  174.
+#&gt; 10 AAPL   2018-04-05 16:04:00  174.  174.  174.  174.
 #&gt; # ... with 1,990 more rows</div><div class='input'>
 # This would result in an error, as you are pulling outside the available range
 # riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")

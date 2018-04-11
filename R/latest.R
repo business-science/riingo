@@ -9,8 +9,12 @@
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # The latest available day of daily data for QQQ
 #' riingo_latest("QQQ")
+#'
+#' }
 #'
 #' @export
 #'
@@ -64,10 +68,14 @@ retrieve_latest_col_ordering <- function() {
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # The latest available day of intraday data for QQQ
 #' riingo_iex_latest("QQQ")
 #'
 #' riingo_iex_latest("QQQ", "1hour")
+#'
+#' }
 #'
 #' @export
 riingo_iex_latest <- function(ticker, resample_frequency = "1min") {
@@ -121,9 +129,13 @@ riingo_iex_latest_single <- function(ticker, resample_frequency = "1min") {
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # The latest available day of intraday data for QQQ
 #' riingo_crypto_latest("btcusd")
 #'
+#'
+#' }
 #'
 #' @export
 riingo_crypto_latest <- function(ticker, resample_frequency = "1min", base_currency = NULL,

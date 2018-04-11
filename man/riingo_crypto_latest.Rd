@@ -41,8 +41,12 @@ This returns only the most recent day of intraday data for the supplied ticker(s
 }
 \examples{
 
+\donttest{
+
 # The latest available day of intraday data for QQQ
 riingo_crypto_latest("btcusd")
 
+
+}
 
 }

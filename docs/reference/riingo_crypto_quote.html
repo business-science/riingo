@@ -74,6 +74,9 @@ Note that this cannot be historically queried." />
 <li>
   <a href="../reference/index.html">Function Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">News</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -95,7 +98,7 @@ Note that this cannot be historically queried." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Quote and Top of Book data for a given cryptocurrency</h1>
-    <small>Source: <a href='https:/github.com/DavisVaughan/riingo/blob/master/R/quote.R'><code>R/quote.R</code></a></small>
+    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/quote.R'><code>R/quote.R</code></a></small>
     </div>
 
     
@@ -143,29 +146,31 @@ and <code>lastSize</code> fields may be <code>NA</code>. This is normal.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
+</div><div class='input'>
 <span class='fu'>riingo_crypto_quote</span>(<span class='st'>"btcusd"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 15
 #&gt;   ticker baseCurrency quoteCurrency askSize bidExchange lastSaleTimestamp      
 #&gt;   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;                  
-#&gt; 1 btcusd btc          usd             0.500 GATECOIN    2018-04-11T20:20:43.19…
+#&gt; 1 btcusd btc          usd             0.500 GATECOIN    2018-04-11T21:01:10.32…
 #&gt; # ... with 9 more variables: lastSizeNotional &lt;dbl&gt;, bidPrice &lt;dbl&gt;,
 #&gt; #   quoteTimestamp &lt;chr&gt;, bidSize &lt;dbl&gt;, askExchange &lt;chr&gt;, lastPrice &lt;dbl&gt;,
 #&gt; #   lastSize &lt;dbl&gt;, askPrice &lt;dbl&gt;, lastExchange &lt;chr&gt;</div><div class='input'>
 <span class='co'># The raw data can provide more insight into each individual exchange</span>
 <span class='fu'>riingo_crypto_quote</span>(<span class='st'>"btcusd"</span>, <span class='kw'>raw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 10 x 12
-#&gt;    ticker baseCurrency quoteCurrency askSize bidPrice  bidSize lastPrice
-#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-#&gt;  1 btcusd btc          usd           3.00       7207. 0.0425       7205.
-#&gt;  2 btcusd btc          usd           0.662      6914. 1.27         6914.
-#&gt;  3 btcusd btc          usd           1.62       6894. 6.55         6894.
-#&gt;  4 btcusd btc          usd           0.0725     6899. 1.40         6903.
-#&gt;  5 btcusd btc          usd           0.160      6938. 0.00128      6896.
-#&gt;  6 btcusd btc          usd           6.12       6897. 0.000870     6902.
-#&gt;  7 btcusd btc          usd           0.00968    6901. 0.00941      6949.
-#&gt;  8 btcusd btc          usd           0.00203    6900. 9.43         6900.
-#&gt;  9 btcusd btc          usd           0.500      6949. 3.90         6899.
-#&gt; 10 btcusd btc          usd           2.35       6895. 0.214        6900.
+#&gt;    ticker baseCurrency quoteCurrency askSize bidPrice   bidSize lastPrice
+#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+#&gt;  1 btcusd btc          usd           3.00       7203.  2.97         7203.
+#&gt;  2 btcusd btc          usd           0.00348      NA  NA            6898.
+#&gt;  3 btcusd btc          usd           1.59       6884.  2.04         6884.
+#&gt;  4 btcusd btc          usd           0.442      6886.  0.846        6886.
+#&gt;  5 btcusd btc          usd           0.160      6938.  0.00128      6890.
+#&gt;  6 btcusd btc          usd           1.67       6896.  0.909        6896.
+#&gt;  7 btcusd btc          usd           0.1000     6893.  0.000272     6943.
+#&gt;  8 btcusd btc          usd           2.92       6883.  1.35         6890.
+#&gt;  9 btcusd btc          usd           0.500      6949.  3.90         6896.
+#&gt; 10 btcusd btc          usd           0.269      6888.  0.0646       6888.
 #&gt; # ... with 5 more variables: lastSize &lt;dbl&gt;, quoteTimestampStr &lt;dttm&gt;,
 #&gt; #   askPrice &lt;dbl&gt;, exchangeCode &lt;chr&gt;, lastSaleTimestampStr &lt;dttm&gt;</div><div class='input'>
+</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -16,7 +16,11 @@
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' riingo_iex_quote("QQQ")
+#'
+#' }
 #'
 #' @export
 riingo_iex_quote <- function(ticker) {
@@ -71,10 +75,14 @@ riingo_iex_quote_single <- function(ticker) {
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' riingo_crypto_quote("btcusd")
 #'
 #' # The raw data can provide more insight into each individual exchange
 #' riingo_crypto_quote("btcusd", raw = TRUE)
+#'
+#' }
 #'
 #' @export
 riingo_crypto_quote <- function(ticker, exchanges = NULL, convert_currency = NULL, raw = FALSE) {

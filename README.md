@@ -3,6 +3,10 @@
 
 [![Travis build
 status](https://travis-ci.org/business-science/riingo.svg?branch=master)](https://travis-ci.org/business-science/riingo)
+[![Coverage
+status](https://codecov.io/gh/business-science/riingo/branch/master/graph/badge.svg)](https://codecov.io/github/business-science/riingo?branch=master)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/riingo)](https://cran.r-project.org/package=riingo)
 
 # riingo
 
@@ -56,7 +60,7 @@ get 1 year’s worth of data.
 
 ``` r
 riingo_prices("AAPL")
-#> # A tibble: 251 x 14
+#> # A tibble: 252 x 14
 #>    ticker date                close  high   low  open   volume adjClose
 #>    <chr>  <dttm>              <dbl> <dbl> <dbl> <dbl>    <int>    <dbl>
 #>  1 AAPL   2017-04-11 00:00:00  142.  143.  140.  143. 30379376     139.
@@ -69,7 +73,7 @@ riingo_prices("AAPL")
 #>  8 AAPL   2017-04-21 00:00:00  142.  143.  142.  142. 17320928     140.
 #>  9 AAPL   2017-04-24 00:00:00  144.  144.  143.  144. 17116599     141.
 #> 10 AAPL   2017-04-25 00:00:00  145.  145.  144.  144. 18216472     142.
-#> # ... with 241 more rows, and 6 more variables: adjHigh <dbl>,
+#> # ... with 242 more rows, and 6 more variables: adjHigh <dbl>,
 #> #   adjLow <dbl>, adjOpen <dbl>, adjVolume <int>, divCash <dbl>,
 #> #   splitFactor <dbl>
 ```
@@ -78,7 +82,7 @@ But of course you can try and get as much as is available…
 
 ``` r
 riingo_prices("AAPL", start_date = "1950-01-01")
-#> # A tibble: 9,411 x 14
+#> # A tibble: 9,412 x 14
 #>    ticker date                close  high   low  open  volume adjClose
 #>    <chr>  <dttm>              <dbl> <dbl> <dbl> <dbl>   <int>    <dbl>
 #>  1 AAPL   1980-12-12 00:00:00  28.8  28.9  28.8  28.8 2093900    0.419
@@ -91,7 +95,7 @@ riingo_prices("AAPL", start_date = "1950-01-01")
 #>  8 AAPL   1980-12-23 00:00:00  30.9  31.0  30.9  30.9  209600    0.451
 #>  9 AAPL   1980-12-24 00:00:00  32.5  32.6  32.5  32.5  214300    0.474
 #> 10 AAPL   1980-12-26 00:00:00  35.5  35.6  35.5  35.5  248100    0.518
-#> # ... with 9,401 more rows, and 6 more variables: adjHigh <dbl>,
+#> # ... with 9,402 more rows, and 6 more variables: adjHigh <dbl>,
 #> #   adjLow <dbl>, adjOpen <dbl>, adjVolume <int>, divCash <dbl>,
 #> #   splitFactor <dbl>
 ```
@@ -129,16 +133,16 @@ riingo_iex_prices("AAPL", resample_frequency = "1min")
 #> # A tibble: 2,000 x 6
 #>    ticker date                 open  high   low close
 #>    <chr>  <dttm>              <dbl> <dbl> <dbl> <dbl>
-#>  1 AAPL   2018-04-05 15:55:00  174.  174.  174.  174.
-#>  2 AAPL   2018-04-05 15:56:00  174.  174.  174.  174.
-#>  3 AAPL   2018-04-05 15:57:00  174.  174.  174.  174.
-#>  4 AAPL   2018-04-05 15:58:00  174.  174.  174.  174.
-#>  5 AAPL   2018-04-05 15:59:00  174.  174.  174.  174.
-#>  6 AAPL   2018-04-05 16:00:00  174.  174.  174.  174.
-#>  7 AAPL   2018-04-05 16:01:00  174.  174.  174.  174.
-#>  8 AAPL   2018-04-05 16:02:00  174.  174.  174.  174.
-#>  9 AAPL   2018-04-05 16:03:00  174.  174.  174.  174.
-#> 10 AAPL   2018-04-05 16:04:00  174.  174.  174.  174.
+#>  1 AAPL   2018-04-05 16:26:00  173.  173.  173.  173.
+#>  2 AAPL   2018-04-05 16:27:00  173.  173.  173.  173.
+#>  3 AAPL   2018-04-05 16:28:00  173.  173.  173.  173.
+#>  4 AAPL   2018-04-05 16:29:00  173.  173.  173.  173.
+#>  5 AAPL   2018-04-05 16:30:00  173.  173.  173.  173.
+#>  6 AAPL   2018-04-05 16:31:00  174.  174.  173.  173.
+#>  7 AAPL   2018-04-05 16:32:00  173.  173.  173.  173.
+#>  8 AAPL   2018-04-05 16:33:00  173.  173.  173.  173.
+#>  9 AAPL   2018-04-05 16:34:00  173.  173.  173.  173.
+#> 10 AAPL   2018-04-05 16:35:00  173.  173.  173.  173.
 #> # ... with 1,990 more rows
 ```
 
@@ -153,7 +157,7 @@ riingo_meta(c("AAPL", "QQQ"))
 #> # A tibble: 2 x 6
 #>   ticker name   startDate           description        endDate            
 #>   <chr>  <chr>  <dttm>              <chr>              <dttm>             
-#> 1 AAPL   Apple… 1980-12-12 00:00:00 Apple Inc. (Apple… 2018-04-10 00:00:00
+#> 1 AAPL   Apple… 1980-12-12 00:00:00 Apple Inc. (Apple… 2018-04-11 00:00:00
 #> 2 QQQ    POWER… 1999-03-10 00:00:00 "PowerShares QQQ™… 2018-04-10 00:00:00
 #> # ... with 1 more variable: exchangeCode <chr>
 ```
@@ -200,8 +204,8 @@ riingo_iex_quote(c("AAPL", "QQQ"))
 #> # A tibble: 2 x 17
 #>   ticker  last askSize lastsaleTimeStamp   bidPrice volume
 #>   <chr>  <dbl>   <int> <dttm>                 <dbl>  <int>
-#> 1 AAPL    173.     100 2018-04-11 16:00:45     172.      0
-#> 2 QQQ     160.     400 2018-04-11 16:03:43     160.      0
+#> 1 AAPL    172.     150 2018-04-11 16:41:05     172.      0
+#> 2 QQQ     160.     400 2018-04-11 16:42:28     160.      0
 #> # ... with 11 more variables: quoteTimestamp <dttm>, tngoLast <dbl>,
 #> #   mid <dbl>, bidSize <int>, prevClose <dbl>, timestamp <dttm>,
 #> #   high <dbl>, lastSize <int>, askPrice <dbl>, open <dbl>, low <dbl>

@@ -16,8 +16,12 @@ exchange, and description of the ticker.
 }
 \examples{
 
+\donttest{
+
 riingo_meta("AAPL")
 
 riingo_meta("QQQ")
+
+}
 
 }

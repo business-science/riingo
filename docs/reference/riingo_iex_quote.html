@@ -75,6 +75,9 @@ queried." />
 <li>
   <a href="../reference/index.html">Function Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">News</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -96,7 +99,7 @@ queried." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Quote and Top of Book data for a given ticker</h1>
-    <small>Source: <a href='https:/github.com/DavisVaughan/riingo/blob/master/R/quote.R'><code>R/quote.R</code></a></small>
+    <small>Source: <a href='https:/github.com/business-science/riingo/blob/master/R/quote.R'><code>R/quote.R</code></a></small>
     </div>
 
     
@@ -125,13 +128,15 @@ and <code>lastSize</code> fields will be <code>NA</code>. This is normal.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
+</div><div class='input'>
 <span class='fu'>riingo_iex_quote</span>(<span class='st'>"QQQ"</span>)</div><div class='output co'>#&gt; # A tibble: 1 x 17
 #&gt;   ticker  last askSize lastsaleTimeStamp   bidPrice volume quoteTimestamp     
 #&gt;   &lt;chr&gt;  &lt;dbl&gt;   &lt;int&gt; &lt;dttm&gt;                 &lt;dbl&gt;  &lt;int&gt; &lt;dttm&gt;             
-#&gt; 1 QQQ     160.     400 2018-04-11 16:03:43     160.      0 2018-04-11 15:59:58
+#&gt; 1 QQQ     160.     400 2018-04-11 16:42:28     160.      0 2018-04-11 15:59:58
 #&gt; # ... with 10 more variables: tngoLast &lt;dbl&gt;, mid &lt;dbl&gt;, bidSize &lt;int&gt;,
 #&gt; #   prevClose &lt;dbl&gt;, timestamp &lt;dttm&gt;, high &lt;dbl&gt;, lastSize &lt;int&gt;,
 #&gt; #   askPrice &lt;dbl&gt;, open &lt;dbl&gt;, low &lt;dbl&gt;</div><div class='input'>
+</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

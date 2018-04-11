@@ -46,6 +46,8 @@
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # Downloading 1 year's worth of prices for AAPL
 #' riingo_prices("AAPL")
 #'
@@ -54,6 +56,8 @@
 #'
 #' # Monthly data
 #' riingo_prices(c("AAPL", "MSFT"), "1999-01-01", "2005-01-01", "monthly")
+#'
+#' }
 #'
 #' @export
 riingo_prices <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "daily") {
@@ -123,11 +127,15 @@ riingo_prices_single <- function(ticker, start_date = NULL, end_date = NULL, res
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # Pulling all available minute level data for Apple
 #' riingo_iex_prices("AAPL", resample_frequency = "1min")
 #'
 #' # This would result in an error, as you are pulling outside the available range
 #' # riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")
+#'
+#' }
 #'
 #' @export
 riingo_iex_prices <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {

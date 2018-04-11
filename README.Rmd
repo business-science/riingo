@@ -14,6 +14,9 @@ knitr::opts_chunk$set(
 ```
 
 [![Travis build status](https://travis-ci.org/business-science/riingo.svg?branch=master)](https://travis-ci.org/business-science/riingo)
+[![Coverage status](https://codecov.io/gh/business-science/riingo/branch/master/graph/badge.svg)](https://codecov.io/github/business-science/riingo?branch=master)
+[![CRAN status](https://www.r-pkg.org/badges/version/riingo)](https://cran.r-project.org/package=riingo)
+
 
 # riingo
 

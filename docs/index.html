@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>An R interface to the Tiingo stock price API • riingo</title>
+<title>An R Interface to the Tiingo Stock Price API • riingo</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="An R interface to the Tiingo stock price API">
+<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="An R Interface to the Tiingo Stock Price API">
 <meta property="og:description" content="Functionality to download stock prices, cryptocurrency data, and
    more from the Tiingo API.">
 <meta name="twitter:card" content="summary">
@@ -46,6 +46,9 @@
 </li>
 <li>
   <a href="reference/index.html">Function Reference</a>
+</li>
+<li>
+  <a href="news/index.html">News</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -105,7 +108,7 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(riingo)</a></code></pre></div>
 <p>Let’s grab some data with <code>riingo</code>. The default parameters attempt to get 1 year’s worth of data.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="st">"AAPL"</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 251 x 14</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 252 x 14</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;    ticker date                close  high   low  open   volume adjClose</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;int&gt;    &lt;dbl&gt;</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  1 AAPL   2017-04-11 00:00:00  142.  143.  140.  143. 30379376     139.</span></a>
@@ -118,12 +121,12 @@
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  8 AAPL   2017-04-21 00:00:00  142.  143.  142.  142. 17320928     140.</span></a>
 <a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  9 AAPL   2017-04-24 00:00:00  144.  144.  143.  144. 17116599     141.</span></a>
 <a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 10 AAPL   2017-04-25 00:00:00  145.  145.  144.  144. 18216472     142.</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; # ... with 241 more rows, and 6 more variables: adjHigh &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; # ... with 242 more rows, and 6 more variables: adjHigh &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; #   adjLow &lt;dbl&gt;, adjOpen &lt;dbl&gt;, adjVolume &lt;int&gt;, divCash &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; #   splitFactor &lt;dbl&gt;</span></a></code></pre></div>
 <p>But of course you can try and get as much as is available…</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="st">"AAPL"</span>, <span class="dt">start_date =</span> <span class="st">"1950-01-01"</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 9,411 x 14</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 9,412 x 14</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;    ticker date                close  high   low  open  volume adjClose</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt;    &lt;dbl&gt;</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;  1 AAPL   1980-12-12 00:00:00  28.8  28.9  28.8  28.8 2093900    0.419</span></a>
@@ -136,7 +139,7 @@
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  8 AAPL   1980-12-23 00:00:00  30.9  31.0  30.9  30.9  209600    0.451</span></a>
 <a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  9 AAPL   1980-12-24 00:00:00  32.5  32.6  32.5  32.5  214300    0.474</span></a>
 <a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 10 AAPL   1980-12-26 00:00:00  35.5  35.6  35.5  35.5  248100    0.518</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; # ... with 9,401 more rows, and 6 more variables: adjHigh &lt;dbl&gt;,</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; # ... with 9,402 more rows, and 6 more variables: adjHigh &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; #   adjLow &lt;dbl&gt;, adjOpen &lt;dbl&gt;, adjVolume &lt;int&gt;, divCash &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; #   splitFactor &lt;dbl&gt;</span></a></code></pre></div>
 <p>And multiple tickers work as well.</p>
@@ -166,16 +169,16 @@
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2,000 x 6</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;    ticker date                 open  high   low close</span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  1 AAPL   2018-04-05 15:55:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  2 AAPL   2018-04-05 15:56:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  3 AAPL   2018-04-05 15:57:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  4 AAPL   2018-04-05 15:58:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  5 AAPL   2018-04-05 15:59:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  6 AAPL   2018-04-05 16:00:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;  7 AAPL   2018-04-05 16:01:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;  8 AAPL   2018-04-05 16:02:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  9 AAPL   2018-04-05 16:03:00  174.  174.  174.  174.</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; 10 AAPL   2018-04-05 16:04:00  174.  174.  174.  174.</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  1 AAPL   2018-04-05 16:26:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  2 AAPL   2018-04-05 16:27:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  3 AAPL   2018-04-05 16:28:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  4 AAPL   2018-04-05 16:29:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  5 AAPL   2018-04-05 16:30:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  6 AAPL   2018-04-05 16:31:00  174.  174.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;  7 AAPL   2018-04-05 16:32:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;  8 AAPL   2018-04-05 16:33:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  9 AAPL   2018-04-05 16:34:00  173.  173.  173.  173.</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; 10 AAPL   2018-04-05 16:35:00  173.  173.  173.  173.</span></a>
 <a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt; # ... with 1,990 more rows</span></a></code></pre></div>
 <p>See the documentation for all of the restrictions.</p>
 </div>
@@ -187,7 +190,7 @@
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 6</span></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt;   ticker name   startDate           description        endDate            </span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;dttm&gt;              &lt;chr&gt;              &lt;dttm&gt;             </span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; 1 AAPL   Apple… 1980-12-12 00:00:00 Apple Inc. (Apple… 2018-04-10 00:00:00</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; 1 AAPL   Apple… 1980-12-12 00:00:00 Apple Inc. (Apple… 2018-04-11 00:00:00</span></a>
 <a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt; 2 QQQ    POWER… 1999-03-10 00:00:00 "PowerShares QQQ™… 2018-04-10 00:00:00</span></a>
 <a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt; # ... with 1 more variable: exchangeCode &lt;chr&gt;</span></a></code></pre></div>
 </div>
@@ -224,8 +227,8 @@
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">#&gt; # A tibble: 2 x 17</span></a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co">#&gt;   ticker  last askSize lastsaleTimeStamp   bidPrice volume</span></a>
 <a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;  &lt;dbl&gt;   &lt;int&gt; &lt;dttm&gt;                 &lt;dbl&gt;  &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 1 AAPL    172.     150 2018-04-11 16:05:01     172.      0</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; 2 QQQ     160.     400 2018-04-11 16:03:43     160.      0</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co">#&gt; 1 AAPL    172.     150 2018-04-11 16:41:05     172.      0</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">#&gt; 2 QQQ     160.     400 2018-04-11 16:42:28     160.      0</span></a>
 <a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; # ... with 11 more variables: quoteTimestamp &lt;dttm&gt;, tngoLast &lt;dbl&gt;,</span></a>
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">#&gt; #   mid &lt;dbl&gt;, bidSize &lt;int&gt;, prevClose &lt;dbl&gt;, timestamp &lt;dttm&gt;,</span></a>
 <a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; #   high &lt;dbl&gt;, lastSize &lt;int&gt;, askPrice &lt;dbl&gt;, open &lt;dbl&gt;, low &lt;dbl&gt;</span></a></code></pre></div>
@@ -277,9 +280,9 @@
     <h2 class="hasAnchor">
 <a href="#sidebar" class="anchor"></a>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/DavisVaughan/riingo">https://​github.com/​DavisVaughan/​riingo</a>
+<li>Browse source code at <br><a href="https://github.com/business-science/riingo">https://​github.com/​business-science/​riingo</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/DavisVaughan/riingo/issues">https://​github.com/​DavisVaughan/​riingo/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/business-science/riingo/issues">https://​github.com/​business-science/​riingo/​issues</a>
 </li>
 </ul>
 <h2>License</h2>
@@ -292,6 +295,8 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/business-science/riingo"><img src="https://travis-ci.org/business-science/riingo.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://codecov.io/github/business-science/riingo?branch=master"><img src="https://codecov.io/gh/business-science/riingo/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
+<li><a href="https://cran.r-project.org/package=riingo"><img src="https://www.r-pkg.org/badges/version/riingo" alt="CRAN status"></a></li>
 </ul>
 </div>
 

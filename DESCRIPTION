@@ -1,6 +1,6 @@
 Package: riingo
 Type: Package
-Title: An R interface to the Tiingo stock price API
+Title: An R Interface to the Tiingo Stock Price API
 Version: 0.1.0
 Authors@R: c(
     person("Davis", "Vaughan", email = "dvaughan@business-science.io", role = c("aut", "cre")),
@@ -28,4 +28,5 @@ Imports:
     purrr (>= 0.2.4)
 Suggests: 
     dplyr (>= 0.7.4),
-    testthat
+    testthat,
+    covr

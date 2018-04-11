@@ -21,14 +21,14 @@ supported_tickers(type = "tiingo")
 \examples{
 
 # VOO is supported on both Tiingo and IEX
-\dontrun{
+\donttest{
 is_supported_ticker("VOO")
 is_supported_ticker("VOO", type = "iex")
 }
 
 
 # PRHSX is a mutual fund that is supported by Tiingo but not IEX
-\dontrun{
+\donttest{
 is_supported_ticker("PRHSX")
 is_supported_ticker("PRHSX", type = "iex")
 }

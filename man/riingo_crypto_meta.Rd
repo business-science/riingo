@@ -16,11 +16,15 @@ and base currency.
 }
 \examples{
 
+\donttest{
+
 # Bitcoin meta
 riingo_crypto_meta("btcusd")
 
 # A trick to return ALL crypto meta data
 # For some reason Descriptions are not returned here
 riingo_crypto_meta("")
+
+}
 
 }

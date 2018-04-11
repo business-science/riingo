@@ -41,10 +41,14 @@ frequency, all available data will be pulled so there is no need to use
 }
 \examples{
 
+\donttest{
+
 # Pulling all available minute level data for Apple
 riingo_iex_prices("AAPL", resample_frequency = "1min")
 
 # This would result in an error, as you are pulling outside the available range
 # riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")
+
+}
 
 }

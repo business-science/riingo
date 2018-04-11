@@ -34,9 +34,13 @@ and \code{lastSize} fields may be \code{NA}. This is normal.
 }
 \examples{
 
+\donttest{
+
 riingo_crypto_quote("btcusd")
 
 # The raw data can provide more insight into each individual exchange
 riingo_crypto_quote("btcusd", raw = TRUE)
+
+}
 
 }

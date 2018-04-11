@@ -10,9 +10,13 @@
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' riingo_meta("AAPL")
 #'
 #' riingo_meta("QQQ")
+#'
+#' }
 #'
 #' @export
 riingo_meta <- function(ticker) {
@@ -61,12 +65,16 @@ riingo_meta_single <- function(ticker) {
 #'
 #' @examples
 #'
+#' \dontrun{
+#'
 #' # Bitcoin meta
 #' riingo_crypto_meta("btcusd")
 #'
 #' # A trick to return ALL crypto meta data
 #' # For some reason Descriptions are not returned here
 #' riingo_crypto_meta("")
+#'
+#' }
 #'
 riingo_crypto_meta <- function(ticker) {
   assert_x_inherits(ticker, "ticker", class = "character")

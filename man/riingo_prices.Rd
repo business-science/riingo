@@ -53,6 +53,8 @@ rolled forward to the Friday of that week.
 }
 \examples{
 
+\donttest{
+
 # Downloading 1 year's worth of prices for AAPL
 riingo_prices("AAPL")
 
@@ -61,5 +63,7 @@ riingo_prices(c("AAPL", "MSFT"), "1999-01-01", "2005-01-01")
 
 # Monthly data
 riingo_prices(c("AAPL", "MSFT"), "1999-01-01", "2005-01-01", "monthly")
+
+}
 
 }

@@ -48,6 +48,8 @@ Get cryptocurrency prices aggregated through Tiingo
 }
 \examples{
 
+\dontrun{
+
 # Bitcoin prices
 riingo_crypto_prices("btcusd")
 
@@ -62,5 +64,7 @@ riingo_crypto_prices("btcusd", raw = TRUE, exchanges = "POLONIEX")
 
 # All btc___ crypotcurrency pairs
 riingo_crypto_prices(base_currency = "btc")
+
+}
 
 }

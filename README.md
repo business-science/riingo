@@ -49,7 +49,7 @@ The easiest way to do this is with `usethis`.
 usethis::edit_r_environ()
 
 # Then add a line in the environment file that looks like:
-RIINGO_API = token_here
+RIINGO_TOKEN = token_here
 ```
 
 Do not put the token in quotes, and restart R after you have set it.

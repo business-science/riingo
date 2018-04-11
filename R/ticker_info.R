@@ -8,21 +8,20 @@
 #'
 #' @examples
 #'
-#' # VOO is supported on both Tiingo and IEX
 #' \dontrun{
+#'
+#' # VOO is supported on both Tiingo and IEX
 #' is_supported_ticker("VOO")
 #' is_supported_ticker("VOO", type = "iex")
-#' }
-#'
 #'
 #' # PRHSX is a mutual fund that is supported by Tiingo but not IEX
-#' \dontrun{
 #' is_supported_ticker("PRHSX")
 #' is_supported_ticker("PRHSX", type = "iex")
-#' }
 #'
 #' # BTCUSD is available
 #' is_supported_ticker("btcusd", type = "crypto")
+#'
+#' }
 #'
 #' @export
 #'

@@ -1,14 +1,14 @@
 Package: riingo
 Type: Package
-Title: An R Interface to the Tiingo Stock Price API
-Version: 0.1.0.9001
+Title: An R Interface to the 'Tiingo' Stock Price API
+Version: 0.1.0
 Authors@R: c(
     person("Davis", "Vaughan", email = "dvaughan@business-science.io", role = c("aut", "cre")),
     person("Matt", "Dancho", email = "mdancho@business-science.io", role = c("aut"))
   )
 Maintainer: Davis Vaughan <dvaughan@business-science.io>
 Description: Functionality to download stock prices, cryptocurrency data, and
-   more from the Tiingo API.
+   more from the 'Tiingo' API <https://api.tiingo.com/>.
 URL: https://github.com/business-science/riingo
 BugReports: https://github.com/business-science/riingo/issues
 License: MIT + file LICENSE

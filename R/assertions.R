@@ -32,7 +32,14 @@ assert_valid_response <- function(ticker, resp) {
 
   if(status != 200) {
     # only get the content() if there was a problem
-    server_error <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
+    resp_content <- httr::content(resp, as = "text", encoding = "UTF-8")
+    server_error <- tryCatch({
+      jsonlite::fromJSON(resp_content)
+    },
+    error = function(e) {
+      # See #4 riingo_iex_latest("BRK.A"), HTML returned as text, not parsable JSON
+      resp_content
+    })
   }
 
   if(status == 404) {

@@ -157,3 +157,9 @@ quote data with `riingo_crypto_quote()`.
 
 Lastly, you can extract raw (unaggregated) data feeds from multiple exchanges
 by using the `raw = TRUE` argument in the price and quote crypto function.
+
+# Related projects
+
+* [tiingo-python](https://github.com/hydrosquall/tiingo-python) - A Python client for interacting with the Tiingo API.
+
+* [quantmod](https://github.com/joshuaulrich/quantmod) - One of the data sources `quantmod` can pull from is Tiingo.

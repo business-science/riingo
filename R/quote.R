@@ -42,9 +42,6 @@ riingo_iex_quote_single <- function(ticker) {
   # Download
   json_content <- content_downloader(riingo_url, ticker)
 
-  # For quotes, they aren't returned as JSON arrays and they should be
-  json_content <- paste0("[", json_content, "]")
-
   # Parse
   cont_df <- jsonlite::fromJSON(json_content)
 

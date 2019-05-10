@@ -36,9 +36,42 @@ test_that("riingo prices - resample freq arg works", try_again(2, {
   expect_equal(nrow(prices), 3) # 3 months here
 }))
 
-test_that("riingo prices - fails gracefully on unknown ticker", try_again(2, {
+test_that("riingo prices - fails gracefully on single unknown ticker", try_again(2, {
   skip_if_no_auth()
-  expect_error(riingo_prices("badticker"), "Ticker 'BADTICKER' not found") # Tiingo msg is expected
+
+  expect_error(
+    expect_warning(
+      riingo_prices("badticker"),
+      "Ticker 'BADTICKER' not found"
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo prices - fails gracefully on multiple unknown tickers", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_prices(c("badticker", "badticker2")),
+      "Ticker 'BADTICKER2' not found"
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo prices - handles partial successes", try_again(2, {
+  skip_if_no_auth()
+
+  x <- expect_warning(
+    riingo_prices(c("badticker2", "AAPL", "badticker2")),
+    "Ticker 'BADTICKER2' not found"
+  )
+
+  expect_is(x, "tbl_df")
+  expect_equal(x$ticker[1], "AAPL")
 }))
 
 # ------------------------------------------------------------------------------

@@ -22,7 +22,18 @@
 riingo_meta <- function(ticker) {
   assert_x_inherits(ticker, "ticker", class = "character")
 
-  purrr::map_dfr(ticker, riingo_meta_single)
+  results <- purrr::map(ticker, riingo_meta_single_safely)
+
+  validate_not_all_null(results)
+
+  dplyr::bind_rows(results)
+}
+
+riingo_meta_single_safely <- function(ticker) {
+  riingo_single_safely(
+    .f = riingo_meta_single,
+    ticker = ticker
+  )
 }
 
 riingo_meta_single <- function(ticker) {

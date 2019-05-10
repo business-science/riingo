@@ -21,6 +21,43 @@ test_that("riingo meta - multiple tickers can be pulled", try_again(2, {
   expect_equal(nrow(meta), 2)
 }))
 
+test_that("riingo meta - fails gracefully on single unknown ticker", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_meta("badticker"),
+      "Not found."
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo meta - fails gracefully on multiple unknown tickers", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_meta(c("badticker", "badticker2")),
+      "Not found."
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo meta - handles partial successes", try_again(2, {
+  skip_if_no_auth()
+
+  x <- expect_warning(
+    riingo_meta(c("badticker2", "AAPL", "badticker2")),
+    "Not found."
+  )
+
+  expect_is(x, "tbl_df")
+  expect_equal(x$ticker[1], "AAPL")
+}))
 
 # ------------------------------------------------------------------------------
 # IEX

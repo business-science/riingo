@@ -76,3 +76,41 @@ test_that("riingo crypto meta - can be pulled", try_again(2, {
   expect_equal(ncol(meta), 5) # structurally should have this many cols
   expect_equal(nrow(meta), 1)
 }))
+
+test_that("riingo crypto meta - fails gracefully on single unknown ticker", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_crypto_meta("badticker"),
+      "no content was returned"
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo crypto meta - fails gracefully on multiple unknown tickers", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_crypto_meta(c("badticker", "badticker2")),
+      "no content was returned"
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo crypto meta - handles partial successes", try_again(2, {
+  skip_if_no_auth()
+
+  x <- expect_warning(
+    riingo_crypto_meta(c("badticker2", "btcusd", "badticker2")),
+    "no content was returned"
+  )
+
+  expect_is(x, "tbl_df")
+  expect_equal(x$ticker[1], "btcusd")
+}))

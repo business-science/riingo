@@ -90,7 +90,18 @@ riingo_meta_single <- function(ticker) {
 riingo_crypto_meta <- function(ticker) {
   assert_x_inherits(ticker, "ticker", class = "character")
 
-  purrr::map_dfr(ticker, riingo_crypto_meta_single)
+  results <- purrr::map(ticker, riingo_crypto_meta_single_safely)
+
+  validate_not_all_null(results)
+
+  dplyr::bind_rows(results)
+}
+
+riingo_crypto_meta_single_safely <- function(ticker) {
+  riingo_single_safely(
+    .f = riingo_crypto_meta_single,
+    ticker = ticker
+  )
 }
 
 # Only one at a time

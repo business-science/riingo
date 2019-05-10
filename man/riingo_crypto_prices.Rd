@@ -5,8 +5,8 @@
 \title{Get cryptocurrency prices aggregated through Tiingo}
 \usage{
 riingo_crypto_prices(ticker, start_date = NULL, end_date = NULL,
-  resample_frequency = "1day", base_currency = NULL, exchanges = NULL,
-  convert_currency = NULL, raw = FALSE)
+  resample_frequency = "1day", base_currency = NULL,
+  exchanges = NULL, convert_currency = NULL, raw = FALSE)
 }
 \arguments{
 \item{ticker}{One or more cryptocurrency tickers.

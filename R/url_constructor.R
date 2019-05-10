@@ -100,7 +100,7 @@ as_http_parameter_string <- function(..., type) {
   # Remove any params that were NULL and should use Tiingo defaults
   http_params <- http_params[which(http_params != "")]
 
-  glue::collapse(http_params, sep = "&", last = "")
+  glue::glue_collapse(http_params, sep = "&", last = "")
 }
 
 

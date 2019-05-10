@@ -12,7 +12,7 @@ assert_x_is_length <- function(x, x_name, length) {
 assert_x_inherits <- function(x, x_name, class) {
   has_class <- inherits(x, class)
   if(!has_class) {
-    classes <- glue::collapse(green(class(x)), ", ")
+    classes <- glue::glue_collapse(green(class(x)), ", ")
     correct_class <- yellow(class)
     glue_stop("{x_name} must be {correct_class}. You have passed in a: {classes}")
   }
@@ -21,8 +21,8 @@ assert_x_inherits <- function(x, x_name, class) {
 assert_x_inherits_one_of <- function(x, x_name, classes) {
   has_one_of_classes <- any(class(x) %in% classes)
   if(!has_one_of_classes) {
-    x_classes <- glue::collapse(green(class(x)), ", ")
-    correct_classes <- glue::collapse(yellow(classes), ", ",  last = ", or ")
+    x_classes <- glue::glue_collapse(green(class(x)), ", ")
+    correct_classes <- glue::glue_collapse(yellow(classes), ", ",  last = ", or ")
     glue_stop("{x_name} must be {correct_classes}. You have passed in a: {x_classes}")
   }
 }
@@ -85,7 +85,7 @@ assert_resample_freq_is_granular <- function(resample_frequency) {
   is_valid_freq <- resample_frequency %in% valid_freq
   if(!is_valid_freq) {
     user_freq <- green(resample_frequency)
-    correct_freq <- glue::collapse(yellow(valid_freq), ", ", last = ", or ")
+    correct_freq <- glue::glue_collapse(yellow(valid_freq), ", ", last = ", or ")
     glue_stop("resample_frequency must be {correct_freq}. You have passed in: {user_freq}")
   }
 }
@@ -96,8 +96,8 @@ assert_resample_freq_is_fine <- function(resample_frequency) {
 
   if(!has_valid_base) {
     user_freq <- green(resample_frequency)
-    correct_base <- glue::collapse(yellow(valid_base), ", or ")
-    correct_freq <- glue::collapse(yellow(c("1min", "5min", "1hour")), ", ", last = ", or ")
+    correct_base <- glue::glue_collapse(yellow(valid_base), ", or ")
+    correct_freq <- glue::glue_collapse(yellow(c("1min", "5min", "1hour")), ", ", last = ", or ")
     glue_stop("resample_frequency is only valid for {correct_base}, and must be formatted similar to {correct_freq}. ",
               "You have passed in: {user_freq}.")
   }
@@ -109,8 +109,8 @@ assert_resample_freq_is_crypto <- function(resample_frequency) {
 
   if(!has_valid_base) {
     user_freq <- green(resample_frequency)
-    correct_base <- glue::collapse(yellow(valid_base), ", or ")
-    correct_freq <- glue::collapse(yellow(c("1min", "5min", "1hour", "2day")), ", ", last = ", or ")
+    correct_base <- glue::glue_collapse(yellow(valid_base), ", or ")
+    correct_freq <- glue::glue_collapse(yellow(c("1min", "5min", "1hour", "2day")), ", ", last = ", or ")
     glue_stop("resample_frequency is only valid for {correct_base}, and must be formatted similar to {correct_freq}. ",
               "You have passed in: {user_freq}.")
   }

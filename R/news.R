@@ -13,9 +13,9 @@
 #   assert_x_inherits(offset, "offset", "numeric")
 #
 #   # Collapse vector of characters to single character
-#   ticker <- glue::collapse(ticker, ",")
-#   if(length(tags) > 1L)   tags   <- glue::collapse(tags, ",")
-#   if(length(source) > 1L) source <- glue::collapse(source, ",")
+#   ticker <- glue::glue_collapse(ticker, ",")
+#   if(length(tags) > 1L)   tags   <- glue::glue_collapse(tags, ",")
+#   if(length(source) > 1L) source <- glue::glue_collapse(source, ",")
 #
 #   # Construct url
 #   riingo_url <- construct_url(

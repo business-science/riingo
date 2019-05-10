@@ -93,7 +93,7 @@ riingo_crypto_quote <- function(ticker, exchanges = NULL, convert_currency = NUL
   endpoint <- "quote"
 
   # For crypto, tickers are passed as a comma separated parameter
-  ticker <- glue::collapse(ticker, ",")
+  ticker <- glue::glue_collapse(ticker, ",")
 
   # URL construction
   riingo_url <- construct_url(

@@ -261,7 +261,7 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
   endpoint <- "prices"
 
   # For crypto, tickers are passed as a comma separated parameter
-  ticker <- glue::collapse(ticker, ",")
+  ticker <- glue::glue_collapse(ticker, ",")
 
   # URL construction
   riingo_url <- construct_url(

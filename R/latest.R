@@ -21,7 +21,18 @@
 riingo_latest <- function(ticker) {
   assert_x_inherits(ticker, "ticker", class = "character")
 
-  purrr::map_dfr(ticker, riingo_latest_single)
+  results <- purrr::map(ticker, riingo_latest_single_safely)
+
+  validate_not_all_null(results)
+
+  dplyr::bind_rows(results)
+}
+
+riingo_latest_single_safely <- function(ticker) {
+  riingo_single_safely(
+    .f = riingo_latest_single,
+    ticker = ticker
+  )
 }
 
 riingo_latest_single <- function(ticker) {

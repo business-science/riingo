@@ -156,14 +156,27 @@ riingo_iex_prices <- function(ticker, start_date = NULL, end_date = NULL, resamp
   assert_valid_argument_inheritance(ticker, start_date, end_date, resample_frequency)
   assert_resample_freq_is_fine(resample_frequency)
 
-  purrr::map_dfr(
+  results <- purrr::map(
     .x = ticker,
-    .f = riingo_iex_prices_single,
+    .f = riingo_iex_prices_single_safely,
     start_date = start_date,
     end_date = end_date,
     resample_frequency = resample_frequency
   )
 
+  validate_not_all_null(results)
+
+  dplyr::bind_rows(results)
+}
+
+riingo_iex_prices_single_safely <- function(ticker, start_date, end_date, resample_frequency) {
+  riingo_single_safely(
+    .f = riingo_iex_prices_single,
+    ticker = ticker,
+    start_date = start_date,
+    end_date = end_date,
+    resample_frequency = resample_frequency
+  )
 }
 
 riingo_iex_prices_single <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {

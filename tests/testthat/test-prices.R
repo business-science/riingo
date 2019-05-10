@@ -119,6 +119,45 @@ test_that("riingo iex prices - fails gracefully on unknown ticker", try_again(2,
   expect_error(riingo_iex_prices("badticker"), "Not found.") # Tiingo msg is expected
 }))
 
+test_that("riingo iex prices - fails gracefully on single unknown ticker", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_iex_prices("badticker"),
+      "Not found."
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo iex prices - fails gracefully on multiple unknown tickers", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_iex_prices(c("badticker", "badticker2")),
+      "Not found."
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("riingo iex prices - handles partial successes", try_again(2, {
+  skip_if_no_auth()
+
+  x <- expect_warning(
+    riingo_iex_prices(c("badticker2", "AAPL", "badticker2")),
+    "Not found."
+  )
+
+  expect_is(x, "tbl_df")
+  expect_equal(x$ticker[1], "AAPL")
+  expect_equal(ncol(x), 6)
+}))
+
 # ------------------------------------------------------------------------------
 # Crypto
 

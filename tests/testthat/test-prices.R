@@ -114,11 +114,6 @@ test_that("riingo iex prices - resample freq arg works", try_again(2, {
   expect_equal(min_diff, 1)
 }))
 
-test_that("riingo iex prices - fails gracefully on unknown ticker", try_again(2, {
-  skip_if_no_auth()
-  expect_error(riingo_iex_prices("badticker"), "Not found.") # Tiingo msg is expected
-}))
-
 test_that("riingo iex prices - fails gracefully on single unknown ticker", try_again(2, {
   skip_if_no_auth()
 

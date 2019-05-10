@@ -16,6 +16,7 @@ test_that("latest riingo prices - can be pulled", try_again(2, {
 
 test_that("latest riingo iex prices - can be pulled", try_again(2, {
   skip_if_no_auth()
+  skip_if_maybe_closed()
 
   prices <- riingo_iex_latest("AAPL")
 
@@ -25,6 +26,7 @@ test_that("latest riingo iex prices - can be pulled", try_again(2, {
 
 test_that("latest riingo iex prices - resample freq arg works", try_again(2, {
   skip_if_no_auth()
+  skip_if_maybe_closed()
   prices <- riingo_iex_latest("AAPL", resample_frequency = "5min")
 
   min_diff <- as.numeric(min(diff(prices$date))) # should be 5 if 5minute data

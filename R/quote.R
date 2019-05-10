@@ -26,7 +26,18 @@
 riingo_iex_quote <- function(ticker) {
   assert_x_inherits(ticker, "ticker", class = "character")
 
-  purrr::map_dfr(ticker, riingo_iex_quote_single)
+  results <- purrr::map(ticker, riingo_iex_quote_single_safely)
+
+  validate_not_all_null(results)
+
+  dplyr::bind_rows(results)
+}
+
+riingo_iex_quote_single_safely <- function(ticker) {
+  riingo_single_safely(
+    .f = riingo_iex_quote_single,
+    ticker = ticker
+  )
 }
 
 riingo_iex_quote_single <- function(ticker) {

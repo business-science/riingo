@@ -34,6 +34,45 @@ test_that("latest riingo iex prices - resample freq arg works", try_again(2, {
   expect_equal(min_diff, 5)
 }))
 
+test_that("latest riingo iex prices - fails gracefully on single unknown ticker", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_iex_latest("badticker"),
+      "Not found."
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("latest riingo iex prices - fails gracefully on multiple unknown tickers", try_again(2, {
+  skip_if_no_auth()
+
+  expect_error(
+    expect_warning(
+      riingo_iex_latest(c("badticker", "badticker2")),
+      "Not found."
+    ),
+    "All tickers failed to download any data"
+  )
+
+}))
+
+test_that("latest riingo iex prices - handles partial successes", try_again(2, {
+  skip_if_no_auth()
+
+  x <- expect_warning(
+    riingo_iex_latest(c("badticker2", "AAPL", "badticker2")),
+    "Not found."
+  )
+
+  expect_is(x, "tbl_df")
+  expect_equal(x$ticker[1], "AAPL")
+  expect_equal(ncol(x), 6)
+}))
+
 # ------------------------------------------------------------------------------
 # Crypto
 

@@ -21,7 +21,18 @@
 riingo_latest <- function(ticker) {
   assert_x_inherits(ticker, "ticker", class = "character")
 
-  purrr::map_dfr(ticker, riingo_latest_single)
+  results <- purrr::map(ticker, riingo_latest_single_safely)
+
+  validate_not_all_null(results)
+
+  dplyr::bind_rows(results)
+}
+
+riingo_latest_single_safely <- function(ticker) {
+  riingo_single_safely(
+    .f = riingo_latest_single,
+    ticker = ticker
+  )
 }
 
 riingo_latest_single <- function(ticker) {
@@ -83,15 +94,26 @@ riingo_iex_latest <- function(ticker, resample_frequency = "1min") {
   assert_x_inherits(resample_frequency, "resample_frequency", class = "character")
   assert_resample_freq_is_fine(resample_frequency)
 
-  purrr::map_dfr(
+  results <- purrr::map(
     .x = ticker,
+    .f = riingo_iex_latest_single_safely,
+    resample_frequency = resample_frequency
+  )
+
+  validate_not_all_null(results)
+
+  dplyr::bind_rows(results)
+}
+
+riingo_iex_latest_single_safely <- function(ticker, resample_frequency) {
+  riingo_single_safely(
     .f = riingo_iex_latest_single,
+    ticker = ticker,
     resample_frequency = resample_frequency
   )
 }
 
-
-riingo_iex_latest_single <- function(ticker, resample_frequency = "1min") {
+riingo_iex_latest_single <- function(ticker, resample_frequency) {
 
   type <- "iex"
   endpoint <- "latest"

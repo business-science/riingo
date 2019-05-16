@@ -1,7 +1,7 @@
 Package: riingo
 Type: Package
 Title: An R Interface to the 'Tiingo' Stock Price API
-Version: 0.2.0
+Version: 0.2.0.9000
 Authors@R: c(
     person("Davis", "Vaughan", email = "davis@rstudio.com", role = c("aut", "cre")),
     person("Matt", "Dancho", email = "mdancho@business-science.io", role = c("aut"))

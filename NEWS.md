@@ -1,3 +1,5 @@
+# riingo (development version)
+
 # riingo 0.2.0
 
 * All functions are now robust against partial successes with multiple tickers, 

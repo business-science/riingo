@@ -158,6 +158,19 @@ quote data with `riingo_crypto_quote()`.
 Lastly, you can extract raw (unaggregated) data feeds from multiple exchanges
 by using the `raw = TRUE` argument in the price and quote crypto function.
 
+# News Data
+
+The Tiingo news feed can be accessed via the `riingo_news()` function. 
+
+This function is only available for those who have a paid Power plan with Tiingo.
+
+```{r}
+riingo_news(ticker='AAPL', start_date = Sys.Date() - 5, end_date = Sys.Date(), limit=100)
+```
+
+
+
+
 # Related projects
 
 * [tiingo-python](https://github.com/hydrosquall/tiingo-python) - A Python client for interacting with the Tiingo API.

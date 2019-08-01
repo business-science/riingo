@@ -9,7 +9,7 @@ riingo_news(ticker = NULL, start_date = NULL, end_date = NULL,
 }
 \arguments{
 \item{ticker}{One or more tickers to download data for from Tiingo. Can be a
-stock, mutual fund, or ETF. A character vector. If this parameter is left null, news sources that meet all other parameters returned}
+stock, mutual fund, or ETF. A character vector.}
 
 \item{start_date}{The first date to download data for.
 A character in the form YYYY-MM-DD, or a \code{Date} variable.}
@@ -19,11 +19,11 @@ A character in the form YYYY-MM-DD, or a \code{Date} variable.}
 
 \item{tags}{Tags Requested. A character vector.}
 
-\item{source}{Requested news source URL (e.g. bloomberg.com, seekingalpha.com).}
+\item{source}{Requested news source URL (e.g. bloomberg.com, seekingalpha.com). A character vector.}
 
 \item{limit}{The maximum number of articles to be retrieved. The default is 100, the maxiumum is 1,000.}
 
-\item{offset}{Pagination. Can potentially speed up queries, does not affect R output}
+\item{offset}{Pagination. Can potentially speed up queries, does not effect R output type.}
 }
 \description{
 Get Tiingo news feed for a single or series of tickers

@@ -6,18 +6,19 @@
 #'
 #'
 #' @param ticker One or more tickers to download data for from Tiingo. Can be a
-#' stock, mutual fund, or ETF. A character vector. If this parameter is left null, news sources that meet all other parameters returned
+#' stock, mutual fund, or ETF. A character vector.
 #' @param start_date The first date to download data for.
 #' A character in the form YYYY-MM-DD, or a `Date` variable.
 #' @param end_date The last date to download data for.
 #' A character in the form YYYY-MM-DD, or a `Date` variable.
 #' @param tags Tags Requested. A character vector.
-#' @param source Requested news source URL (e.g. bloomberg.com, seekingalpha.com).
+#' @param source Requested news source URL (e.g. bloomberg.com, seekingalpha.com). A character vector.
 #' @param limit The maximum number of articles to be retrieved. The default is 100, the maxiumum is 1,000.
-#' @param offset Pagination. Can potentially speed up queries, does not affect R output
+#' @param offset Pagination. Can potentially speed up queries, does not effect R output type.
 #'
 #' @details
 #' Returns a data frame of news articles, descriptions, urls, sources
+#'
 #'
 #' @examples
 #'

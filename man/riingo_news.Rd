@@ -28,6 +28,9 @@ A character in the form YYYY-MM-DD, or a \code{Date} variable.}
 \description{
 Get Tiingo news feed for a single or series of tickers
 }
+\details{
+Returns a list of news sources
+}
 \examples{
 
 \dontrun{

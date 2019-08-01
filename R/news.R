@@ -17,7 +17,8 @@
 #' @param offset Pagination variable used alongside limit. Returns an array wih the results shifted by this parameter
 #'
 #' @details
-#
+#' Returns a list of news sources
+#'
 #' @examples
 #'
 #' \dontrun{

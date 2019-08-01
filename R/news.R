@@ -17,15 +17,12 @@
 #' @param offset Pagination variable used alongside limit. Returns an array wih the results shifted by this parameter
 #'
 #' @details
-#'
-#' At the end of the day, the `mid`, `askPrice`, `bidSize`, `bidPrice`, `askSize`,
-#' and `lastSize` fields will be `NA`. This is normal.
-#'
+#
 #' @examples
 #'
 #' \dontrun{
 #'
-#' riingo_iex_quote("QQQ")
+#' riingo_news("QQQ")
 #'
 #' }
 #'

@@ -1,3 +1,36 @@
+# ------------------------------------------------------------------------------
+# Tiingo News
+
+#' Get Tiingo news feed for a single or series of tickers
+#'
+#'
+#'
+#' @param ticker One or more tickers to download data for from Tiingo. Can be a
+#' stock, mutual fund, or ETF. A character vector.
+#' @param start_date The first date to download data for.
+#' A character in the form YYYY-MM-DD, or a `Date` variable.
+#' @param end_date The last date to download data for.
+#' A character in the form YYYY-MM-DD, or a `Date` variable.
+#' @param tags Tags Requested. A character vector
+#' @param source Requested news source URL.
+#' @param limit The maximum number of articles to be retrieved. The default is 100, the maxiumum is 1,000
+#' @param offset Pagination variable used alongside limit. Returns an array wih the results shifted by this parameter
+#'
+#' @details
+#'
+#' At the end of the day, the `mid`, `askPrice`, `bidSize`, `bidPrice`, `askSize`,
+#' and `lastSize` fields will be `NA`. This is normal.
+#'
+#' @examples
+#'
+#' \dontrun{
+#'
+#' riingo_iex_quote("QQQ")
+#'
+#' }
+#'
+#' @export
+
 riingo_news <- function(ticker, start_date = NULL, end_date = NULL, tags = NULL, source = NULL, limit = 100, offset = 0) {
 
    type <- "tiingo"

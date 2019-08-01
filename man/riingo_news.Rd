@@ -4,8 +4,8 @@
 \alias{riingo_news}
 \title{Get Tiingo news feed for a single or series of tickers}
 \usage{
-riingo_news(ticker, start_date = NULL, end_date = NULL, tags = NULL,
-  source = NULL, limit = 100, offset = 0)
+riingo_news(ticker = NULL, start_date = NULL, end_date = NULL,
+  tags = NULL, source = NULL, limit = 100, offset = 0)
 }
 \arguments{
 \item{ticker}{One or more tickers to download data for from Tiingo. Can be a
@@ -17,13 +17,13 @@ A character in the form YYYY-MM-DD, or a \code{Date} variable.}
 \item{end_date}{The last date to download data for.
 A character in the form YYYY-MM-DD, or a \code{Date} variable.}
 
-\item{tags}{Tags Requested. A character vector}
+\item{tags}{Tags Requested. A character vector.}
 
-\item{source}{Requested news source URL.}
+\item{source}{Requested news source URL (e.g. bloomberg.com, seekingalpha.com).}
 
-\item{limit}{The maximum number of articles to be retrieved. The default is 100, the maxiumum is 1,000}
+\item{limit}{The maximum number of articles to be retrieved. The default is 100, the maxiumum is 1,000.}
 
-\item{offset}{Pagination variable used alongside limit. Returns an array wih the results shifted by this parameter}
+\item{offset}{Pagination. Can potentially speed up queries, does not affect R output}
 }
 \description{
 Get Tiingo news feed for a single or series of tickers
@@ -35,7 +35,9 @@ Returns a list of news sources
 
 \dontrun{
 
-riingo_news("QQQ")
+riingo_news(ticker="QQQ", start_date=Sys.Date()-7, end_date=Sys.Date(), limit=100)
+riingo_news(ticker="QQQ", start_date=Sys.Date()-7, end_date=Sys.Date(), source='bloomberg.com', limit=100)
+riingo_news(ticker="QQQ", start_date=Sys.Date()-7, end_date=Sys.Date(), tags='Earnings', limit=100)
 
 }
 

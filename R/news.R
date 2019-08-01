@@ -11,10 +11,10 @@
 #' A character in the form YYYY-MM-DD, or a `Date` variable.
 #' @param end_date The last date to download data for.
 #' A character in the form YYYY-MM-DD, or a `Date` variable.
-#' @param tags Tags Requested. A character vector
-#' @param source Requested news source URL.
-#' @param limit The maximum number of articles to be retrieved. The default is 100, the maxiumum is 1,000
-#' @param offset Pagination variable used alongside limit. Returns an array wih the results shifted by this parameter
+#' @param tags Tags Requested. A character vector.
+#' @param source Requested news source URL (e.g. bloomberg.com, seekingalpha.com).
+#' @param limit The maximum number of articles to be retrieved. The default is 100, the maxiumum is 1,000.
+#' @param offset Pagination. Can potentially speed up queries, does not affect R output
 #'
 #' @details
 #' Returns a list of news sources
@@ -23,20 +23,22 @@
 #'
 #' \dontrun{
 #'
-#' riingo_news("QQQ")
+#' riingo_news(ticker="QQQ", start_date=Sys.Date()-7, end_date=Sys.Date(), limit=100)
+#' riingo_news(ticker="QQQ", start_date=Sys.Date()-7, end_date=Sys.Date(), source='bloomberg.com', limit=100)
+#' riingo_news(ticker="QQQ", start_date=Sys.Date()-7, end_date=Sys.Date(), tags='Earnings', limit=100)
 #'
 #' }
 #'
 #' @export
 
-riingo_news <- function(ticker, start_date = NULL, end_date = NULL, tags = NULL, source = NULL, limit = 100, offset = 0) {
+riingo_news <- function(ticker=NULL, start_date = NULL, end_date = NULL, tags = NULL, source = NULL, limit = 100, offset = 0) {
 
    type <- "tiingo"
    endpoint <- "news"
 
 # Assertions
    assert_x_inherits(ticker, "ticker", class = "character")
-  assert_x_inherits_one_of(start_date, "start_date", c("NULL", "character", "Date", "POSIXct"))
+   assert_x_inherits_one_of(start_date, "start_date", c("NULL", "character", "Date", "POSIXct"))
    assert_x_inherits_one_of(end_date, "end_date", c("NULL", "character", "Date", "POSIXct"))
    assert_x_inherits_one_of(tags, "tags", c("NULL", "character"))
    assert_x_inherits_one_of(source, "source", c("NULL", "character"))

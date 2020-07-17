@@ -13,10 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Travis build status](https://travis-ci.org/business-science/riingo.svg?branch=master)](https://travis-ci.org/business-science/riingo)
-[![Coverage status](https://codecov.io/gh/business-science/riingo/branch/master/graph/badge.svg)](https://codecov.io/github/business-science/riingo?branch=master)
+<!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/riingo)](https://cran.r-project.org/package=riingo)
-
+[![Codecov test coverage](https://codecov.io/gh/business-science/riingo/branch/master/graph/badge.svg)](https://codecov.io/gh/business-science/riingo?branch=master)
+[![R build status](https://github.com/business-science/riingo/workflows/R-CMD-check/badge.svg)](https://github.com/business-science/riingo/actions)
+<!-- badges: end -->
 
 # riingo
 

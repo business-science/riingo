@@ -1,21 +1,23 @@
-Package: riingo
 Type: Package
+Package: riingo
 Title: An R Interface to the 'Tiingo' Stock Price API
 Version: 0.2.0.9000
-Authors@R: c(
-    person("Davis", "Vaughan", email = "davis@rstudio.com", role = c("aut", "cre")),
-    person("Matt", "Dancho", email = "mdancho@business-science.io", role = c("aut"))
-  )
+Authors@R: 
+    c(person(given = "Davis",
+             family = "Vaughan",
+             role = c("aut", "cre"),
+             email = "davis@rstudio.com"),
+      person(given = "Matt",
+             family = "Dancho",
+             role = "aut",
+             email = "mdancho@business-science.io"))
 Maintainer: Davis Vaughan <davis@rstudio.com>
-Description: Functionality to download stock prices, cryptocurrency data, and
-   more from the 'Tiingo' API <https://api.tiingo.com/>.
+Description: Functionality to download stock prices,
+    cryptocurrency data, and more from the 'Tiingo' API
+    <https://api.tiingo.com/>.
+License: MIT + file LICENSE
 URL: https://github.com/business-science/riingo
 BugReports: https://github.com/business-science/riingo/issues
-License: MIT + file LICENSE
-Encoding: UTF-8
-RoxygenNote: 6.1.1
-Roxygen: list(markdown = TRUE)
-LazyData: true
 Depends:
     R (>= 2.10)
 Imports:
@@ -24,9 +26,13 @@ Imports:
     glue (>= 1.3.1),
     httr (>= 1.3.1),
     jsonlite (>= 1.5),
-    tibble (>= 1.4.2),
+    purrr (>= 0.2.4),
     rlang (>= 0.2.0),
-    purrr (>= 0.2.4)
+    tibble (>= 1.4.2)
 Suggests: 
-    testthat,
-    covr
+    covr,
+    testthat
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1

@@ -25,7 +25,7 @@ riingo_latest <- function(ticker) {
 
   validate_not_all_null(results)
 
-  dplyr::bind_rows(results)
+  vctrs::vec_rbind(!!!results)
 }
 
 riingo_latest_single_safely <- function(ticker) {
@@ -102,7 +102,7 @@ riingo_iex_latest <- function(ticker, resample_frequency = "1min") {
 
   validate_not_all_null(results)
 
-  dplyr::bind_rows(results)
+  vctrs::vec_rbind(!!!results)
 }
 
 riingo_iex_latest_single_safely <- function(ticker, resample_frequency) {

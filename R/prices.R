@@ -75,7 +75,7 @@ riingo_prices <- function(ticker, start_date = NULL, end_date = NULL, resample_f
 
   validate_not_all_null(results)
 
-  dplyr::bind_rows(results)
+  vctrs::vec_rbind(!!!results)
 }
 
 riingo_prices_single_safely <- function(ticker, start_date, end_date, resample_frequency) {
@@ -166,7 +166,7 @@ riingo_iex_prices <- function(ticker, start_date = NULL, end_date = NULL, resamp
 
   validate_not_all_null(results)
 
-  dplyr::bind_rows(results)
+  vctrs::vec_rbind(!!!results)
 }
 
 riingo_iex_prices_single_safely <- function(ticker, start_date, end_date, resample_frequency) {

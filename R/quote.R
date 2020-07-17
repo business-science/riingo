@@ -30,7 +30,7 @@ riingo_iex_quote <- function(ticker) {
 
   validate_not_all_null(results)
 
-  dplyr::bind_rows(results)
+  vctrs::vec_rbind(!!!results)
 }
 
 riingo_iex_quote_single_safely <- function(ticker) {

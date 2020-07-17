@@ -26,7 +26,7 @@ riingo_meta <- function(ticker) {
 
   validate_not_all_null(results)
 
-  dplyr::bind_rows(results)
+  vctrs::vec_rbind(!!!results)
 }
 
 riingo_meta_single_safely <- function(ticker) {
@@ -94,7 +94,7 @@ riingo_crypto_meta <- function(ticker) {
 
   validate_not_all_null(results)
 
-  dplyr::bind_rows(results)
+  vctrs::vec_rbind(!!!results)
 }
 
 riingo_crypto_meta_single_safely <- function(ticker) {

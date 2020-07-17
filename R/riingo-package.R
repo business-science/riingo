@@ -5,5 +5,6 @@
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
 #' @import rlang
+#' @importFrom glue glue
 ## usethis namespace: end
 NULL

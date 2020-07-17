@@ -16,9 +16,9 @@
 # ------------------------------------------------------------------------------
 # Error messages
 
-glue_stop <- function(..., .sep = "") {
-  msg <- glue::glue(..., .sep, .envir = parent.frame())
-  stop(msg, call. = FALSE)
+glue_stop <- function(..., .sep = "", .envir = parent.frame()) {
+  msg <- glue::glue(..., .sep, .envir = .envir)
+  abort(msg)
 }
 
 validate_not_all_null <- function(x) {

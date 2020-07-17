@@ -5,17 +5,22 @@
 \alias{riingo_get_token}
 \title{Set and get your Tiingo API token}
 \usage{
-riingo_set_token(token)
+riingo_set_token(token, inform = TRUE)
 
 riingo_get_token()
 }
 \arguments{
 \item{token}{Tiingo API token. A character.}
+
+\item{inform}{A single logical. Should a message be displayed encouraging
+you to instead use an environment variable?}
 }
 \description{
 There are two methods for setting your token, an environment variable in your
 \code{.Renviron} file, or setting an option. If both are set, the environment
-variable will always be used. See details for how to get started.
+variable will always be used. It is encouraged to use the environment
+variable approach, as this will persist between R sessions.
+See details for how to get started.
 }
 \details{
 To use the Tiingo API, you must create an account and set an API token.
@@ -28,12 +33,13 @@ signed in on the opened browser.
 
 With your API token in hand, you can do one of two things:
 \itemize{
+\item Set the API token using the \code{RIINGO_TOKEN} environment variable in
+an \code{.Renviron} file. This is recommended. The easiest way to access
+this file is with \code{usethis::edit_r_environ()}. Add a line containing
+\verb{RIINGO_TOKEN = <your-token-here>}. Do not put the token in quotes,
+and make sure to restart R once you have set it. After that, you shouldn't
+have to worry about it again.
 \item Set the API token with \code{\link[=riingo_set_token]{riingo_set_token()}}. This is only valid for the
 current R session and must be done each time you open R.
-\item Set the API token as the \code{RIINGO_TOKEN} environment variable in an \code{.Renviron} file.
-This is what I recommend. The easiest way to access this file is with the \code{usethis} package.
-Open it with \code{usethis::edit_r_environ()} and then add a line with \code{RIINGO_TOKEN = token_here}.
-Do not put the token in quotes, and make sure to restart R once you have set it.
-After that, you shouldn't have to worry about it again.
 }
 }

@@ -4,8 +4,12 @@
 \alias{riingo_crypto_quote}
 \title{Quote and Top of Book data for a given cryptocurrency}
 \usage{
-riingo_crypto_quote(ticker, exchanges = NULL, convert_currency = NULL,
-  raw = FALSE)
+riingo_crypto_quote(
+  ticker,
+  exchanges = NULL,
+  convert_currency = NULL,
+  raw = FALSE
+)
 }
 \arguments{
 \item{ticker}{One or more cryptocurrency tickers.

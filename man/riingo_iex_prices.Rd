@@ -4,8 +4,12 @@
 \alias{riingo_iex_prices}
 \title{Get stock or ETF prices from IEX through Tiingo}
 \usage{
-riingo_iex_prices(ticker, start_date = NULL, end_date = NULL,
-  resample_frequency = "5min")
+riingo_iex_prices(
+  ticker,
+  start_date = NULL,
+  end_date = NULL,
+  resample_frequency = "5min"
+)
 }
 \arguments{
 \item{ticker}{One or more tickers to download data for from Tiingo. Can be a

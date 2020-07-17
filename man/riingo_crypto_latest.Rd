@@ -4,9 +4,14 @@
 \alias{riingo_crypto_latest}
 \title{The latest day's worth of intraday data for a given cryptocurrency}
 \usage{
-riingo_crypto_latest(ticker, resample_frequency = "1min",
-  base_currency = NULL, exchanges = NULL, convert_currency = NULL,
-  raw = FALSE)
+riingo_crypto_latest(
+  ticker,
+  resample_frequency = "1min",
+  base_currency = NULL,
+  exchanges = NULL,
+  convert_currency = NULL,
+  raw = FALSE
+)
 }
 \arguments{
 \item{ticker}{One or more cryptocurrency tickers.

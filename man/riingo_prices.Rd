@@ -4,8 +4,12 @@
 \alias{riingo_prices}
 \title{Get stock or ETF prices from the Tiingo API}
 \usage{
-riingo_prices(ticker, start_date = NULL, end_date = NULL,
-  resample_frequency = "daily")
+riingo_prices(
+  ticker,
+  start_date = NULL,
+  end_date = NULL,
+  resample_frequency = "daily"
+)
 }
 \arguments{
 \item{ticker}{One or more tickers to download data for from Tiingo. Can be a

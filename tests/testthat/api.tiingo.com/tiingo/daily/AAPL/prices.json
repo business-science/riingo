@@ -1,0 +1,17 @@
+[
+    {
+        "adjClose": 385.31,
+        "adjHigh": 388.59,
+        "adjLow": 383.36,
+        "adjOpen": 387.95,
+        "adjVolume": 23046800,
+        "close": 385.31,
+        "date": "2020-07-17T00:00:00+00:00",
+        "divCash": 0.0,
+        "high": 388.59,
+        "low": 383.36,
+        "open": 387.95,
+        "splitFactor": 1.0,
+        "volume": 23046800
+    }
+]

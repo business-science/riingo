@@ -45,10 +45,7 @@ riingo_latest_single <- function(ticker) {
   )
 
   # Download
-  json_content <- content_downloader(riingo_url, ticker)
-
-  # Parse
-  cont_df <- jsonlite::fromJSON(json_content)
+  cont_df <- content_downloader(riingo_url, ticker)
 
   # Clean
   riingo_data <- clean_json_df(cont_df, type, endpoint)
@@ -125,10 +122,7 @@ riingo_iex_latest_single <- function(ticker, resample_frequency) {
   )
 
   # Download
-  json_content <- content_downloader(riingo_url, ticker)
-
-  # Parse
-  cont_df <- jsonlite::fromJSON(json_content)
+  cont_df <- content_downloader(riingo_url, ticker)
 
   # Clean
   riingo_data <- clean_json_df(cont_df, type, endpoint)

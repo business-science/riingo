@@ -102,10 +102,7 @@ riingo_prices_single <- function(ticker, start_date, end_date, resample_frequenc
   )
 
   # Download
-  json_content <- content_downloader(riingo_url, ticker)
-
-  # Parse
-  cont_df <- jsonlite::fromJSON(json_content)
+  cont_df <- content_downloader(riingo_url, ticker)
 
   # Clean
   riingo_data <- clean_json_df(cont_df, type, endpoint)
@@ -193,10 +190,7 @@ riingo_iex_prices_single <- function(ticker, start_date = NULL, end_date = NULL,
   )
 
   # Download
-  json_content <- content_downloader(riingo_url, ticker)
-
-  # Parse
-  cont_df <- jsonlite::fromJSON(json_content)
+  cont_df <- content_downloader(riingo_url, ticker)
 
   # Clean
   riingo_data <- clean_json_df(cont_df, type, endpoint)
@@ -306,10 +300,7 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
     riingo_url <- glue::glue(riingo_url, "&includeRawExchangeData=true")
 
     # Download
-    json_content <- content_downloader(riingo_url, ticker)
-
-    # Parse
-    cont_df <- jsonlite::fromJSON(json_content)
+    cont_df <- content_downloader(riingo_url, ticker)
 
     # We are only going to return exchange data, ignore price data
     exch_data_idx <- which(colnames(cont_df) == "exchangeData")
@@ -336,10 +327,7 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
   } else {
 
     # Download
-    json_content <- content_downloader(riingo_url, ticker)
-
-    # Parse
-    cont_df <- jsonlite::fromJSON(json_content)
+    cont_df <- content_downloader(riingo_url, ticker)
 
     # Have to convert to tibble here, otherwise warnings in the map
     cont_tbl <- tibble::as_tibble(cont_df)

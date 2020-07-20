@@ -9,6 +9,7 @@ jobs:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RIINGO_TOKEN: ${{ secrets.RIINGO_TOKEN }}
     steps:
       - uses: actions/checkout@v2
 

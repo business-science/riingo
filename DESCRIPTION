@@ -28,11 +28,12 @@ Imports:
     purrr (>= 0.2.4),
     rlang (>= 0.2.0),
     tibble (>= 1.4.2),
-    vctrs (>= 0.3.0),
-    withr
+    vctrs (>= 0.3.0)
 Suggests: 
     covr,
-    testthat
+    testthat,
+    httptest,
+    withr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

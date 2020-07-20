@@ -1,0 +1,23 @@
+[
+    {
+        "ticker": "btcusd",
+        "baseCurrency": "btc",
+        "quoteCurrency": "usd",
+        "topOfBookData": [
+            {
+                "bidPrice": 9778.72,
+                "lastPrice": 9166.73,
+                "quoteTimestamp": "2020-05-14T23:18:57.710411+00:00",
+                "bidExchange": "GEMINI",
+                "bidSize": 5.48934093,
+                "lastSize": 0.012084,
+                "askSize": 0.043,
+                "lastSizeNotional": 110.77076531999998,
+                "askExchange": "BIBOX",
+                "askPrice": 5365.6811,
+                "lastSaleTimestamp": "2020-07-20T15:05:52.696000+00:00",
+                "lastExchange": "BINANCE"
+            }
+        ]
+    }
+]

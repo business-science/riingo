@@ -24,7 +24,7 @@ local_riingo_mock_cache <- function(envir) {
 }
 
 local_riingo_mock_capture <- function(envir) {
-  httptest::start_capturing()
+  httptest::start_capturing(path = testthat::test_path())
   withr::defer(httptest::stop_capturing(), envir = envir)
 }
 

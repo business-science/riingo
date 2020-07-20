@@ -2,6 +2,8 @@
 
 * All functions now retry their download 3 times before failing.
 
+* The internal testing suite has been overhauled to rely on httptest.
+
 # riingo 0.2.0
 
 * All functions are now robust against partial successes with multiple tickers, 

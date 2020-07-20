@@ -1,4 +1,3 @@
-# Download content only
 content_downloader <- function(riingo_url, ticker) {
   riingo_headers <- retrieve_headers()
 
@@ -8,9 +7,11 @@ content_downloader <- function(riingo_url, ticker) {
 
   cont <- httr::content(resp, as = "text", encoding = "UTF-8")
 
-  assert_valid_content(ticker, cont)
+  out <- jsonlite::fromJSON(cont)
 
-  cont
+  assert_valid_content(ticker, out)
+
+  out
 }
 
 # ------------------------------------------------------------------------------

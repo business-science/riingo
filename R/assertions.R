@@ -64,11 +64,15 @@ assert_valid_response <- function(ticker, resp) {
 }
 
 assert_valid_content <- function(ticker, cont) {
-  if(cont == "[]") {
-    glue_stop("No error was thrown by Tiingo for {green(ticker)}, but no content was returned. \n",
-              "Are you sure this is a valid ticker? Check this with {yellow('is_supported_ticker()')}. \n",
-              "Alternatively, you might be outside the valid date range.")
+  if (!identical(cont, list())) {
+    return(invisible())
   }
+
+  glue_stop(
+    "No error was thrown by Tiingo for {green(ticker)}, but no content was returned. \n",
+    "Are you sure this is a valid ticker? Check this with {yellow('is_supported_ticker()')}. \n",
+    "Alternatively, you might be outside the valid date range."
+  )
 }
 
 # Check all of the arguments at once

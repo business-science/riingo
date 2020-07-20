@@ -4,7 +4,7 @@
 #' Get stock or ETF prices from the Tiingo API
 #'
 #' The Tiingo API provides a large feed of historical data at the
-#' daily (and monthly, quarterly, or yearly) level.
+#' daily (and weekly, monthly, or annual) level.
 #'
 #' @param ticker One or more tickers to download data for from Tiingo. Can be a
 #' stock, mutual fund, or ETF. A character vector.
@@ -14,10 +14,13 @@
 #' @param end_date The last date to download data for.
 #' A character in the form YYYY-MM-DD, or a `Date` variable.
 #' @param resample_frequency For Tiingo data, a character specified as one of:
-#' `"daily"`, `"monthly"`, `"quarterly"` or `"yearly"`. For IEX data, a character
-#' specified at the `"min"` or `"hour"` frequencies in the form:
-#' `"1min"`, `"5min"`, or `"2hour"`. For Crypto data, a character specified at
-#' the `"min"`, `"hour"` or `"day"` frequencies similar to IEX.
+#' `"daily"`, `"weekly"`, `"monthly"` or `"annually"`.
+#'
+#' For IEX data, a character specified at the `"min"` or `"hour"` frequencies
+#' in the form: `"1min"`, `"5min"`, or `"2hour"`.
+#'
+#' For Crypto data, a character specified at the `"min"`, `"hour"` or `"day"`
+#' frequencies similar to IEX.
 #'
 #' @details
 #'

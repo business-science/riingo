@@ -29,7 +29,7 @@ test_that("riingo prices - start date / end date args work", {
   expect_equal(nrow(prices), 3) # 3 days here
 })
 
-test_that("riingo prices - resample freq arg works", {
+test_that("riingo prices - resample freq arg works - monthly", {
   local_riingo_mock()
 
   prices <- riingo_prices(
@@ -40,6 +40,32 @@ test_that("riingo prices - resample freq arg works", {
   )
 
   expect_equal(nrow(prices), 3) # 3 months here
+})
+
+test_that("riingo prices - resample freq arg works - weekly", {
+  local_riingo_mock()
+
+  prices <- riingo_prices(
+    "AAPL",
+    start_date = "2017-01-01",
+    end_date = "2017-03-31",
+    resample_frequency = "weekly"
+  )
+
+  expect_equal(nrow(prices), 14) # 14 weeks
+})
+
+test_that("riingo prices - resample freq arg works - annually", {
+  local_riingo_mock()
+
+  prices <- riingo_prices(
+    "AAPL",
+    start_date = "2017-01-01",
+    end_date = "2017-03-31",
+    resample_frequency = "annually"
+  )
+
+  expect_equal(nrow(prices), 1) # 1 year
 })
 
 test_that("riingo prices - fails gracefully on single unknown ticker", {

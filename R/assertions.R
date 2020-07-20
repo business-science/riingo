@@ -84,9 +84,10 @@ assert_valid_argument_inheritance <- function(ticker, start_date, end_date, resa
 }
 
 assert_resample_freq_is_granular <- function(resample_frequency) {
-  valid_freq <- c("daily", "monthly", "quarterly", "yearly")
+  valid_freq <- c("daily", "weekly", "monthly", "annually")
 
   is_valid_freq <- resample_frequency %in% valid_freq
+
   if(!is_valid_freq) {
     user_freq <- green(resample_frequency)
     correct_freq <- glue::glue_collapse(yellow(valid_freq), ", ", last = ", or ")

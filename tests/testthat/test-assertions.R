@@ -55,6 +55,13 @@ test_that("assert_resample_freq_is_granular() catches 'fine' resample freq", {
   )
 })
 
+test_that("assert_resample_freq_is_granular() catches wrong granular frequency", {
+  expect_error(
+    assert_resample_freq_is_granular("yearly"),
+    "resample_frequency must be"
+  )
+})
+
 test_that("assert_resample_freq_is_fine() catches 'granular' resample freq", {
   expect_error(
     assert_resample_freq_is_fine("daily"),

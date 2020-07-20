@@ -1,5 +1,8 @@
 # riingo (development version)
 
+* The `resample_frequency` argument of `riingo_prices()` now correctly supports
+  the weekly and annual frequencies.
+
 * All functions now retry their download 3 times before failing.
 
 * The internal testing suite has been overhauled to rely on httptest.

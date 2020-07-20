@@ -18,10 +18,13 @@ riingo_crypto_latest(
 Specified as \code{"btcusd"} for bitcoin quoted in USD. A character vector.}
 
 \item{resample_frequency}{For Tiingo data, a character specified as one of:
-\code{"daily"}, \code{"monthly"}, \code{"quarterly"} or \code{"yearly"}. For IEX data, a character
-specified at the \code{"min"} or \code{"hour"} frequencies in the form:
-\code{"1min"}, \code{"5min"}, or \code{"2hour"}. For Crypto data, a character specified at
-the \code{"min"}, \code{"hour"} or \code{"day"} frequencies similar to IEX.}
+\code{"daily"}, \code{"weekly"}, \code{"monthly"} or \code{"annually"}.
+
+For IEX data, a character specified at the \code{"min"} or \code{"hour"} frequencies
+in the form: \code{"1min"}, \code{"5min"}, or \code{"2hour"}.
+
+For Crypto data, a character specified at the \code{"min"}, \code{"hour"} or \code{"day"}
+frequencies similar to IEX.}
 
 \item{base_currency}{\emph{Instead} of \code{ticker} you may pass a base currency.
 This selects all currencies with that base currency.

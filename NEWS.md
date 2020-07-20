@@ -1,5 +1,7 @@
 # riingo (development version)
 
+* All functions now retry their download 3 times before failing.
+
 # riingo 0.2.0
 
 * All functions are now robust against partial successes with multiple tickers, 

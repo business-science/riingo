@@ -1,0 +1,142 @@
+[
+    {
+        "ticker": "btcusd",
+        "baseCurrency": "btc",
+        "quoteCurrency": "usd",
+        "topOfBookData": [
+            {
+                "bidPrice": 9778.72,
+                "lastPrice": 9166.81,
+                "quoteTimestamp": "2020-05-14T23:18:57.710411+00:00",
+                "bidExchange": "GEMINI",
+                "bidSize": 5.48934093,
+                "lastSize": 0.011577,
+                "askSize": 0.043,
+                "lastSizeNotional": 106.12415937,
+                "askExchange": "BIBOX",
+                "askPrice": 5365.6811,
+                "lastSaleTimestamp": "2020-07-20T15:05:53.206000+00:00",
+                "lastExchange": "BINANCE"
+            }
+        ],
+        "exchangeData": {
+            "GDAX": [
+                {
+                    "bidPrice": 9133.01,
+                    "lastPrice": 9145.15,
+                    "exchangeCode": "GDAX",
+                    "bidSize": 0.94612025,
+                    "lastSize": 0.00522325,
+                    "askSize": 1.23568028,
+                    "lastSaleTimestampStr": "2020-07-19T05:59:24.464645+00:00",
+                    "askPrice": 9143.31,
+                    "quoteTimestampStr": "2020-07-19T05:59:27.624102+00:00"
+                }
+            ],
+            "KUCOIN": [
+                {
+                    "bidPrice": 8966.4,
+                    "lastPrice": 8969.4,
+                    "exchangeCode": "KUCOIN",
+                    "bidSize": 0.001,
+                    "lastSize": 0.00167092,
+                    "askSize": 0.00531777,
+                    "lastSaleTimestampStr": "2020-05-02T17:53:27.758157+00:00",
+                    "askPrice": 8967.8,
+                    "quoteTimestampStr": "2020-05-02T17:53:00.032482+00:00"
+                }
+            ],
+            "BITFLYER": [
+                {
+                    "bidPrice": null,
+                    "lastPrice": null,
+                    "exchangeCode": "BITFLYER",
+                    "bidSize": null,
+                    "lastSize": null,
+                    "askSize": null,
+                    "lastSaleTimestampStr": null,
+                    "askPrice": null,
+                    "quoteTimestampStr": null
+                }
+            ],
+            "GEMINI": [
+                {
+                    "bidPrice": 9778.72,
+                    "lastPrice": 9783.61,
+                    "exchangeCode": "GEMINI",
+                    "bidSize": 5.48934093,
+                    "lastSize": 0.00091629,
+                    "askSize": 0.9813,
+                    "lastSaleTimestampStr": "2020-05-14T23:16:00.946000+00:00",
+                    "askPrice": 9783.62,
+                    "quoteTimestampStr": "2020-05-14T23:18:57.710411+00:00"
+                }
+            ],
+            "POLONIEX": [
+                {
+                    "bidPrice": 9166.15193054,
+                    "lastPrice": 9166.15193055,
+                    "exchangeCode": "POLONIEX",
+                    "bidSize": 2.00275882,
+                    "lastSize": 0.00082327,
+                    "askSize": 1.96804993,
+                    "lastSaleTimestampStr": "2020-07-20T15:03:47+00:00",
+                    "askPrice": 9166.15193055,
+                    "quoteTimestampStr": "2020-07-20T15:05:02.568644+00:00"
+                }
+            ],
+            "HITBTC": [
+                {
+                    "bidPrice": 8613.02,
+                    "lastPrice": 8617.09,
+                    "exchangeCode": "HITBTC",
+                    "bidSize": 0.00029,
+                    "lastSize": 0.00036,
+                    "askSize": 0.1875,
+                    "lastSaleTimestampStr": "2020-05-11T16:48:45.030000+00:00",
+                    "askPrice": 8621.2,
+                    "quoteTimestampStr": "2020-05-11T16:53:42.518564+00:00"
+                }
+            ],
+            "BINANCE": [
+                {
+                    "bidPrice": null,
+                    "lastPrice": 9166.81,
+                    "exchangeCode": "BINANCE",
+                    "bidSize": null,
+                    "lastSize": 0.011577,
+                    "askSize": 0.011577,
+                    "lastSaleTimestampStr": "2020-07-20T15:05:53.206000+00:00",
+                    "askPrice": 9166.81,
+                    "quoteTimestampStr": "2020-07-20T15:05:53.005000+00:00"
+                }
+            ],
+            "BIBOX": [
+                {
+                    "bidPrice": 5363.8405,
+                    "lastPrice": 5365.9649,
+                    "exchangeCode": "BIBOX",
+                    "bidSize": 0.0173,
+                    "lastSize": 0.011,
+                    "askSize": 0.043,
+                    "lastSaleTimestampStr": "2020-03-18T23:44:15.985000+00:00",
+                    "askPrice": 5365.6811,
+                    "quoteTimestampStr": "2020-03-18T23:43:58.335000+00:00"
+                }
+            ],
+            "BITFINEX": [
+                {
+                    "bidPrice": 9185.0,
+                    "lastPrice": 9185.30632021,
+                    "exchangeCode": "BITFINEX",
+                    "bidSize": 0.19591609999999998,
+                    "lastSize": 0.005,
+                    "askSize": 0.03136994,
+                    "lastSaleTimestampStr": "2020-07-20T15:04:47.526000+00:00",
+                    "askPrice": 9185.1,
+                    "quoteTimestampStr": "2020-07-20T15:05:53.359045+00:00"
+                }
+            ]
+        }
+    }
+]

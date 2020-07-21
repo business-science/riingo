@@ -18,6 +18,9 @@ test_that("can fail nicely", {
 })
 
 test_that("works with partial failure", {
+  skip_if_no_token()
+
   x <- riingo_fundamentals_meta(c("AAPL", "MSFT", "PRHSX"))
+
   expect_identical(nrow(x), 2L)
 })

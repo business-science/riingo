@@ -20,11 +20,17 @@ test_that("limit works", {
 })
 
 test_that("can get news without any inputs", {
+  skip_if_no_token()
+
   x <- riingo_news(limit = 1)
+
   expect_identical(nrow(x), 1L)
 })
 
 test_that("can get news without ticker", {
+  skip_if_no_token()
+
   x <- riingo_news(source = "bloomberg.com", limit = 1)
+
   expect_identical(nrow(x), 1L)
 })

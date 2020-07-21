@@ -1,10 +1,7 @@
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+  schedule:
+    # Run tests every Tuesday at 1pm. Likely time for market to be open.
+    - cron:  '0 13 * * 2'
 
 name: test-coverage-cron
 

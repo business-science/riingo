@@ -32,7 +32,6 @@ Imports:
 Suggests: 
     covr,
     testthat,
-    httptest,
     withr
 Encoding: UTF-8
 LazyData: true

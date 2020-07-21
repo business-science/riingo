@@ -2,7 +2,7 @@
 # Tiingo
 
 test_that("riingo meta - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   meta <- riingo_meta("AAPL")
 
@@ -12,7 +12,7 @@ test_that("riingo meta - can be pulled", {
 })
 
 test_that("riingo meta - multiple tickers can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   meta <- riingo_meta(c("AAPL", "MSFT"))
 
@@ -22,7 +22,7 @@ test_that("riingo meta - multiple tickers can be pulled", {
 })
 
 test_that("riingo meta - fails gracefully on single unknown ticker", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -35,7 +35,7 @@ test_that("riingo meta - fails gracefully on single unknown ticker", {
 })
 
 test_that("riingo meta - fails gracefully on multiple unknown tickers", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -48,7 +48,7 @@ test_that("riingo meta - fails gracefully on multiple unknown tickers", {
 })
 
 test_that("riingo meta - handles partial successes", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   x <- expect_warning(
     riingo_meta(c("badticker2", "AAPL", "badticker2")),
@@ -68,7 +68,7 @@ test_that("riingo meta - handles partial successes", {
 # Crypto
 
 test_that("riingo crypto meta - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   meta <- riingo_crypto_meta("btcusd")
 
@@ -78,7 +78,7 @@ test_that("riingo crypto meta - can be pulled", {
 })
 
 test_that("riingo crypto meta - fails gracefully on single unknown ticker", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -91,7 +91,7 @@ test_that("riingo crypto meta - fails gracefully on single unknown ticker", {
 })
 
 test_that("riingo crypto meta - fails gracefully on multiple unknown tickers", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -104,7 +104,7 @@ test_that("riingo crypto meta - fails gracefully on multiple unknown tickers", {
 })
 
 test_that("riingo crypto meta - handles partial successes", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   x <- expect_warning(
     riingo_crypto_meta(c("badticker2", "btcusd", "badticker2")),

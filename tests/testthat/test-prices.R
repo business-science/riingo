@@ -2,7 +2,7 @@
 # Tiingo
 
 test_that("riingo prices - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_prices("AAPL")
 
@@ -11,7 +11,7 @@ test_that("riingo prices - can be pulled", {
 })
 
 test_that("riingo prices - multiple tickers can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_prices(c("AAPL", "MSFT"))
   tickers <- unique(prices$ticker)
@@ -22,7 +22,7 @@ test_that("riingo prices - multiple tickers can be pulled", {
 })
 
 test_that("riingo prices - start date / end date args work", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_prices("AAPL", start_date = "2017-01-03", end_date = "2017-01-05")
 
@@ -30,7 +30,7 @@ test_that("riingo prices - start date / end date args work", {
 })
 
 test_that("riingo prices - resample freq arg works - monthly", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_prices(
     "AAPL",
@@ -43,7 +43,7 @@ test_that("riingo prices - resample freq arg works - monthly", {
 })
 
 test_that("riingo prices - resample freq arg works - weekly", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_prices(
     "AAPL",
@@ -56,7 +56,7 @@ test_that("riingo prices - resample freq arg works - weekly", {
 })
 
 test_that("riingo prices - resample freq arg works - annually", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_prices(
     "AAPL",
@@ -69,7 +69,7 @@ test_that("riingo prices - resample freq arg works - annually", {
 })
 
 test_that("riingo prices - fails gracefully on single unknown ticker", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -82,7 +82,7 @@ test_that("riingo prices - fails gracefully on single unknown ticker", {
 })
 
 test_that("riingo prices - fails gracefully on multiple unknown tickers", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -95,7 +95,7 @@ test_that("riingo prices - fails gracefully on multiple unknown tickers", {
 })
 
 test_that("riingo prices - handles partial successes", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   x <- expect_warning(
     riingo_prices(c("badticker2", "AAPL", "badticker2")),
@@ -110,7 +110,7 @@ test_that("riingo prices - handles partial successes", {
 # IEX
 
 test_that("riingo iex prices - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_iex_prices("AAPL")
 
@@ -119,7 +119,7 @@ test_that("riingo iex prices - can be pulled", {
 })
 
 test_that("riingo iex prices - start date / end date args work", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   start <- Sys.Date() - 10
   end   <- Sys.Date() - 1
@@ -138,7 +138,7 @@ test_that("riingo iex prices - start date / end date args work", {
 })
 
 test_that("riingo iex prices - resample freq arg works", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_iex_prices("AAPL", resample_frequency = "1min")
 
@@ -148,7 +148,7 @@ test_that("riingo iex prices - resample freq arg works", {
 })
 
 test_that("riingo iex prices - after hours arg works", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   # Tough to reliably know if it really works. Interactive testing
   # showed that it does.
@@ -158,7 +158,7 @@ test_that("riingo iex prices - after hours arg works", {
 })
 
 test_that("riingo iex prices - fails gracefully on single unknown ticker", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -171,7 +171,7 @@ test_that("riingo iex prices - fails gracefully on single unknown ticker", {
 })
 
 test_that("riingo iex prices - fails gracefully on multiple unknown tickers", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -183,7 +183,7 @@ test_that("riingo iex prices - fails gracefully on multiple unknown tickers", {
 })
 
 test_that("riingo iex prices - handles partial successes", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   x <- expect_warning(
     riingo_iex_prices(c("badticker2", "AAPL", "badticker2")),
@@ -199,7 +199,7 @@ test_that("riingo iex prices - handles partial successes", {
 # Crypto
 
 test_that("riingo crypto prices - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_prices("btcusd")
 
@@ -208,7 +208,7 @@ test_that("riingo crypto prices - can be pulled", {
 })
 
 test_that("riingo crypto prices - start date / end date args work", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   start <- Sys.Date() - 10
   end   <- Sys.Date() - 1
@@ -227,7 +227,7 @@ test_that("riingo crypto prices - start date / end date args work", {
 })
 
 test_that("riingo crypto prices - resample freq arg works", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_prices("btcusd", resample_frequency = "1min")
 
@@ -237,7 +237,7 @@ test_that("riingo crypto prices - resample freq arg works", {
 })
 
 test_that("riingo crypto prices - base currency pulls all of base", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_prices(base_currency = "btc")
 
@@ -258,7 +258,7 @@ test_that("riingo crypto prices - base currency can't be specified with ticker",
 })
 
 test_that("riingo crypto prices - raw data can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_prices("btcusd", raw = TRUE)
 
@@ -266,7 +266,7 @@ test_that("riingo crypto prices - raw data can be pulled", {
 })
 
 test_that("riingo crypto prices - specific exchanges can be specified", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_prices("btcusd", exchanges = "BINANCE", raw = TRUE)
 
@@ -276,7 +276,7 @@ test_that("riingo crypto prices - specific exchanges can be specified", {
 })
 
 test_that("riingo crypto prices - convert currency works", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_prices("btcusd", convert_currency = "jpy")
 

@@ -7,7 +7,7 @@
 # IEX
 
 test_that("riingo iex quote - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_iex_quote("AAPL")
 
@@ -16,7 +16,7 @@ test_that("riingo iex quote - can be pulled", {
 })
 
 test_that("riingo iex quote - fails gracefully on single unknown ticker", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -29,7 +29,7 @@ test_that("riingo iex quote - fails gracefully on single unknown ticker", {
 })
 
 test_that("riingo iex quote - fails gracefully on multiple unknown tickers", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -42,7 +42,7 @@ test_that("riingo iex quote - fails gracefully on multiple unknown tickers", {
 })
 
 test_that("riingo iex quote - handles partial successes", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   x <- expect_warning(
     riingo_iex_quote(c("badticker2", "AAPL", "badticker2")),
@@ -57,7 +57,7 @@ test_that("riingo iex quote - handles partial successes", {
 # Crypto
 
 test_that("riingo crypto quote - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_quote("btcusd")
 
@@ -66,7 +66,7 @@ test_that("riingo crypto quote - can be pulled", {
 })
 
 test_that("riingo crypto quote - raw can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_crypto_quote("btcusd", raw = TRUE)
 

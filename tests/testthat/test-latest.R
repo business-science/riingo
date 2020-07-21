@@ -2,7 +2,7 @@
 # Tiingo
 
 test_that("latest riingo prices - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_latest("AAPL")
 
@@ -12,7 +12,7 @@ test_that("latest riingo prices - can be pulled", {
 })
 
 test_that("latest riingo prices - fails gracefully on single unknown ticker", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -23,7 +23,7 @@ test_that("latest riingo prices - fails gracefully on single unknown ticker", {
 })
 
 test_that("latest riingo prices - fails gracefully on multiple unknown tickers", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -34,7 +34,7 @@ test_that("latest riingo prices - fails gracefully on multiple unknown tickers",
 })
 
 test_that("latest riingo prices - handles partial successes", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   x <- expect_warning(
     riingo_latest(c("badticker2", "MSFT", "badticker2"))
@@ -48,7 +48,7 @@ test_that("latest riingo prices - handles partial successes", {
 # IEX
 
 test_that("latest riingo iex prices - can be pulled", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_iex_latest("AAPL")
 
@@ -57,7 +57,7 @@ test_that("latest riingo iex prices - can be pulled", {
 })
 
 test_that("latest riingo iex prices - resample freq arg works", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   prices <- riingo_iex_latest("AAPL", resample_frequency = "5min")
 
@@ -67,7 +67,7 @@ test_that("latest riingo iex prices - resample freq arg works", {
 })
 
 test_that("latest riingo iex prices - fails gracefully on single unknown ticker", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -79,7 +79,7 @@ test_that("latest riingo iex prices - fails gracefully on single unknown ticker"
 })
 
 test_that("latest riingo iex prices - fails gracefully on multiple unknown tickers", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   expect_error(
     expect_warning(
@@ -91,7 +91,7 @@ test_that("latest riingo iex prices - fails gracefully on multiple unknown ticke
 })
 
 test_that("latest riingo iex prices - handles partial successes", {
-  local_riingo_mock()
+  skip_if_no_token()
 
   x <- expect_warning(
     riingo_iex_latest(c("badticker2", "AAPL", "badticker2")),

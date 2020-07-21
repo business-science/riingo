@@ -1,9 +1,0 @@
-[
-    {
-        "name": "Bitcoin Tether (BTC/USD)",
-        "quoteCurrency": "usd",
-        "description": "Tether (BTC/USD)",
-        "ticker": "btcusd",
-        "baseCurrency": "btc"
-    }
-]

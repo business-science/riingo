@@ -9,7 +9,8 @@ riingo_iex_prices(
   start_date = NULL,
   end_date = NULL,
   resample_frequency = "5min",
-  after_hours = FALSE
+  after_hours = FALSE,
+  force_fill = FALSE
 )
 }
 \arguments{
@@ -34,21 +35,27 @@ frequencies similar to IEX.}
 
 \item{after_hours}{A single logical. Should pre and post market data be
 returned if available?}
+
+\item{force_fill}{A single logical. Some tickers do not have a trade/quote
+update for a given time period. If \code{force_fill} is set to \code{TRUE}, then the
+previous OHLC will be used to fill the current OHLC.}
 }
 \description{
-The Tiingo API provides a way to access data from IEX, The Investors Exchange.
-This data is supplied at a much lower (intraday!) frequency than the data from Tiingo's
-native API.
+The Tiingo API provides a way to access data from IEX,
+The Investors Exchange. This data is supplied at a much lower (intraday!)
+frequency than the data from Tiingo's native API.
 }
 \details{
-This feed returns the most recent 2000 ticks of data at the specified frequency.
-For example, \code{"5min"} would return the 2000 most recent data points spaced 5 minutes apart.
-You can subset the returned range with \code{start_date} and \code{end_date}, but \strong{you cannot
-request data older than today's date minus 2000 data points.}
+This feed returns the most recent 2000 ticks of data at the specified
+frequency. For example, \code{"5min"} would return the 2000 most recent data
+points spaced 5 minutes apart. You can subset the returned range with
+\code{start_date} and \code{end_date}, but \strong{you cannot request data older than
+today's date minus 2000 data points.}
 
 Because the default attempts to pull 1 year's worth of data, at a 5 minute
 frequency, all available data will be pulled so there is no need to use
-\code{start_date} and \code{end_date}. Only use them if you set the frequency to hourly.
+\code{start_date} and \code{end_date}. Only use them if you set the frequency to
+hourly.
 }
 \examples{
 

@@ -1,5 +1,9 @@
 # riingo (development version)
 
+* `riingo_iex_prices()` gained two new arguments. `after_hours` returns pre
+  and post market data if any is available. `force_fill` will use the most
+  recent OHLC data for the current time point if none is available.
+
 * The `resample_frequency` argument of `riingo_prices()` now correctly supports
   the weekly and annual frequencies.
 

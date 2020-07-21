@@ -121,25 +121,31 @@ riingo_prices_single <- function(ticker, start_date, end_date, resample_frequenc
 
 #' Get stock or ETF prices from IEX through Tiingo
 #'
-#' The Tiingo API provides a way to access data from IEX, The Investors Exchange.
-#' This data is supplied at a much lower (intraday!) frequency than the data from Tiingo's
-#' native API.
+#' The Tiingo API provides a way to access data from IEX,
+#' The Investors Exchange. This data is supplied at a much lower (intraday!)
+#' frequency than the data from Tiingo's native API.
 #'
 #' @inheritParams riingo_prices
 #'
 #' @param after_hours A single logical. Should pre and post market data be
 #'   returned if available?
 #'
+#' @param force_fill A single logical. Some tickers do not have a trade/quote
+#'   update for a given time period. If `force_fill` is set to `TRUE`, then the
+#'   previous OHLC will be used to fill the current OHLC.
+#'
 #' @details
 #'
-#' This feed returns the most recent 2000 ticks of data at the specified frequency.
-#' For example, `"5min"` would return the 2000 most recent data points spaced 5 minutes apart.
-#' You can subset the returned range with `start_date` and `end_date`, but __you cannot
-#' request data older than today's date minus 2000 data points.__
+#' This feed returns the most recent 2000 ticks of data at the specified
+#' frequency. For example, `"5min"` would return the 2000 most recent data
+#' points spaced 5 minutes apart. You can subset the returned range with
+#' `start_date` and `end_date`, but __you cannot request data older than
+#' today's date minus 2000 data points.__
 #'
 #' Because the default attempts to pull 1 year's worth of data, at a 5 minute
 #' frequency, all available data will be pulled so there is no need to use
-#' `start_date` and `end_date`. Only use them if you set the frequency to hourly.
+#' `start_date` and `end_date`. Only use them if you set the frequency to
+#' hourly.
 #'
 #' @examples
 #'
@@ -158,11 +164,13 @@ riingo_iex_prices <- function(ticker,
                               start_date = NULL,
                               end_date = NULL,
                               resample_frequency = "5min",
-                              after_hours = FALSE) {
+                              after_hours = FALSE,
+                              force_fill = FALSE) {
 
   assert_valid_argument_inheritance(ticker, start_date, end_date, resample_frequency)
   assert_resample_freq_is_fine(resample_frequency)
   assert_x_inherits(after_hours, "after_hours", "logical")
+  assert_x_inherits(force_fill, "force_fill", "logical")
 
   results <- purrr::map(
     .x = ticker,
@@ -170,7 +178,8 @@ riingo_iex_prices <- function(ticker,
     start_date = start_date,
     end_date = end_date,
     resample_frequency = resample_frequency,
-    after_hours = after_hours
+    after_hours = after_hours,
+    force_fill = force_fill
   )
 
   validate_not_all_null(results)
@@ -182,7 +191,8 @@ riingo_iex_prices_single_safely <- function(ticker,
                                             start_date,
                                             end_date,
                                             resample_frequency,
-                                            after_hours) {
+                                            after_hours,
+                                            force_fill) {
   riingo_single_safely(
     .f = riingo_iex_prices_single,
     ticker = ticker,
@@ -197,7 +207,8 @@ riingo_iex_prices_single <- function(ticker,
                                      start_date = NULL,
                                      end_date = NULL,
                                      resample_frequency = "5min",
-                                     after_hours = FALSE) {
+                                     after_hours = FALSE,
+                                     force_fill = FALSE) {
 
   type <- "iex"
   endpoint <- "prices"
@@ -208,7 +219,8 @@ riingo_iex_prices_single <- function(ticker,
     startDate = start_date,
     endDate = end_date,
     resampleFreq = resample_frequency,
-    afterHours = after_hours
+    afterHours = after_hours,
+    forceFill = force_fill
   )
 
   # Download

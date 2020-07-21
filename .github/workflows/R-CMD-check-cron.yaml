@@ -23,7 +23,6 @@ jobs:
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       RIINGO_TOKEN: ${{ secrets.RIINGO_TOKEN }}
-      RIINGO_MOCK_TYPE: 'none' # Turn off all mocking and just run the test suite
 
     steps:
       - uses: actions/checkout@v2

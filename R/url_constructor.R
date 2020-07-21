@@ -90,9 +90,10 @@ as_http_parameter_string <- function(..., type) {
       return("")
     }
 
+    param <- clean_logical_parameter(param)
     param <- clean_date_parameter(param)
-    resp <- paste(param_name, param, sep = "=")
-    #resp <- paste0(resp, "&")
+
+    paste(param_name, param, sep = "=")
   }
 
   http_params <- purrr::imap_chr(params, ~structure_as_http(.x, .y, type))
@@ -125,4 +126,16 @@ clean_date_parameter <- function(param) {
   }
 
   param
+}
+
+clean_logical_parameter <- function(param) {
+  if (!is.logical(param)) {
+    return(param)
+  }
+
+  if (rlang::is_true(param)) {
+    "true"
+  } else {
+    "false"
+  }
 }

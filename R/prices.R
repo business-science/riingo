@@ -127,6 +127,9 @@ riingo_prices_single <- function(ticker, start_date, end_date, resample_frequenc
 #'
 #' @inheritParams riingo_prices
 #'
+#' @param after_hours A single logical. Should pre and post market data be
+#'   returned if available?
+#'
 #' @details
 #'
 #' This feed returns the most recent 2000 ticks of data at the specified frequency.
@@ -151,17 +154,23 @@ riingo_prices_single <- function(ticker, start_date, end_date, resample_frequenc
 #' }
 #'
 #' @export
-riingo_iex_prices <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {
+riingo_iex_prices <- function(ticker,
+                              start_date = NULL,
+                              end_date = NULL,
+                              resample_frequency = "5min",
+                              after_hours = FALSE) {
 
   assert_valid_argument_inheritance(ticker, start_date, end_date, resample_frequency)
   assert_resample_freq_is_fine(resample_frequency)
+  assert_x_inherits(after_hours, "after_hours", "logical")
 
   results <- purrr::map(
     .x = ticker,
     .f = riingo_iex_prices_single_safely,
     start_date = start_date,
     end_date = end_date,
-    resample_frequency = resample_frequency
+    resample_frequency = resample_frequency,
+    after_hours = after_hours
   )
 
   validate_not_all_null(results)
@@ -169,17 +178,26 @@ riingo_iex_prices <- function(ticker, start_date = NULL, end_date = NULL, resamp
   vctrs::vec_rbind(!!!results)
 }
 
-riingo_iex_prices_single_safely <- function(ticker, start_date, end_date, resample_frequency) {
+riingo_iex_prices_single_safely <- function(ticker,
+                                            start_date,
+                                            end_date,
+                                            resample_frequency,
+                                            after_hours) {
   riingo_single_safely(
     .f = riingo_iex_prices_single,
     ticker = ticker,
     start_date = start_date,
     end_date = end_date,
-    resample_frequency = resample_frequency
+    resample_frequency = resample_frequency,
+    after_hours = after_hours
   )
 }
 
-riingo_iex_prices_single <- function(ticker, start_date = NULL, end_date = NULL, resample_frequency = "5min") {
+riingo_iex_prices_single <- function(ticker,
+                                     start_date = NULL,
+                                     end_date = NULL,
+                                     resample_frequency = "5min",
+                                     after_hours = FALSE) {
 
   type <- "iex"
   endpoint <- "prices"
@@ -189,7 +207,8 @@ riingo_iex_prices_single <- function(ticker, start_date = NULL, end_date = NULL,
     type, endpoint, ticker,
     startDate = start_date,
     endDate = end_date,
-    resampleFreq = resample_frequency
+    resampleFreq = resample_frequency,
+    afterHours = after_hours
   )
 
   # Download

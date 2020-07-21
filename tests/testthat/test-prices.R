@@ -147,6 +147,16 @@ test_that("riingo iex prices - resample freq arg works", {
   expect_equal(min_diff, 1)
 })
 
+test_that("riingo iex prices - after hours arg works", {
+  local_riingo_mock()
+
+  # Tough to reliably know if it really works. Interactive testing
+  # showed that it does.
+  prices <- riingo_iex_prices("AAPL", after_hours = TRUE)
+
+  expect_identical(prices$ticker[[1]], "AAPL")
+})
+
 test_that("riingo iex prices - fails gracefully on single unknown ticker", {
   local_riingo_mock()
 

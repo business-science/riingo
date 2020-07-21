@@ -8,7 +8,8 @@ riingo_iex_prices(
   ticker,
   start_date = NULL,
   end_date = NULL,
-  resample_frequency = "5min"
+  resample_frequency = "5min",
+  after_hours = FALSE
 )
 }
 \arguments{
@@ -30,6 +31,9 @@ in the form: \code{"1min"}, \code{"5min"}, or \code{"2hour"}.
 
 For Crypto data, a character specified at the \code{"min"}, \code{"hour"} or \code{"day"}
 frequencies similar to IEX.}
+
+\item{after_hours}{A single logical. Should pre and post market data be
+returned if available?}
 }
 \description{
 The Tiingo API provides a way to access data from IEX, The Investors Exchange.

@@ -1,7 +1,10 @@
 on:
-  schedule:
-    # Run tests every Tuesday at 1pm. Likely time for market to be open.
-    - cron:  '0 13 * * 2'
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 name: R-CMD-check-cron
 

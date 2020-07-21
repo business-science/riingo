@@ -40,6 +40,8 @@
 
 * All functions now retry their download 3 times before failing.
 
+* The dplyr dependency has been removed.
+
 # riingo 0.2.0
 
 * All functions are now robust against partial successes with multiple tickers, 

@@ -17,6 +17,8 @@
   * `riingo_fundamentals_definitions()` for retrieving descriptions of the
     various metrics that can be returned by the other fundamentals utilities.
 
+* `riingo_iex_prices()` now returns a `volume` column (#12).
+
 * `riingo_iex_prices()` gained two new arguments. `after_hours` returns pre
   and post market data if any is available. `force_fill` will use the most
   recent OHLC data for the current time point if none is available.

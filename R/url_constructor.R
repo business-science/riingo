@@ -41,7 +41,7 @@ retrieve_endpoint <- function(type, endpoint) {
          "iex"    = switch(endpoint,
                            "quote"  = "",
                            "latest" = "/prices?",
-                           "prices" = "/prices?"),
+                           "prices" = "/prices?columns=open,high,low,close,volume&"),
 
          "tiingo" = switch(endpoint,
                            "meta"   = "",

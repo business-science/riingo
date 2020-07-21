@@ -36,6 +36,10 @@ reference:
     desc: __Getting fundamental statement data__
     contents:
     - starts_with("riingo_fundamentals")
+  - title: Forex
+    desc: __Getting foreign exchange rate data__
+    contents:
+    - starts_with("riingo_fx")
   - title: Tokens
     desc: __Functions related to getting and setting tokens.__
     contents:

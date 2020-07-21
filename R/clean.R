@@ -28,7 +28,8 @@ retrieve_date_col_names <- function(type, endpoint) {
          "fundamentals-statements" = "date",
          "fundamentals-metrics" = "date",
          "fundamentals-meta" = c("statementLastUpdated", "dailyLastUpdated"),
-         "fx-prices" = "date"
+         "fx-prices" = "date",
+         "fx-quote" = "quoteTimestamp"
   )
 }
 
@@ -43,6 +44,7 @@ retrieve_date_col_format <- function(endpoint) {
          "fundamentals-statements" = "%Y-%m-%d",
          "fundamentals-metrics" = "%Y-%m-%d",
          "fundamentals-meta" = "%Y-%m-%dT%H:%M:%S",
-         "fx-prices" = "%Y-%m-%dT%H:%M:%S"
+         "fx-prices" = "%Y-%m-%dT%H:%M:%S",
+         "fx-quote" = "%Y-%m-%dT%H:%M:%S"
   )
 }

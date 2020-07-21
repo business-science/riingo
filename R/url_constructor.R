@@ -29,6 +29,7 @@ retrieve_base_url <- function(type, endpoint) {
         "fundamentals-metrics" = "https://api.tiingo.com/tiingo/fundamentals",
         "fundamentals-meta" = "https://api.tiingo.com/tiingo/fundamentals",
         "fx-prices" = "https://api.tiingo.com/tiingo/fx",
+        "fx-quote" = "https://api.tiingo.com/tiingo/fx",
         "https://api.tiingo.com/tiingo/daily/{ticker}"
       ), # default
     "iex" = "https://api.tiingo.com/iex/{ticker}",
@@ -53,7 +54,8 @@ retrieve_endpoint <- function(type, endpoint) {
                            "fundamentals-statements" = "/{ticker}/statements?",
                            "fundamentals-metrics" = "/{ticker}/daily?",
                            "fundamentals-meta" = "/meta?",
-                           "fx-prices" = "/{ticker}/prices?"),
+                           "fx-prices" = "/{ticker}/prices?",
+                           "fx-quote" = "/top?"),
 
          "crypto" = switch(endpoint,
                            "latest" = "/prices?",

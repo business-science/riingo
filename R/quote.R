@@ -138,7 +138,7 @@ riingo_crypto_quote <- function(ticker, exchanges = NULL, convert_currency = NUL
     })
 
     # Bind each row of meta to an exchange data frame
-    riingo_df <- purrr::map2_dfr(meta_rows, exch_data_rows, ~cbind(.x, .y))
+    riingo_df <- riingo_map2_dfr(meta_rows, exch_data_rows, ~cbind(.x, .y))
 
   } else {
 

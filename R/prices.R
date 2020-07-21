@@ -356,7 +356,7 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
     })
 
     # Bind each row of meta to an exchange data frame
-    riingo_df <- purrr::map2_dfr(meta_rows, exch_data_rows, ~cbind(.x, .y))
+    riingo_df <- riingo_map2_dfr(meta_rows, exch_data_rows, ~cbind(.x, .y))
 
   } else {
 

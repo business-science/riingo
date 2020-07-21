@@ -14,11 +14,17 @@
 
 # ------------------------------------------------------------------------------
 
-# map_dfr() and flatten_dfr() without a dplyr dependency
+# map_dfr(), map2_dfr(), and flatten_dfr() without a dplyr dependency
 
 riingo_map_dfr <- function(.x, .f, ...) {
   .f <- purrr::as_mapper(.f, ...)
   res <- purrr::map(.x, .f, ...)
+  vctrs::vec_rbind(!!!res)
+}
+
+riingo_map2_dfr <- function(.x, .y, .f, ...) {
+  .f <- purrr::as_mapper(.f, ...)
+  res <- purrr::map2(.x, .y, .f, ...)
   vctrs::vec_rbind(!!!res)
 }
 

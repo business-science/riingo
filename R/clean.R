@@ -27,7 +27,8 @@ retrieve_date_col_names <- function(type, endpoint) {
          "news"   = c("publishedDate", "crawlDate"),
          "fundamentals-statements" = "date",
          "fundamentals-metrics" = "date",
-         "fundamentals-meta" = c("statementLastUpdated", "dailyLastUpdated")
+         "fundamentals-meta" = c("statementLastUpdated", "dailyLastUpdated"),
+         "fx-prices" = "date"
   )
 }
 
@@ -41,6 +42,7 @@ retrieve_date_col_format <- function(endpoint) {
          "news"   = "%Y-%m-%dT%H:%M:%S",
          "fundamentals-statements" = "%Y-%m-%d",
          "fundamentals-metrics" = "%Y-%m-%d",
-         "fundamentals-meta" = "%Y-%m-%dT%H:%M:%S"
+         "fundamentals-meta" = "%Y-%m-%dT%H:%M:%S",
+         "fx-prices" = "%Y-%m-%dT%H:%M:%S"
   )
 }

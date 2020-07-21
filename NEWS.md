@@ -1,5 +1,9 @@
 # riingo (development version)
 
+* New `riingo_fx_prices()` for collecting forex exchange rates. This is an
+  early beta feature, so the returned columns may change over time. It is
+  not recommended to build production code using this function.
+
 * New `riingo_news()` for collecting information about news articles related
   to a ticker, news source, or topic (With contributions by @amiles2233, #11).
 

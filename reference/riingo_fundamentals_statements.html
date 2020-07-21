@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get stock or ETF prices from IEX through Tiingo — riingo_iex_prices • riingo</title>
+<title>Fundamentals - Statements — riingo_fundamentals_statements • riingo</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,20 @@
 
 
 
-<meta property="og:title" content="Get stock or ETF prices from IEX through Tiingo — riingo_iex_prices" />
-<meta property="og:description" content="The Tiingo API provides a way to access data from IEX,
-The Investors Exchange. This data is supplied at a much lower (intraday!)
-frequency than the data from Tiingo's native API." />
+<meta property="og:title" content="Fundamentals - Statements — riingo_fundamentals_statements" />
+<meta property="og:description" content="This function collects financial statement information for individual
+tickers. Cash flow, income statement, and balance sheet information are
+returned at the quarterly level, with an additional annual report attached
+if available.
+In the returned data frame, quarter == 0 represents an annual report for
+the corresponding year.
+If as_reported = FALSE, an overview list column is also returned that
+contains a combination of metrics from various statements.
+The returned data frame is in a very compact form containing list columns.
+Each list column is made up of more data frames, where each data frame
+represents that particular financial statement for that quarter. The
+easiest way to get at the underlying data is to unnest the list columns
+individually using tidyr::unnest()." />
 
 
 
@@ -120,24 +130,32 @@ frequency than the data from Tiingo's native API." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get stock or ETF prices from IEX through Tiingo</h1>
-    <small class="dont-index">Source: <a href='https://github.com/business-science/riingo/blob/master/R/prices.R'><code>R/prices.R</code></a></small>
-    <div class="hidden name"><code>riingo_iex_prices.Rd</code></div>
+    <h1>Fundamentals - Statements</h1>
+    <small class="dont-index">Source: <a href='https://github.com/business-science/riingo/blob/master/R/fundamentals-statements.R'><code>R/fundamentals-statements.R</code></a></small>
+    <div class="hidden name"><code>riingo_fundamentals_statements.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The Tiingo API provides a way to access data from IEX,
-The Investors Exchange. This data is supplied at a much lower (intraday!)
-frequency than the data from Tiingo's native API.</p>
+    <p>This function collects financial statement information for individual
+tickers. Cash flow, income statement, and balance sheet information are
+returned at the quarterly level, with an additional annual report attached
+if available.</p>
+<p>In the returned data frame, <code>quarter == 0</code> represents an annual report for
+the corresponding <code>year</code>.</p>
+<p>If <code>as_reported = FALSE</code>, an <code>overview</code> list column is also returned that
+contains a combination of metrics from various statements.</p>
+<p>The returned data frame is in a very compact form containing <em>list columns</em>.
+Each list column is made up of more data frames, where each data frame
+represents that particular financial statement for that quarter. The
+easiest way to get at the underlying data is to unnest the list columns
+individually using <code>tidyr::unnest()</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>riingo_iex_prices</span>(
+    <pre class="usage"><span class='fu'>riingo_fundamentals_statements</span>(
   <span class='no'>ticker</span>,
   <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"5min"</span>,
-  <span class='kw'>after_hours</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>force_fill</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+  <span class='kw'>as_reported</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -145,8 +163,7 @@ frequency than the data from Tiingo's native API.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>ticker</th>
-      <td><p>One or more tickers to download data for from Tiingo. Can be a
-stock, mutual fund, or ETF. A character vector.</p></td>
+      <td><p>One or more tickers to download financial statements for.</p></td>
     </tr>
     <tr>
       <th>start_date</th>
@@ -160,49 +177,34 @@ download 1 year's worth of data.</p></td>
 A character in the form YYYY-MM-DD, or a <code>Date</code> variable.</p></td>
     </tr>
     <tr>
-      <th>resample_frequency</th>
-      <td><p>For Tiingo data, a character specified as one of:
-<code>"daily"</code>, <code>"weekly"</code>, <code>"monthly"</code> or <code>"annually"</code>.</p>
-<p>For IEX data, a character specified at the <code>"min"</code> or <code>"hour"</code> frequencies
-in the form: <code>"1min"</code>, <code>"5min"</code>, or <code>"2hour"</code>.</p>
-<p>For Crypto data, a character specified at the <code>"min"</code>, <code>"hour"</code> or <code>"day"</code>
-frequencies similar to IEX.</p></td>
-    </tr>
-    <tr>
-      <th>after_hours</th>
-      <td><p>A single logical. Should pre and post market data be
-returned if available?</p></td>
-    </tr>
-    <tr>
-      <th>force_fill</th>
-      <td><p>A single logical. Some tickers do not have a trade/quote
-update for a given time period. If <code>force_fill</code> is set to <code>TRUE</code>, then the
-previous OHLC will be used to fill the current OHLC.</p></td>
+      <th>as_reported</th>
+      <td><p>A single logical.</p>
+<p>When <code>FALSE</code>, the most recent data will be returned, including any
+revisions for the reporting period. The dates will correspond to the
+fiscal end of the quarter or year (note that this can vary from company
+to company).</p>
+<p>When <code>TRUE</code>, the endpoint will return the data as it was reported on the
+release date. Similarly, the date will correspond to the date the filings
+were posted on the SEC website.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>This feed returns the most recent 2000 ticks of data at the specified
-frequency. For example, <code>"5min"</code> would return the 2000 most recent data
-points spaced 5 minutes apart. You can subset the returned range with
-<code>start_date</code> and <code>end_date</code>, but <strong>you cannot request data older than
-today's date minus 2000 data points.</strong></p>
-<p>Because the default attempts to pull 1 year's worth of data, at a 5 minute
-frequency, all available data will be pulled so there is no need to use
-<code>start_date</code> and <code>end_date</code>. Only use them if you set the frequency to
-hourly.</p>
+    <p>A data frame containing the financial statement information for the
+requested tickers.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other fundamentals: 
+<code><a href='riingo_fundamentals_definitions.html'>riingo_fundamentals_definitions</a>()</code>,
+<code><a href='riingo_fundamentals_meta.html'>riingo_fundamentals_meta</a>()</code>,
+<code><a href='riingo_fundamentals_metrics.html'>riingo_fundamentals_metrics</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>riingo_fundamentals_statements</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"AAPL"</span>, <span class='st'>"MSFT"</span>))
 
-<span class='co'># Pulling all available minute level data for Apple</span>
-<span class='fu'>riingo_iex_prices</span>(<span class='st'>"AAPL"</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"1min"</span>)
-
-<span class='co'># This would result in an error, as you are pulling outside the available range</span>
-<span class='co'># riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")</span>
-
+<span class='fu'>riingo_fundamentals_statements</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"AAPL"</span>, <span class='st'>"MSFT"</span>), <span class='kw'>as_reported</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

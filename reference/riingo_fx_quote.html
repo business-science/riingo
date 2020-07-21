@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • riingo</title>
+<title>Quote and Top of Book data for a given forex ticker — riingo_fx_quote • riingo</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Quote and Top of Book data for a given forex ticker — riingo_fx_quote" />
+<meta property="og:description" content="This function queries the top of book data for the provided forex tickers." />
 
 
 
@@ -68,7 +69,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -117,60 +118,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/business-science/riingo/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Quote and Top of Book data for a given forex ticker</h1>
+    <small class="dont-index">Source: <a href='https://github.com/business-science/riingo/blob/master/R/fx-quote.R'><code>R/fx-quote.R</code></a></small>
+    <div class="hidden name"><code>riingo_fx_quote.Rd</code></div>
     </div>
 
-    <div id="riingo-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#riingo-development-version" class="anchor"></a>riingo (development version)<small> Unreleased </small>
-</h1>
-<ul>
-<li><p>New <code><a href="../reference/riingo_fx_quote.html">riingo_fx_quote()</a></code> for collecting current top-of-book data for forex exchange rates. This is an early beta feature, so the returned columns may change over time. It is not recommended to build production code using this function.</p></li>
-<li><p>New <code><a href="../reference/riingo_fx_prices.html">riingo_fx_prices()</a></code> for collecting forex exchange rates. This is an early beta feature, so the returned columns may change over time. It is not recommended to build production code using this function.</p></li>
-<li><p>New <code><a href="../reference/riingo_news.html">riingo_news()</a></code> for collecting information about news articles related to a ticker, news source, or topic (With contributions by <a href='https://github.com/amiles2233'>@amiles2233</a>, <a href='https://github.com/business-science/riingo/issues/11'>#11</a>).</p></li>
-<li>
-<p>There are four new functions for retrieving fundamental statement data from the new Fundamentals Tiingo endpoint (<a href='https://github.com/business-science/riingo/issues/13'>#13</a>). This is an add on subscription for Tiingo that is in beta, and is only available with a paid plan. The four functions are:</p>
-<ul>
-<li><p><code><a href="../reference/riingo_fundamentals_statements.html">riingo_fundamentals_statements()</a></code> for retrieving quarterly data from income statements, balance sheets, and cash flow statements.</p></li>
-<li><p><code><a href="../reference/riingo_fundamentals_meta.html">riingo_fundamentals_meta()</a></code> for retrieving fundamentals meta data about a particular ticker.</p></li>
-<li><p><code><a href="../reference/riingo_fundamentals_metrics.html">riingo_fundamentals_metrics()</a></code> for retrieving daily fundamentals metrics such as market capitalization and P/E ratio.</p></li>
-<li><p><code><a href="../reference/riingo_fundamentals_definitions.html">riingo_fundamentals_definitions()</a></code> for retrieving descriptions of the various metrics that can be returned by the other fundamentals utilities.</p></li>
-</ul>
-</li>
-<li><p><code><a href="../reference/riingo_iex_prices.html">riingo_iex_prices()</a></code> now returns a <code>volume</code> column (<a href='https://github.com/business-science/riingo/issues/12'>#12</a>).</p></li>
-<li><p><code><a href="../reference/riingo_iex_prices.html">riingo_iex_prices()</a></code> gained two new arguments. <code>after_hours</code> returns pre and post market data if any is available. <code>force_fill</code> will use the most recent OHLC data for the current time point if none is available.</p></li>
-<li><p>The <code>resample_frequency</code> argument of <code><a href="../reference/riingo_prices.html">riingo_prices()</a></code> now correctly supports the weekly and annual frequencies.</p></li>
-<li><p>All functions now retry their download 3 times before failing.</p></li>
-</ul>
-</div>
-    <div id="riingo-020" class="section level1">
-<h1 class="page-header" data-toc-text="0.2.0">
-<a href="#riingo-020" class="anchor"></a>riingo 0.2.0<small> 2019-05-11 </small>
-</h1>
-<ul>
-<li><p>All functions are now robust against partial successes with multiple tickers, and will return any data that could be downloaded and warn about the tickers that failed. If all tickers fail, an error is thrown (<a href='https://github.com/business-science/riingo/issues/6'>#6</a>).</p></li>
-<li><p>A small change was made in <code><a href="../reference/riingo_iex_quote.html">riingo_iex_quote()</a></code> to reflect the fact that the Tiingo API correctly returns JSON arrays now.</p></li>
-<li><p>The deprecated <code><a href="https://glue.tidyverse.org/reference/glue-deprecated.html">glue::collapse()</a></code> has been replaced with <code><a href="https://glue.tidyverse.org/reference/glue_collapse.html">glue::glue_collapse()</a></code> (<a href='https://github.com/business-science/riingo/issues/7'>#7</a>).</p></li>
-</ul>
-</div>
-    <div id="riingo-010" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.0">
-<a href="#riingo-010" class="anchor"></a>riingo 0.1.0<small> 2018-04-16 </small>
-</h1>
-<ul>
-<li>First release</li>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>This function queries the top of book data for the provided forex tickers.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>riingo_fx_quote</span>(<span class='no'>ticker</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>ticker</th>
+      <td><p>One or more tickers to download data for from Tiingo. Can be a
+stock, mutual fund, or ETF. A character vector.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A data frame containing 1 row per valid ticker with the top of book data.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>riingo_fx_quote</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"audusd"</span>, <span class='st'>"usdjpy"</span>))
+}</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 

@@ -1,5 +1,8 @@
 # riingo (development version)
 
+* New `riingo_news()` for collecting information about news articles related
+  to a ticker, news source, or topic (With contributions by @amiles2233, #11).
+
 * There are four new functions for retrieving fundamental statement data from
   the new Fundamentals Tiingo endpoint (#13). This is an add on subscription for
   Tiingo that is in beta, and is only available with a paid plan. The four

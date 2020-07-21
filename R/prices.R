@@ -352,7 +352,7 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
     # Extract "nested" data frames
     exch_data_rows <- purrr::map(seq_ticker, ~{
       i <- .x
-      tibble::as_tibble(purrr::map_dfr(exch_data, ~.x[[i]]))
+      tibble::as_tibble(riingo_map_dfr(exch_data, ~.x[[i]]))
     })
 
     # Bind each row of meta to an exchange data frame
@@ -369,10 +369,10 @@ riingo_crypto_prices <- function(ticker, start_date = NULL, end_date = NULL,
     # Coerce to tidy format (for each row, unnest the priceData)
     cont_tbl_split <- split(cont_tbl, cont_tbl$ticker)
 
-    riingo_df <- purrr::map_dfr(cont_tbl_split, ~{
+    riingo_df <- riingo_map_dfr(cont_tbl_split, ~{
       pd_idx <- which(colnames(.x) == "priceData")
       meta <- .x[, -pd_idx]
-      pd   <- purrr::flatten_dfr(.x[, pd_idx])
+      pd   <- riingo_flatten_dfr(.x[, pd_idx])
       cbind(meta, pd)
     })
   }

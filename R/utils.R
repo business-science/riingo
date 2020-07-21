@@ -12,6 +12,21 @@
 #' @importFrom crayon yellow
 #' @importFrom crayon italic
 
+# ------------------------------------------------------------------------------
+
+# map_dfr() and flatten_dfr() without a dplyr dependency
+
+riingo_map_dfr <- function(.x, .f, ...) {
+  .f <- purrr::as_mapper(.f, ...)
+  res <- purrr::map(.x, .f, ...)
+  vctrs::vec_rbind(!!!res)
+}
+
+riingo_flatten_dfr <- function(x) {
+  res <- purrr::flatten(x)
+  vctrs::vec_rbind(!!!res)
+}
+
 
 # ------------------------------------------------------------------------------
 # Error messages

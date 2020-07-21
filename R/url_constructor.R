@@ -21,11 +21,17 @@ construct_unglued_url <- function(type, endpoint, parameters) {
 
 retrieve_base_url <- function(type, endpoint) {
   switch(type,
-         "tiingo" = switch(endpoint,
-                           "news" = "https://api.tiingo.com/tiingo",
-                           "https://api.tiingo.com/tiingo/daily/{ticker}"), # default
-         "iex"    = "https://api.tiingo.com/iex/{ticker}",
-         "crypto" = "https://api.tiingo.com/tiingo/crypto"
+    "tiingo" =
+      switch(endpoint,
+        "news" = "https://api.tiingo.com/tiingo",
+        "fundamentals-definitions" = "https://api.tiingo.com/tiingo/fundamentals",
+        "fundamentals-statements" = "https://api.tiingo.com/tiingo/fundamentals",
+        "fundamentals-metrics" = "https://api.tiingo.com/tiingo/fundamentals",
+        "fundamentals-meta" = "https://api.tiingo.com/tiingo/fundamentals",
+        "https://api.tiingo.com/tiingo/daily/{ticker}"
+      ), # default
+    "iex" = "https://api.tiingo.com/iex/{ticker}",
+    "crypto" = "https://api.tiingo.com/tiingo/crypto"
   )
 }
 
@@ -41,7 +47,11 @@ retrieve_endpoint <- function(type, endpoint) {
                            "meta"   = "",
                            "latest" = "/prices",
                            "prices" = "/prices?",
-                           "news"   = "/news?"),
+                           "news"   = "/news?",
+                           "fundamentals-definitions" = "/definitions",
+                           "fundamentals-statements" = "/{ticker}/statements?",
+                           "fundamentals-metrics" = "/{ticker}/daily?",
+                           "fundamentals-meta" = "/meta?"),
 
          "crypto" = switch(endpoint,
                            "latest" = "/prices?",

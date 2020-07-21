@@ -32,6 +32,10 @@ reference:
     desc: __Getting data for cryptocurrencies.__
     contents:
     - starts_with("riingo_crypto")
+  - title: Fundamentals
+    desc: __Getting fundamental statement data__
+    contents:
+    - starts_with("riingo_fundamentals")
   - title: Tokens
     desc: __Functions related to getting and setting tokens.__
     contents:

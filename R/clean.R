@@ -24,7 +24,10 @@ retrieve_date_col_names <- function(type, endpoint) {
                            "crypto" = c("quoteTimestamp", "lastSaleTimestamp")),
          "latest" = "date",
          "prices" = "date",
-         "news"   = c("publishedDate", "crawlDate")
+         "news"   = c("publishedDate", "crawlDate"),
+         "fundamentals-statements" = "date",
+         "fundamentals-metrics" = "date",
+         "fundamentals-meta" = c("statementLastUpdated", "dailyLastUpdated")
   )
 }
 
@@ -35,6 +38,9 @@ retrieve_date_col_format <- function(endpoint) {
          "quote"  = "%Y-%m-%dT%H:%M:%S",
          "latest" = "%Y-%m-%dT%H:%M:%S",
          "prices" = "%Y-%m-%dT%H:%M:%S",
-         "news"   = "%Y-%m-%dT%H:%M:%S"
+         "news"   = "%Y-%m-%dT%H:%M:%S",
+         "fundamentals-statements" = "%Y-%m-%d",
+         "fundamentals-metrics" = "%Y-%m-%d",
+         "fundamentals-meta" = "%Y-%m-%dT%H:%M:%S"
   )
 }

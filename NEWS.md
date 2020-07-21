@@ -1,5 +1,22 @@
 # riingo (development version)
 
+* There are four new functions for retrieving fundamental statement data from
+  the new Fundamentals Tiingo endpoint (#13). This is an add on subscription for
+  Tiingo that is in beta, and is only available with a paid plan. The four
+  functions are:
+  
+  * `riingo_fundamentals_statements()` for retrieving quarterly data from
+    income statements, balance sheets, and cash flow statements.
+    
+  * `riingo_fundamentals_meta()` for retrieving fundamentals meta data about
+    a particular ticker.
+    
+  * `riingo_fundamentals_metrics()` for retrieving daily fundamentals metrics
+    such as market capitalization and P/E ratio.
+    
+  * `riingo_fundamentals_definitions()` for retrieving descriptions of the
+    various metrics that can be returned by the other fundamentals utilities.
+
 * `riingo_iex_prices()` gained two new arguments. `after_hours` returns pre
   and post market data if any is available. `force_fill` will use the most
   recent OHLC data for the current time point if none is available.

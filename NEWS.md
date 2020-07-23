@@ -1,4 +1,4 @@
-# riingo (development version)
+# riingo 0.3.0
 
 * New `riingo_fx_quote()` for collecting current top-of-book data for forex
   exchange rates. This is an early beta feature, so the returned columns may

@@ -1,15 +1,10 @@
 ## Release Summary
 
-This is the second release of riingo. It:
-- Uses `glue::glue_collapse()` rather than `glue::collapse()` to avoid a warning.
-- Updates JSON parsing to accomodate a change in the Tiingo API
-- Adds handling of partial successes when downloading multiple tickers.
-
-The maintainer changed because I updated my email.
+This is the third release of riingo. It contains various bug fixes and exposes a number of new endpoints from Tiingo.
 
 ## Test environments
-* local OS X install, R 3.5.3
-* ubuntu 14.04 (on travis-ci) (devel and release)
+* local OS X install, R 4.0.0
+* ubuntu 14.04 (on GitHub Actions) (devel and release)
 * win-builder (devel and release)
 
 ## R CMD check results

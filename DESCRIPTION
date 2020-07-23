@@ -1,7 +1,7 @@
 Type: Package
 Package: riingo
 Title: An R Interface to the 'Tiingo' Stock Price API
-Version: 0.3.0
+Version: 0.3.0.9000
 Authors@R: 
     c(person(given = "Davis",
              family = "Vaughan",

@@ -1,4 +1,4 @@
-# riingo (development version)
+# riingo 0.3.1
 
 * `riingo_iex_latest()` now also returns a `volume` column, like
   `riingo_iex_prices()` (#18).

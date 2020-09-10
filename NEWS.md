@@ -1,5 +1,8 @@
 # riingo (development version)
 
+* `riingo_iex_latest()` now also returns a `volume` column, like
+  `riingo_iex_prices()` (#18).
+
 # riingo 0.3.0
 
 * New `riingo_fx_quote()` for collecting current top-of-book data for forex

@@ -53,7 +53,8 @@ test_that("latest riingo iex prices - can be pulled", {
   prices <- riingo_iex_latest("AAPL")
 
   expect_is(prices, "tbl_df")
-  expect_equal(ncol(prices), 6) # structurally should always have 6 cols
+  expect_equal(ncol(prices), 7) # structurally should always have 6 cols
+  expect_true("volume" %in% names(prices))
 })
 
 test_that("latest riingo iex prices - resample freq arg works", {
@@ -100,7 +101,7 @@ test_that("latest riingo iex prices - handles partial successes", {
 
   expect_is(x, "tbl_df")
   expect_equal(x$ticker[1], "AAPL")
-  expect_equal(ncol(x), 6)
+  expect_equal(ncol(x), 7)
 })
 
 # ------------------------------------------------------------------------------

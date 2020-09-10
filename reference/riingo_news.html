@@ -134,13 +134,13 @@ returned.</p>
     </div>
 
     <pre class="usage"><span class='fu'>riingo_news</span>(
-  <span class='kw'>ticker</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>tags</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>source</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>limit</span> <span class='kw'>=</span> <span class='fl'>100</span>,
-  <span class='kw'>offset</span> <span class='kw'>=</span> <span class='fl'>0</span>
+  ticker = <span class='kw'>NULL</span>,
+  start_date = <span class='kw'>NULL</span>,
+  end_date = <span class='kw'>NULL</span>,
+  tags = <span class='kw'>NULL</span>,
+  source = <span class='kw'>NULL</span>,
+  limit = <span class='fl'>100</span>,
+  offset = <span class='fl'>0</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -192,16 +192,17 @@ articles.</p></td>
     <p>Returns a data frame of news article descriptions, urls, sources, and more.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>riingo_news</span>(<span class='kw'>ticker</span> <span class='kw'>=</span> <span class='st'>"QQQ"</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>riingo_news</span>(ticker = <span class='st'>"QQQ"</span>)
 
 <span class='co'># Filter by either source URL or tag</span>
-<span class='fu'>riingo_news</span>(<span class='kw'>ticker</span> <span class='kw'>=</span> <span class='st'>"QQQ"</span>, <span class='kw'>source</span> <span class='kw'>=</span> <span class='st'>"bloomberg.com"</span>)
-<span class='fu'>riingo_news</span>(<span class='kw'>ticker</span> <span class='kw'>=</span> <span class='st'>"QQQ"</span>, <span class='kw'>tags</span> <span class='kw'>=</span> <span class='st'>"Earnings"</span>)
+<span class='fu'>riingo_news</span>(ticker = <span class='st'>"QQQ"</span>, source = <span class='st'>"bloomberg.com"</span>)
+<span class='fu'>riingo_news</span>(ticker = <span class='st'>"QQQ"</span>, tags = <span class='st'>"Earnings"</span>)
 
 <span class='co'># A ticker is not required</span>
-<span class='fu'>riingo_news</span>(<span class='kw'>tags</span> <span class='kw'>=</span> <span class='st'>"Earnings"</span>)
-}</div></pre>
+<span class='fu'>riingo_news</span>(tags = <span class='st'>"Earnings"</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -217,7 +218,7 @@ articles.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

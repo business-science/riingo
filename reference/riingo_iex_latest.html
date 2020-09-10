@@ -127,7 +127,7 @@
     <p>This returns only the most recent day of intraday data for the supplied ticker(s).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>riingo_iex_latest</span>(<span class='no'>ticker</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"1min"</span>)</pre>
+    <pre class="usage"><span class='fu'>riingo_iex_latest</span>(<span class='kw'>ticker</span>, resample_frequency = <span class='st'>"1min"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,14 +151,16 @@ frequencies similar to IEX.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 
 <span class='co'># The latest available day of intraday data for QQQ</span>
 <span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>)
 
 <span class='fu'>riingo_iex_latest</span>(<span class='st'>"QQQ"</span>, <span class='st'>"1hour"</span>)
 
-}</div></pre>
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -174,7 +176,7 @@ frequencies similar to IEX.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

@@ -132,12 +132,12 @@ frequency than the data from Tiingo's native API.</p>
     </div>
 
     <pre class="usage"><span class='fu'>riingo_iex_prices</span>(
-  <span class='no'>ticker</span>,
-  <span class='kw'>start_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>end_date</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"5min"</span>,
-  <span class='kw'>after_hours</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>force_fill</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+  <span class='kw'>ticker</span>,
+  start_date = <span class='kw'>NULL</span>,
+  end_date = <span class='kw'>NULL</span>,
+  resample_frequency = <span class='st'>"5min"</span>,
+  after_hours = <span class='fl'>FALSE</span>,
+  force_fill = <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -195,15 +195,17 @@ hourly.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 
 <span class='co'># Pulling all available minute level data for Apple</span>
-<span class='fu'>riingo_iex_prices</span>(<span class='st'>"AAPL"</span>, <span class='kw'>resample_frequency</span> <span class='kw'>=</span> <span class='st'>"1min"</span>)
+<span class='fu'>riingo_iex_prices</span>(<span class='st'>"AAPL"</span>, resample_frequency = <span class='st'>"1min"</span>)
 
 <span class='co'># This would result in an error, as you are pulling outside the available range</span>
 <span class='co'># riingo_iex_prices("AAPL", "1990-01-01", "2000-01-01", resample_frequency = "5min")</span>
 
-}</div></pre>
+}
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -219,7 +221,7 @@ hourly.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

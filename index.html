@@ -84,22 +84,30 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Install the stable version from <a href="https://cran.r-project.org/">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"riingo"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"riingo"</span>)
+</pre></div>
 <p>Install the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu">install_github</span>(<span class="st">"DavisVaughan/riingo"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">devtools</span>::<span class="fu">install_github</span>(<span class="st">"DavisVaughan/riingo"</span>)
+</pre></div>
 </div>
 <div id="api-token" class="section level2">
 <h2 class="hasAnchor">
 <a href="#api-token" class="anchor"></a>API Token</h2>
 <p>The first thing you must do is create an account and set an API token. I recommend using the two functions below to help create your account and find the token.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="reference/riingo_browse.html">riingo_browse_signup</a></span>()
-<span class="fu"><a href="reference/riingo_browse.html">riingo_browse_token</a></span>() <span class="co"># This requires that you are signed in on the site once you sign up</span></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_browse_usage.html">riingo_browse_signup</a></span>()
+<span class="fu"><a href="reference/riingo_browse_usage.html">riingo_browse_token</a></span>() <span class="co"># This requires that you are signed in on the site once you sign up</span>
+</pre></div>
 <p>Once you have signed up and have an API token, I recommmend setting the token as an environment variable, <code>RIINGO_TOKEN</code> in an <code>.Renviron</code> file. The easiest way to do this is with <code>usethis</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu">edit_r_environ</span>()
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">usethis</span>::<span class="fu">edit_r_environ</span>()
 
 <span class="co"># Then add a line in the environment file that looks like:</span>
-<span class="no">RIINGO_TOKEN</span> <span class="kw">=</span> <span class="no">token_here</span></pre></div>
+<span class="kw">RIINGO_TOKEN</span> <span class="op">=</span> <span class="kw">token_here</span>
+</pre></div>
 <p>Do not put the token in quotes, and restart R after you have set it.</p>
 <p>See the documentation <code>?riingo_get_token()</code> for more information.</p>
 </div>
@@ -107,9 +115,12 @@
 <div id="basic-example" class="section level1">
 <h1 class="hasAnchor">
 <a href="#basic-example" class="anchor"></a>Basic example</h1>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">riingo</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/business-science/riingo">riingo</a></span>)
+</pre></div>
 <p>Let’s grab some data with <code>riingo</code>. The default parameters attempt to get 1 year’s worth of data.</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="st">"AAPL"</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="st">"AAPL"</span>)
 <span class="co">#&gt; # A tibble: 252 x 14</span>
 <span class="co">#&gt;    ticker date                close  high   low  open volume adjClose adjHigh</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
@@ -124,9 +135,11 @@
 <span class="co">#&gt;  9 AAPL   2019-07-30 00:00:00  209.  210.  207.  209. 3.39e7     206.    208.</span>
 <span class="co">#&gt; 10 AAPL   2019-07-31 00:00:00  213.  221.  211.  216. 6.93e7     211.    219.</span>
 <span class="co">#&gt; # … with 242 more rows, and 5 more variables: adjLow &lt;dbl&gt;, adjOpen &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   adjVolume &lt;int&gt;, divCash &lt;dbl&gt;, splitFactor &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   adjVolume &lt;int&gt;, divCash &lt;dbl&gt;, splitFactor &lt;dbl&gt;</span>
+</pre></div>
 <p>But of course you can try and get as much as is available…</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="st">"AAPL"</span>, <span class="kw">start_date</span> <span class="kw">=</span> <span class="st">"1950-01-01"</span>)
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="st">"AAPL"</span>, start_date = <span class="st">"1950-01-01"</span>)
 <span class="co">#&gt; # A tibble: 9,982 x 14</span>
 <span class="co">#&gt;    ticker date                close  high   low  open volume adjClose adjHigh</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
@@ -141,9 +154,11 @@
 <span class="co">#&gt;  9 AAPL   1980-12-24 00:00:00  32.5  32.6  32.5  32.5 2.14e5    0.460   0.462</span>
 <span class="co">#&gt; 10 AAPL   1980-12-26 00:00:00  35.5  35.6  35.5  35.5 2.48e5    0.502   0.504</span>
 <span class="co">#&gt; # … with 9,972 more rows, and 5 more variables: adjLow &lt;dbl&gt;, adjOpen &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   adjVolume &lt;int&gt;, divCash &lt;dbl&gt;, splitFactor &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   adjVolume &lt;int&gt;, divCash &lt;dbl&gt;, splitFactor &lt;dbl&gt;</span>
+</pre></div>
 <p>And multiple tickers work as well.</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AAPL"</span>, <span class="st">"IBM"</span>), <span class="kw">start_date</span> <span class="kw">=</span> <span class="st">"2001-01-01"</span>, <span class="kw">end_date</span> <span class="kw">=</span> <span class="st">"2005-01-01"</span>, <span class="kw">resample_frequency</span> <span class="kw">=</span> <span class="st">"monthly"</span>)
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_prices.html">riingo_prices</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AAPL"</span>, <span class="st">"IBM"</span>), start_date = <span class="st">"2001-01-01"</span>, end_date = <span class="st">"2005-01-01"</span>, resample_frequency = <span class="st">"monthly"</span>)
 <span class="co">#&gt; # A tibble: 98 x 14</span>
 <span class="co">#&gt;    ticker date                close  high   low  open volume adjClose adjHigh</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;</span>
@@ -158,13 +173,15 @@
 <span class="co">#&gt;  9 AAPL   2001-09-28 00:00:00  15.5  19.1  14.7  18.5 9.88e7    0.959    1.18</span>
 <span class="co">#&gt; 10 AAPL   2001-10-31 00:00:00  17.6  19.4  14.8  15.5 1.35e8    1.09     1.20</span>
 <span class="co">#&gt; # … with 88 more rows, and 5 more variables: adjLow &lt;dbl&gt;, adjOpen &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   adjVolume &lt;dbl&gt;, divCash &lt;dbl&gt;, splitFactor &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   adjVolume &lt;dbl&gt;, divCash &lt;dbl&gt;, splitFactor &lt;dbl&gt;</span>
+</pre></div>
 </div>
 <div id="intraday-data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#intraday-data" class="anchor"></a>Intraday data</h1>
 <p>You can get <em>limited</em> intraday data with <code><a href="reference/riingo_iex_prices.html">riingo_iex_prices()</a></code>. This gives you access to Tiingo’s direct feed to the IEX.</p>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="fu"><a href="reference/riingo_iex_prices.html">riingo_iex_prices</a></span>(<span class="st">"AAPL"</span>, <span class="kw">resample_frequency</span> <span class="kw">=</span> <span class="st">"1min"</span>)
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_iex_prices.html">riingo_iex_prices</a></span>(<span class="st">"AAPL"</span>, resample_frequency = <span class="st">"1min"</span>)
 <span class="co">#&gt; # A tibble: 10,000 x 6</span>
 <span class="co">#&gt;    ticker date                close  high   low  open</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
@@ -178,29 +195,33 @@
 <span class="co">#&gt;  8 AAPL   2020-06-12 14:02:00  347.  347.  347.  347.</span>
 <span class="co">#&gt;  9 AAPL   2020-06-12 14:03:00  347.  347.  347.  347.</span>
 <span class="co">#&gt; 10 AAPL   2020-06-12 14:04:00  347.  347.  347.  347.</span>
-<span class="co">#&gt; # … with 9,990 more rows</span></pre></div>
+<span class="co">#&gt; # … with 9,990 more rows</span>
+</pre></div>
 <p>See the documentation for all of the restrictions.</p>
 </div>
 <div id="meta-data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#meta-data" class="anchor"></a>Meta data</h1>
 <p>Meta data about each ticker is available through <code><a href="reference/riingo_meta.html">riingo_meta()</a></code>.</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="reference/riingo_meta.html">riingo_meta</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AAPL"</span>, <span class="st">"QQQ"</span>))
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_meta.html">riingo_meta</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AAPL"</span>, <span class="st">"QQQ"</span>))
 <span class="co">#&gt; # A tibble: 2 x 6</span>
 <span class="co">#&gt;   ticker name   startDate           exchangeCode description endDate            </span>
 <span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;dttm&gt;              &lt;chr&gt;        &lt;chr&gt;       &lt;dttm&gt;             </span>
 <span class="co">#&gt; 1 AAPL   Apple… 1980-12-12 00:00:00 NASDAQ       "Apple Inc… 2020-07-16 00:00:00</span>
-<span class="co">#&gt; 2 QQQ    POWER… 1999-03-10 00:00:00 NASDAQ       "PowerShar… 2020-07-16 00:00:00</span></pre></div>
+<span class="co">#&gt; 2 QQQ    POWER… 1999-03-10 00:00:00 NASDAQ       "PowerShar… 2020-07-16 00:00:00</span>
+</pre></div>
 </div>
 <div id="available-tickers" class="section level1">
 <h1 class="hasAnchor">
 <a href="#available-tickers" class="anchor"></a>Available tickers</h1>
-<p>You can check if a ticker is supported on Tiingo with <code><a href="reference/ticker_info.html">is_supported_ticker()</a></code> and you can get a <code>tibble</code> of all supported tickers with <code><a href="reference/ticker_info.html">supported_tickers()</a></code></p>
-<div class="sourceCode" id="cb11"><pre class="r"><span class="fu"><a href="reference/ticker_info.html">is_supported_ticker</a></span>(<span class="st">"AAPL"</span>)
+<p>You can check if a ticker is supported on Tiingo with <code><a href="reference/is_supported_ticker.html">is_supported_ticker()</a></code> and you can get a <code>tibble</code> of all supported tickers with <code><a href="reference/is_supported_ticker.html">supported_tickers()</a></code></p>
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="fu"><a href="reference/is_supported_ticker.html">is_supported_ticker</a></span>(<span class="st">"AAPL"</span>)
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="no">tickers</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/ticker_info.html">supported_tickers</a></span>()
-<span class="no">tickers</span>
+<span class="kw">tickers</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/is_supported_ticker.html">supported_tickers</a></span>()
+<span class="kw">tickers</span>
 <span class="co">#&gt; # A tibble: 85,714 x 6</span>
 <span class="co">#&gt;    ticker exchange assetType priceCurrency startDate          </span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;         &lt;dttm&gt;             </span>
@@ -214,14 +235,16 @@
 <span class="co">#&gt;  8 000008 SHE      Stock     CNY           2000-01-03 00:00:00</span>
 <span class="co">#&gt;  9 000009 SHE      Stock     CNY           2000-01-03 00:00:00</span>
 <span class="co">#&gt; 10 000010 SHE      Stock     CNY           2007-08-31 00:00:00</span>
-<span class="co">#&gt; # … with 85,704 more rows, and 1 more variable: endDate &lt;dttm&gt;</span></pre></div>
+<span class="co">#&gt; # … with 85,704 more rows, and 1 more variable: endDate &lt;dttm&gt;</span>
+</pre></div>
 </div>
 <div id="quote-data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#quote-data" class="anchor"></a>Quote data</h1>
 <p>Another benefit of getting a feed from IEX is real time quote data. This includes TOP (top of book) bid and ask prices, along with most recent sale prices.</p>
 <p>It is normal for some fields to return <code>NA</code> when outside of trading hours.</p>
-<div class="sourceCode" id="cb12"><pre class="r"><span class="fu"><a href="reference/riingo_iex_quote.html">riingo_iex_quote</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AAPL"</span>, <span class="st">"QQQ"</span>))
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_iex_quote.html">riingo_iex_quote</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AAPL"</span>, <span class="st">"QQQ"</span>))
 <span class="co">#&gt; # A tibble: 2 x 17</span>
 <span class="co">#&gt;   ticker  last bidPrice quoteTimestamp        low volume timestamp          </span>
 <span class="co">#&gt;   &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;dttm&gt;              &lt;dbl&gt;  &lt;int&gt; &lt;dttm&gt;             </span>
@@ -229,13 +252,15 @@
 <span class="co">#&gt; 2 QQQ     259.     259. 2020-07-17 13:39:16  257. 131168 2020-07-17 13:39:16</span>
 <span class="co">#&gt; # … with 10 more variables: tngoLast &lt;dbl&gt;, lastsaleTimeStamp &lt;dttm&gt;,</span>
 <span class="co">#&gt; #   lastSize &lt;int&gt;, askSize &lt;int&gt;, bidSize &lt;int&gt;, askPrice &lt;dbl&gt;, high &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   open &lt;dbl&gt;, prevClose &lt;dbl&gt;, mid &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   open &lt;dbl&gt;, prevClose &lt;dbl&gt;, mid &lt;dbl&gt;</span>
+</pre></div>
 </div>
 <div id="crypto-data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#crypto-data" class="anchor"></a>Crypto data</h1>
 <p>Cryptocurrency data can be accessed with <code>riingo_crypto_*()</code> functions. By default, 1 year’s worth is pulled if available. Some tickers go back much further than others.</p>
-<div class="sourceCode" id="cb13"><pre class="r"><span class="fu"><a href="reference/riingo_crypto_prices.html">riingo_crypto_prices</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"btcusd"</span>, <span class="st">"btceur"</span>))
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_crypto_prices.html">riingo_crypto_prices</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"btcusd"</span>, <span class="st">"btceur"</span>))
 <span class="co">#&gt; # A tibble: 731 x 11</span>
 <span class="co">#&gt;    ticker baseCurrency quoteCurrency date                 open  high   low close</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
@@ -250,9 +275,11 @@
 <span class="co">#&gt;  9 btceur btc          eur           2019-07-26 00:00:00 8872. 8913. 8674. 8844.</span>
 <span class="co">#&gt; 10 btceur btc          eur           2019-07-27 00:00:00 8843. 9177. 8373. 8512.</span>
 <span class="co">#&gt; # … with 721 more rows, and 3 more variables: volume &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   volumeNotional &lt;dbl&gt;, tradesDone &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   volumeNotional &lt;dbl&gt;, tradesDone &lt;dbl&gt;</span>
+</pre></div>
 <p>Intraday data is available as well. The intraday ranges are not well documented, so it is a little hard to know what you can pull. From what I have discovered, you can pull a few days at a time, with the max date of intraday data being about ~4 months back (When the date was April 5, 2018, I could pull intraday data back to December 15, 2017, but only 5000 minutes at a time).</p>
-<div class="sourceCode" id="cb14"><pre class="r"><span class="fu"><a href="reference/riingo_crypto_prices.html">riingo_crypto_prices</a></span>(<span class="st">"btcusd"</span>, <span class="kw">start_date</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span>() - <span class="fl">5</span>, <span class="kw">end_date</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span>(), <span class="kw">resample_frequency</span> <span class="kw">=</span> <span class="st">"1min"</span>)
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="fu"><a href="reference/riingo_crypto_prices.html">riingo_crypto_prices</a></span>(<span class="st">"btcusd"</span>, start_date = <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span>() <span class="op">-</span> <span class="fl">5</span>, end_date = <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span>(), resample_frequency = <span class="st">"1min"</span>)
 <span class="co">#&gt; # A tibble: 4,530 x 11</span>
 <span class="co">#&gt;    ticker baseCurrency quoteCurrency date                 open  high   low close</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;         &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
@@ -267,7 +294,8 @@
 <span class="co">#&gt;  9 btcusd btc          usd           2020-07-12 00:08:00 9240. 9242. 9239. 9241.</span>
 <span class="co">#&gt; 10 btcusd btc          usd           2020-07-12 00:09:00 9241. 9246. 9240. 9245.</span>
 <span class="co">#&gt; # … with 4,520 more rows, and 3 more variables: volume &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   volumeNotional &lt;dbl&gt;, tradesDone &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   volumeNotional &lt;dbl&gt;, tradesDone &lt;dbl&gt;</span>
+</pre></div>
 <p>Also available are meta data with <code><a href="reference/riingo_crypto_meta.html">riingo_crypto_meta()</a></code>, and TOP (top of book) quote data with <code><a href="reference/riingo_crypto_quote.html">riingo_crypto_quote()</a></code>.</p>
 <p>Lastly, you can extract raw (unaggregated) data feeds from multiple exchanges by using the <code>raw = TRUE</code> argument in the price and quote crypto function.</p>
 </div>
@@ -327,7 +355,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

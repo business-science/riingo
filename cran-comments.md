@@ -1,6 +1,6 @@
 ## Release Summary
 
-This is the third release of riingo. It contains various bug fixes and exposes a number of new endpoints from Tiingo.
+This is a small patch release to fix a bug with `riingo_iex_latest()`.
 
 ## Test environments
 * local OS X install, R 4.0.0
